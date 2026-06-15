@@ -1,0 +1,21 @@
+------------------------------------------------------------------------
+r668 | funkydude | 2010-10-09 01:18:00 +0000 (Sat, 09 Oct 2010) | 1 line
+Changed paths:
+   A /tags/v6.012 (from /trunk:667)
+
+Tagging as v6.012
+------------------------------------------------------------------------
+r667 | funkydude | 2010-10-09 01:16:35 +0000 (Sat, 09 Oct 2010) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-goldspam update
+------------------------------------------------------------------------
+r665 | funkydude | 2010-09-18 01:34:09 +0000 (Sat, 18 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-goldspam update
+------------------------------------------------------------------------

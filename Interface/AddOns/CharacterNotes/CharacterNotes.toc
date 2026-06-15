@@ -1,0 +1,20 @@
+## Interface: 30300
+## X-Compatible-With: 40000
+## Title: Character Notes
+## Notes: Set and manage character notes that are displayed in unit tooltips and /who results.
+## Author: Talryn
+## Version: v0.9
+## OptionalDeps: Ace3, LibDeformat-3.0, lib-st, LibDataBroker-1.1, LibDBIcon-1.0, LibAlts-1.0
+## X-Embeds: Ace3
+## X-Category: Interface Enhancements 
+## SavedVariables: CharacterNotesDB
+## X-Curse-Packaged-Version: v0.9
+## X-Curse-Project-Name: Character Notes
+## X-Curse-Project-ID: character-notes
+## X-Curse-Repository-ID: wow/character-notes/mainline
+
+embeds.xml
+
+locale.xml
+
+CharacterNotes.lua

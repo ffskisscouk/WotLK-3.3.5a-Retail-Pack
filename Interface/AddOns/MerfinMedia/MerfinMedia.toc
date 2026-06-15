@@ -1,0 +1,12 @@
+## Interface: 30300
+## Title: Merfin Media
+## Notes: Inserts Merfin media into LibSharedMedia's storage.
+## Version: 1.0
+
+## OptionalDeps: LibStub, LibSharedMedia-3.0
+
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+libs\LibSharedMedia-3.0\lib.xml
+
+MerfinMedia.lua

@@ -1,0 +1,37 @@
+------------------------------------------------------------------------
+r66 | funkydude | 2010-08-25 21:52:14 +0000 (Wed, 25 Aug 2010) | 1 line
+Changed paths:
+   A /tags/v2.60 (from /trunk:65)
+
+Tagging as v2.60
+------------------------------------------------------------------------
+r65 | funkydude | 2010-08-25 21:47:42 +0000 (Wed, 25 Aug 2010) | 1 line
+Changed paths:
+   M /trunk/BadBoy_Levels.lua
+
+add some debug
+------------------------------------------------------------------------
+r64 | funkydude | 2010-08-25 21:33:06 +0000 (Wed, 25 Aug 2010) | 2 lines
+Changed paths:
+   M /trunk/BadBoy_Levels.lua
+   M /trunk/BadBoy_Levels.toc
+   M /trunk/SimpleOptions.lua
+
+Remove level limit
+Fix compatibility with WIM
+------------------------------------------------------------------------
+r62 | funkydude | 2010-08-20 18:54:52 +0000 (Fri, 20 Aug 2010) | 1 line
+Changed paths:
+   M /trunk/BadBoy_Levels.lua
+   M /trunk/SimpleOptions.lua
+
+add a little note about DK's being blocked
+------------------------------------------------------------------------
+r61 | funkydude | 2010-08-20 03:57:48 +0000 (Fri, 20 Aug 2010) | 1 line
+Changed paths:
+   M /trunk/BadBoy_Levels.lua
+   M /trunk/BadBoy_Levels.toc
+   A /trunk/SimpleOptions.lua
+
+v2.50 untested alpha: Re-wrote some core functions to try fix a bug with letting whispers through, updated locale, added config, locale update.
+------------------------------------------------------------------------

@@ -1,0 +1,8 @@
+## Interface: 30300
+## Title: ChatFilter
+## Author: Xcom
+## Version: 0.1
+## Notes: Filter messages from chat by keywords
+## SavedVariables: active words verbose
+
+ChatFilter.lua

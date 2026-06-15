@@ -1,0 +1,6 @@
+<UI>
+  <script file="Main.lua"/>
+  <script file="ElvUI.lua"/>
+  <script file="Tukui.lua"/>
+  <script file="Default.lua"/>
+</UI>

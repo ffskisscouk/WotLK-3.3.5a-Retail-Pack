@@ -1,0 +1,9 @@
+<UI>
+  <include file="Core\Core.xml"/>
+  <include file="Logic\Logic.xml"/>
+  <include file="Layouts\Layouts.xml"/>
+  <include file="Features\Features.xml"/>
+  <include file="Skins\Skins.xml"/>
+  <include file="Settings\Settings.xml"/>
+  <include file="Commands\Commands.xml"/>
+</UI>

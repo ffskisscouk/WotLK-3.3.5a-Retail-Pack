@@ -1,0 +1,157 @@
+------------------------------------------------------------------------
+r43 | talryn1 | 2010-10-02 01:08:42 -0500 (Sat, 02 Oct 2010) | 3 lines
+Changed paths:
+   A /tags/v0.9 (from /trunk:42)
+
+Tagging as v0.9.
+Added options to control when notes are displayed.
+LibAlts integration.
+------------------------------------------------------------------------
+r42 | talryn1 | 2010-09-30 12:03:57 -0500 (Thu, 30 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Only show main window or options window
+------------------------------------------------------------------------
+r41 | talryn1 | 2010-09-29 16:33:38 -0500 (Wed, 29 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+   M /trunk/locale.xml
+
+Added option to toggle mouseover highlighting.  Added locales.
+------------------------------------------------------------------------
+r40 | talryn1 | 2010-09-29 01:29:38 -0500 (Wed, 29 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Added more checks
+------------------------------------------------------------------------
+r39 | talryn1 | 2010-09-28 14:57:49 -0500 (Tue, 28 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+New method for formatting names.  Added DB check utility.
+------------------------------------------------------------------------
+r38 | talryn1 | 2010-09-28 00:58:00 -0500 (Tue, 28 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/Locale/deDE.lua
+   M /trunk/Locale/esES.lua
+   M /trunk/Locale/esMX.lua
+   M /trunk/Locale/frFR.lua
+   M /trunk/Locale/koKR.lua
+   M /trunk/Locale/ruRU.lua
+   M /trunk/Locale/zhCN.lua
+   M /trunk/Locale/zhTW.lua
+
+Fixing default on non-enUS locales
+------------------------------------------------------------------------
+r37 | talryn1 | 2010-09-28 00:49:46 -0500 (Tue, 28 Sep 2010) | 1 line
+Changed paths:
+   A /trunk/Locale/deDE.lua
+   A /trunk/Locale/esES.lua
+   A /trunk/Locale/esMX.lua
+   M /trunk/Locale/frFR.lua
+   A /trunk/Locale/koKR.lua
+   A /trunk/Locale/ruRU.lua
+   A /trunk/Locale/zhCN.lua
+   A /trunk/Locale/zhTW.lua
+
+Added localization files for all locales
+------------------------------------------------------------------------
+r36 | talryn1 | 2010-09-28 00:01:10 -0500 (Tue, 28 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+   M /trunk/Locale/enUS.lua
+   A /trunk/Locale/frFR.lua
+
+Extra wrapping options.  Localization
+------------------------------------------------------------------------
+r35 | talryn1 | 2010-09-27 04:18:23 -0500 (Mon, 27 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Fixing error with Clear button after code cleanup
+------------------------------------------------------------------------
+r34 | talryn1 | 2010-09-27 04:10:28 -0500 (Mon, 27 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Cleaning up frame event functions
+------------------------------------------------------------------------
+r33 | talryn1 | 2010-09-27 03:33:28 -0500 (Mon, 27 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+   M /trunk/Locale/enUS.lua
+
+Adding options to control the display on notes
+------------------------------------------------------------------------
+r32 | talryn1 | 2010-09-23 16:25:58 -0500 (Thu, 23 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Added a check that the LibAlts function exists
+------------------------------------------------------------------------
+r31 | talryn1 | 2010-09-21 09:52:47 -0500 (Tue, 21 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Added more calls to LibAlts
+------------------------------------------------------------------------
+r30 | talryn1 | 2010-09-20 21:40:15 -0500 (Mon, 20 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Added check for LibAlts:GetMain
+------------------------------------------------------------------------
+r29 | talryn1 | 2010-09-20 15:54:12 -0500 (Mon, 20 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Converting LibAlt results to title case
+------------------------------------------------------------------------
+r28 | talryn1 | 2010-09-20 15:12:32 -0500 (Mon, 20 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Forcing rebuild
+------------------------------------------------------------------------
+r27 | talryn1 | 2010-09-20 14:55:43 -0500 (Mon, 20 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Forcing rebuild
+------------------------------------------------------------------------
+r26 | talryn1 | 2010-09-20 13:39:13 -0500 (Mon, 20 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/CharacterNotes.lua
+   M /trunk/CharacterNotes.toc
+   M /trunk/Locale/enUS.lua
+   M /trunk/embeds.xml
+
+Adding LibAlts support and code cleanup
+------------------------------------------------------------------------
+r25 | talryn1 | 2010-09-07 15:29:48 -0500 (Tue, 07 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.toc
+
+Adding X-Compatible-With to TOC
+------------------------------------------------------------------------
+r23 | talryn1 | 2010-09-07 13:37:30 -0500 (Tue, 07 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Fixing error with Edit Note dropdown
+------------------------------------------------------------------------
+r22 | talryn1 | 2010-09-07 02:05:54 -0500 (Tue, 07 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Fixing a variable name mistake
+------------------------------------------------------------------------
+r20 | talryn1 | 2010-09-02 02:55:11 -0500 (Thu, 02 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/CharacterNotes.lua
+
+Removing usage of this for Cataclysm
+------------------------------------------------------------------------
