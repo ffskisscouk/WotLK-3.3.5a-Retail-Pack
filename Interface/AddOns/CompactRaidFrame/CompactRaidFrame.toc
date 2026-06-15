@@ -1,0 +1,22 @@
+## Interface: 30300
+## Title: Compact Raid Frames
+## Author: Blizzard, Tsoukie
+## Notes: Classic Raid Frames
+## Version: 1.13
+## SavedVariablesPerCharacter: CompactRaidFrameDB
+## RequiredDeps: !!!ClassicAPI
+
+Libs\Load.xml
+Locales\Load.xml
+
+Compat.lua
+CUFProfiles\CompactUnitFrameProfiles.xml
+
+FlowContainer.lua
+CompactUnitFrame.xml
+CompactRaidGroup.xml
+CompactPartyFrame.xml
+
+CompactRaidFrames\CompactRaidFrameReservationManager.lua
+CompactRaidFrames\CompactRaidFrameContainer.xml
+CompactRaidFrames\CompactRaidFrameManager.xml

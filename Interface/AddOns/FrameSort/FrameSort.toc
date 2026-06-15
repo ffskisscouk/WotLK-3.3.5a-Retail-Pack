@@ -1,0 +1,10 @@
+## Interface: 30300
+## Title: FrameSort
+## Notes: Places the player frame at the top/middle/bottom (configurable) of party/raid frames.
+## Author: Verz, Tsoukie
+## Version: 1.2
+## SavedVariables: FrameSortDB
+## Dependencies: CompactRaidFrame
+## OptionalDeps: Cell, ElvUI, Grid2, GladiusEx, ShadowedUnitFrames
+
+Load-Classic.xml
