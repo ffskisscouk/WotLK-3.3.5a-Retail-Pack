@@ -1,0 +1,730 @@
+-- ============================================================================
+-- DragonUI - Database Defaults
+-- Defines default profile values for AceDB-3.0. All configurable settings
+-- live here as the single source of truth for new/reset profiles.
+-- ============================================================================
+
+local addon = select(2, ...);
+
+-- Locale-aware font (set by core/fonts.lua, loaded before this file)
+local _arialn = addon.Fonts and addon.Fonts.ARIALN or "Fonts\\ARIALN.TTF"
+
+local defaults = {
+    profile = {
+        version = 1,
+        -- Widgets
+        widgets = {
+            minimap = {
+                anchor = "TOPRIGHT",
+                posX = 0,
+                posY = 0
+            },
+            player = {
+                anchor = "TOPLEFT",
+                posX = 10,
+                posY = -9
+            },
+            target = {
+                anchor = "TOPLEFT",
+                posX = 230,
+                posY = -9
+            },
+            focus = {
+                anchor = "TOPLEFT",
+                posX = 250,
+                posY = -220
+            },
+            party = {
+                anchor = "TOPLEFT",
+                posX = 10,
+                posY = -200
+            },
+            buffs = {
+                anchor = "TOPRIGHT",
+                posX = -270,
+                posY = -15,
+                custom_position = false
+            },
+            weapon_enchants = {
+                anchor = "TOPRIGHT",
+                posX = -100,
+                posY = -15,
+                custom_position = false
+            },
+            pet = {
+                anchor = "TOPLEFT",
+                posX = 63,
+                posY = -105
+            },
+            petbar = {
+                anchor = "BOTTOM",
+                posX = 1,
+                posY = 143
+            },
+            playerCastbar = {
+                anchor = "BOTTOM",
+                posX = 0,
+                posY = 200
+            },
+            targetCastbar = {
+                anchor = "CENTER",
+                posX = 0,
+                posY = 0
+            },
+            focusCastbar = {
+                anchor = "CENTER",
+                posX = 0,
+                posY = 0
+            },
+
+            mainbar = {
+                anchor = "BOTTOM",
+                posX = 0,
+                posY = 22
+            },
+            rightbar = {
+                anchor = "RIGHT",
+                posX = -5,
+                posY = -70
+            },
+            leftbar = {
+                anchor = "RIGHT",
+                posX = -45,
+                posY = -70
+            },
+            bottombarleft = {
+                anchor = "BOTTOM",
+                posX = 0,
+                posY = 64
+            },
+            bottombarright = {
+                anchor = "BOTTOM",
+                posX = 0,
+                posY = 102
+            },
+            micromenu = {
+                anchor = "BOTTOMRIGHT",
+                posX = -3,
+                posY = 3
+            },
+            bagsbar = {
+                anchor = "BOTTOMRIGHT",
+                posX = -5,
+                posY = 40
+            },
+            xpbar = {
+                anchor = "BOTTOM",
+                posX = 1,
+                posY = 7
+            },
+            repbar = {
+                anchor = "BOTTOM",
+                posX = 1,
+                posY = 23
+            },
+            fat_manabar = {
+                anchor = "TOPLEFT",
+                posX = 187,
+                posY = -9
+            },
+            tot = {
+                anchor = "CENTER",
+                posX = 0,
+                posY = 0
+            },
+            fot = {
+                anchor = "CENTER",
+                posX = 0,
+                posY = -100
+            },
+            vehicleExit = {
+                anchor = "BOTTOM",
+                posX = -251,
+                posY = 145
+            },
+            lfgframe = {
+                anchor = "BOTTOMRIGHT",
+                posX = -270,
+                posY = 20
+            },
+            tooltip = {
+                anchor = "BOTTOMRIGHT",
+                posX = -90,
+                posY = 100
+            }
+        },
+        -- Quest Tracker
+        questtracker = {
+            anchor = "TOPRIGHT",
+            x = -210,
+            y = -255,
+            show_header = true,
+            font_size = 12,      -- Point size for quest tracker text (WoW default: 11)
+        },
+        -- Loot Roll
+        lootroll = {
+            anchor = "BOTTOM",
+            x = 0,
+            y = 200,
+        },
+        -- ACTIONBAR SETTINGS
+        mainbars = {
+            -- Per-bar layout (nested sub-tables with rows/columns/buttons_shown)
+            player = {
+                rows = 1,
+                columns = 12,
+                buttons_shown = 12
+            },
+            left = {
+                horizontal = false,
+                rows = 12,
+                columns = 1,
+                buttons_shown = 12
+            },
+            right = {
+                horizontal = false,
+                rows = 12,
+                columns = 1,
+                buttons_shown = 12
+            },
+            bottom_left = {
+                rows = 1,
+                columns = 12,
+                buttons_shown = 12
+            },
+            bottom_right = {
+                rows = 1,
+                columns = 12,
+                buttons_shown = 12
+            },
+
+            -- Global button spacing (gap between buttons in pixels)
+            button_spacing = 7,
+
+            -- Per-bar scales
+            scale_actionbar = 0.9,
+            scale_rightbar = 0.9,
+            scale_leftbar = 0.9,
+            scale_bottomleft = 0.9,
+            scale_bottomright = 0.9,
+            scale_vehicle = 1
+        },
+
+        -- ACTION BAR VISIBILITY SETTINGS
+        actionbars = {
+            -- Enable/disable secondary bars
+            bottom_left_enabled = true,
+            bottom_right_enabled = true,
+            right_enabled = true,
+            left_enabled = true,
+
+            -- Hover/combat visibility per bar
+            main_show_on_hover = false,
+            main_show_in_combat = false,
+            bottom_left_show_on_hover = false,
+            bottom_left_show_in_combat = false,
+            bottom_right_show_on_hover = false,
+            bottom_right_show_in_combat = false,
+            right_show_on_hover = false,
+            right_show_in_combat = false,
+            left_show_on_hover = false,
+            left_show_in_combat = false
+        },
+
+        micromenu = {
+            -- Legacy/shared settings
+            hide_on_vehicle = false,
+            bags_collapsed = false,
+            grayscale_icons = false,
+            show_latency_indicator = true,
+
+            -- Grayscale icons configuration
+            grayscale = {
+                scale_menu = 1.5,
+                x_position = 5,
+                y_position = -54,
+                icon_spacing = 15 -- Gap between icons
+            },
+
+            -- Normal colored icons configuration  
+            normal = {
+                scale_menu = 0.9,
+                x_position = -113,
+                y_position = -53,
+                icon_spacing = 26
+            }
+        },
+
+        bags = {
+            scale = 1,
+            x_position = 1,
+            y_position = 41
+        },
+
+        xprepbar = {
+            -- Style: "dragonflightui" (custom bars) or "retailui" (atlas reskin)
+            style = "dragonflightui",
+            -- Bar dimensions
+            bar_width = 466,
+            bar_height_dfui = 14,
+            bar_height_retailui = 9,
+            -- Positioning offsets (used by both styles)
+            bothbar_offset = 39,
+            singlebar_offset = 24,
+            nobar_offset = 18,
+            repbar_abovexp_offset = 16,
+            repbar_offset = 2,
+            dual_bar_gap = 2,
+            -- Configurable scales for the bars
+            expbar_scale = 1.0,
+            repbar_scale = 1.0,
+            -- Rested XP
+            show_rested_bar = true,
+            show_rested_mark = true,
+            -- Text display
+            always_show_text = false,
+            show_xp_percent = false,
+            show_rep_text_on_hover = true,
+        },
+
+        style = {
+            gryphons = 'new',
+            xpbar = 'dragonflightui',
+            exhaustion_tick = true -- Show exhaustion tick (on by default)
+        },
+
+        compatibility = {
+            d3d9ex_warning_seen = false,
+        },
+
+        buttons = {
+            only_actionbackground = true,
+            hide_main_bar_background = false,
+            count = {
+                show = true
+            },
+            hotkey = {
+                show = true,
+                range = true,
+                shadow = {0, 0, 0, 1},
+                font = {_arialn, 12, "OUTLINE"}
+            },
+            macros = {
+                show = true,
+                color = {.67, .80, .93, 1},
+                font = {_arialn, 10, "OUTLINE"}
+            },
+            pages = {
+                show = true,
+                font = {_arialn, 12, "OUTLINE"}
+            },
+            cooldown = {
+                color = {1, 1, 1, 1},
+                min_duration = 3,
+                font = {_arialn, 16, "OUTLINE"},
+                font_size = 16,
+                position = {'CENTER', 0, 1}
+            },
+            border_color = {1, 1, 1, 1}
+        },
+
+        additional = {
+            size = 31,
+            spacing = 6,
+            stance = {
+                x_position = -211,
+                y_offset = -58, -- Additional Y offset for fine-tuning position
+                button_size = 31, -- Size of stance buttons (native Blizzard size)
+                button_spacing = 6 -- Spacing between stance buttons
+            },
+            pet = {
+                scale = 1.0,
+                grid = false -- Disable grid by default (matches original Dragonflight port)
+            },
+            vehicle = {
+                x_position = -40,
+                y_offset = -5,
+                artstyle = true
+            },
+            totem = {
+                x_position = 0,
+                y_offset = 2, -- Additional Y offset for fine-tuning position
+                button_size = 34, -- Size of totem buttons (native Blizzard size)
+                button_spacing = 4, -- Spacing between totem buttons
+                manual_position = false -- When true, uses x_position/y_offset; when false, auto-anchors to action bars
+            }
+        },
+
+        -- MINIMAP SETTINGS
+        minimap = {
+            scale = 1,
+            border_alpha = 1,
+            blip_skin = true, -- true = new/modern style, false = old/classic Blizzard style
+            tracking_icons = true,
+            zoom_buttons = false,
+            calendar = true,
+            clock = true,
+            clock_font_size = 12,
+            player_arrow_size = 40,
+            zonetext_font_size = 12,
+            mail_icon_x = -4,
+            mail_icon_y = -5,
+            addon_button_skin = true,
+            addon_button_fade = false
+        },
+
+        --  BUFFS SETTINGS (NEW)
+        buffs = {
+            enabled = true,
+            show_toggle_button = true,
+            buffs_hidden = false,
+            separate_weapon_enchants = false
+        },
+
+        -- CASTBAR SETTINGS
+        castbar = {
+            enabled = true,
+            scale = 1,
+            text_mode = "simple",
+            precision_time = 1,
+            precision_max = 1,
+            sizeX = 256,
+            sizeY = 16,
+            showIcon = false,
+            sizeIcon = 27,
+            holdTime = 0.3,
+            holdTimeInterrupt = 0.8,
+
+            -- LATENCY INDICATOR (PLAYER ONLY)
+            latency = {
+                enabled = false,
+                color = { r = 0.9, g = 0.5, b = 0.2 },
+                alpha = 0.45,
+            },
+
+            -- TARGET CASTBAR SETTINGS
+            target = {
+                enabled = true,
+                override = false,
+                scale = 1,
+                x_position = 0,
+                y_position = 0,
+                text_mode = "simple", -- "simple" (centered spell name only) or "detailed" (name + time)
+                precision_time = 1,
+                precision_max = 1,
+                sizeX = 150,
+                sizeY = 10,
+                showIcon = true,
+                sizeIcon = 20,
+                holdTime = 0.3,
+                holdTimeInterrupt = 0.8,
+                anchorFrame = 'TargetFrame',
+                anchor = 'TOP',
+                anchorParent = 'BOTTOM',
+                showTicks = false
+            },
+
+            -- FOCUS CASTBAR SETTINGS
+            focus = {
+                enabled = true,
+                override = false,
+                scale = 1,
+                x_position = 0,
+                y_position = 0,
+                text_mode = "simple", -- "simple" (centered spell name only) or "detailed" (name + time)
+                precision_time = 1,
+                precision_max = 1,
+                sizeX = 150,
+                sizeY = 10,
+                showIcon = true,
+                sizeIcon = 20,
+                holdTime = 0.3,
+                holdTimeInterrupt = 0.8,
+                anchorFrame = 'FocusFrame',
+                anchor = 'TOP',
+                anchorParent = 'BOTTOM',
+                showTicks = false
+            }
+        },
+
+        -- CHAT SETTINGS
+        chat = {
+            enabled = true, -- Disabled by default to avoid interfering with the original chat
+            scale = 1.0,
+            x_position = 42, -- X relative to BOTTOM LEFT
+            y_position = 35, -- Y relative to BOTTOM LEFT
+            size_x = 295, -- Chat width
+            size_y = 120 -- Chat height
+        },
+
+        -- UNIT FRAMES SETTINGS
+        unitframe = {
+            scale = 1.0, -- Global scale for all unit frames
+            player = {
+                enabled = true,
+                breakUpLargeNumbers = true,
+                scale = 1.0,
+                classcolor = false,
+                classPortrait = false, -- Show class icon instead of character portrait
+                alternativeClassIcons = false, -- Use DragonUI alternative class icons for class portraits
+                textFormat = "both",
+                showHealthTextAlways = false,
+                showManaTextAlways = false,
+                dragon_decoration = "none",
+                alwaysShowAlternateManaText = false,
+                alternateManaFormat = "both",
+                show_runes = true, -- DK rune display (used by player.lua)
+                show_rest_glow = true, -- Show golden glow when resting (inn/city)
+                combat_flash_enabled = true, -- Enable combat flash pulse animation
+                combat_flash_opacity = 1.0, -- Opacity multiplier for combat flash (0.0 - 1.0)
+                fat_healthbar = false, -- Full-width health bar 
+                fat_manabar_width = 200,
+                fat_manabar_height = 8,
+                fat_manabar_hidden = false,
+                manabar_texture = "dragonui", -- "dragonui", "blizzard", "blizzard_flat", "smooth", "aluminium", "litestep"
+                -- Dragonflight-style power bar colors (applied on override textures in fat mode)
+                power_colors = {
+                    MANA         = { r = 0.02, g = 0.32, b = 0.71 },
+                    RAGE         = { r = 1.00, g = 0.00, b = 0.00 },
+                    FOCUS        = { r = 1.00, g = 0.50, b = 0.25 },
+                    ENERGY       = { r = 1.00, g = 1.00, b = 0.00 },
+                    HAPPINESS    = { r = 0.00, g = 1.00, b = 1.00 },
+                    RUNES        = { r = 0.50, g = 0.50, b = 0.50 },
+                    RUNIC_POWER  = { r = 0.00, g = 0.82, b = 1.00 },
+                },
+            },
+            target = {
+                classcolor = false,
+                classPortrait = false, -- Show class icon instead of character portrait
+                alternativeClassIcons = false, -- Use DragonUI alternative class icons for class portraits
+                breakUpLargeNumbers = true,
+                textFormat = 'both',
+                showHealthTextAlways = false,
+                showManaTextAlways = false,
+                enableNumericThreat = true,
+                enableThreatGlow = true,
+                show_name_background = true,
+                scale = 1.0
+            },
+            focus = {
+                classcolor = false,
+                classPortrait = false, -- Show class icon instead of character portrait
+                alternativeClassIcons = false, -- Use DragonUI alternative class icons for class portraits
+                breakUpLargeNumbers = true,
+                textFormat = 'both',
+                showHealthTextAlways = false,
+                showManaTextAlways = false,
+                show_buff_debuff = true,
+                show_name_background = true,
+                scale = 0.9
+            },
+            pet = {
+                breakUpLargeNumbers = true,
+                textFormat = 'numeric',
+                showHealthTextAlways = false,
+                showManaTextAlways = false,
+                enableThreatGlow = false,
+                scale = 1.0,
+                override = true,
+                x = 0,
+                y = 0
+            },
+            party = {
+                enabled = true,
+                classcolor = false,
+                breakUpLargeNumbers = true,
+                textFormat = 'both',
+                showHealthTextAlways = false,
+                showManaTextAlways = false,
+                orientation = 'vertical',
+                padding_vertical = 30,
+                padding_horizontal = 50,
+                scale = 1.0,
+                override = false,
+                anchor = 'TOPLEFT',
+                anchorParent = 'TOPLEFT',
+                x = 10,
+                y = -200
+            },
+            tot = {
+                classcolor = false,
+                classPortrait = false, -- Show class icon instead of character portrait
+                alternativeClassIcons = false, -- Use DragonUI alternative class icons for class portraits
+                scale = 1.0,
+                x = -27,
+                y = -14,
+                textFormat = 'numeric',
+                breakUpLargeNumbers = false,
+                showHealthTextAlways = false,
+                showManaTextAlways = false,
+                override = false,
+                anchor = 'BOTTOMRIGHT',
+                anchorParent = 'BOTTOMRIGHT',
+                anchorFrame = 'TargetFrame'
+            },
+            fot = {
+                classcolor = false,
+                classPortrait = false, -- Show class icon instead of character portrait
+                alternativeClassIcons = false, -- Use DragonUI alternative class icons for class portraits
+                scale = 1.0,
+                x = -27,
+                y = -14,
+                textFormat = 'numeric',
+                breakUpLargeNumbers = false,
+                showHealthTextAlways = false,
+                showManaTextAlways = false,
+                override = false,
+                anchor = 'BOTTOMRIGHT',
+                anchorParent = 'BOTTOMRIGHT',
+                anchorFrame = 'FocusFrame'
+            },
+            boss = {
+                enabled = true,
+                scale = 1.0,
+                classcolor = false,
+                override = false,
+                anchor = 'TOPRIGHT',
+                anchorParent = 'TOPRIGHT',
+                x = -85,
+                y = -350
+            }
+        },
+
+        -- MODULES SETTINGS
+        modules = {
+            noop = {
+                enabled = true -- Hide default Blizzard UI elements to allow DragonUI replacements
+            },
+            cooldowns = {
+                enabled = true -- Show cooldown timers on action buttons
+            },
+            rage_indicator = {
+                enabled = true -- Tint action button icons by range and usability
+            },
+            buttons = {
+                enabled = true -- Apply DragonUI button styling and enhancements
+            },
+            vehicle = {
+                enabled = true -- Apply DragonUI vehicle interface enhancements
+            },
+            stance = {
+                enabled = true -- Apply DragonUI stance/shapeshift bar positioning and styling
+            },
+            petbar = {
+                enabled = true -- Apply DragonUI pet bar positioning and styling
+            },
+            multicast = {
+                enabled = true -- Apply DragonUI multicast (totem/possess) bar positioning and styling
+            },
+            micromenu = {
+                enabled = true -- Apply DragonUI micro menu and bags system styling and positioning
+            },
+            mainbars = {
+                enabled = true -- Apply DragonUI main action bars, status bars (XP/Rep), scaling, and positioning system
+            },
+            minimap = {
+                enabled = true -- Apply DragonUI minimap enhancements including custom styling, positioning, tracking icons, and calendar
+            },
+            buffs = {
+                enabled = true -- Enable DragonUI buff frame with custom styling, positioning, and toggle button functionality
+            },
+            keybinding = {
+                enabled = true, -- Enable LibKeyBound integration for intuitive keybinding (hover + key press)
+                auto_register_action_buttons = true -- Automatically make action buttons bindable
+            },
+            questtracker = {
+                enabled = true -- Enable DragonUI quest tracker positioning and styling
+            },
+            darkmode = {
+                enabled = false, -- Apply darker tinted textures to UI chrome
+                intensity_preset = 3, -- 1 = Light, 2 = Medium, 3 = Dark
+                use_custom_color = false, -- Override presets with custom color
+                custom_color = { r = 0.15, g = 0.15, b = 0.15 } -- Custom tint RGB
+            },
+            tooltip = {
+                enabled = true, -- Enhanced tooltip styling with class colors
+                class_colored_border = true, -- Color tooltip border by class/reaction
+                class_colored_name = true, -- Color unit name by class
+                target_of_target = true, -- Show target-of-target line
+                health_bar = true, -- Show health bar on tooltip
+                anchor_cursor = false -- Anchor tooltip to cursor
+            },
+            itemquality = {
+                enabled = true, -- Color item borders by quality in bags, character panel, bank, merchant
+                min_quality = 2 -- Minimum quality to show (2 = Uncommon/green)
+            },
+            chatmods = {
+                enabled = true, -- Chat enhancements: hide buttons, editbox position, URL copy, chat copy
+                editbox = "bottom", -- Editbox position: "top", "bottom", or "middle"
+                tabIdleAlpha = 0, -- Tab opacity when not hovered (0 = hidden, 1 = fully visible)
+                chatStyle = "none", -- Chat frame background style: "none", "dark", "dragon", "midnight"
+                chatBgIdleAlpha = 0, -- Chat style background opacity when idle/mouse away (0 = hidden, 1 = always visible)
+                editboxIdleAlpha = 0, -- Editbox minimum opacity when idle (0 = fades with tabs, 1 = always visible)
+                editboxStyle = "dark", -- Editbox background style: "none", "dark", "dragon", "midnight"
+            },
+            combuctor = {
+                enabled = false -- All-in-one bag replacement with filtering and search
+            },
+            bagsort = {
+                enabled = true, -- Sort bags and bank items with buttons
+                lockedSlots = {} -- Slots excluded from sorting (key format: "bag:slot")
+            },
+            unitframe_layers = {
+                enabled = false, -- Heal prediction, absorb shields, animated health loss overlays on unit frames
+                animated_loss = true, -- Animated red health loss bar on player frame
+                builder_spender = false -- Mana gain/loss glow feedback (experimental)
+            }
+        },
+
+        -- LAYOUT PRESETS (user-saved UI snapshots within this profile)
+        presets = {}
+    }
+};
+
+-- Temporary profile placeholder (replaced by AceDB in core.lua:OnInitialize)
+addon.db = {
+    profile = addon.defaults and addon.defaults.profile or {}
+};
+
+-- Recursive table copy (preserves existing keys in target)
+local function deepCopy(source, target)
+    for key, value in pairs(source) do
+        if type(value) == "table" then
+            if not target[key] then
+                target[key] = {}
+            end
+            deepCopy(value, target[key])
+        else
+            target[key] = value
+        end
+    end
+end
+
+-- Populate temporary profile with defaults
+if defaults and defaults.profile then
+    deepCopy(defaults.profile, addon.db.profile);
+end
+
+-- Export defaults for use in core.lua
+addon.defaults = defaults;
+
+-- Database accessors
+function addon:GetConfigValue(section, key, subkey)
+    if subkey then
+        return self.db.profile[section][key][subkey];
+    elseif key then
+        return self.db.profile[section][key];
+    else
+        return self.db.profile[section];
+    end
+end
+
+function addon:SetConfigValue(section, key, subkey, value)
+    if subkey then
+        self.db.profile[section][key][subkey] = value;
+    elseif key then
+        self.db.profile[section][key] = value;
+    else
+        self.db.profile[section] = value;
+    end
+end

@@ -1,0 +1,216 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+    <Frame name="DQuestFramePanelTemplate" virtual="true">
+        <Size>
+            <AbsDimension x="512" y="512" />
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" />
+        </Anchors>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture file="Interface\AddOns\DialogUI\src\assets\art\parchment\Parchment">
+                    <Size x="512" y="512" />
+                </Texture>
+            </Layer>
+        </Layers>
+    </Frame>
+	
+	<Button name="DQuestRewardClickableItemTemplate" virtual="true" inherits="DQuestItemTemplate">
+		<Scripts>
+			<OnClick>
+				DQuestRewardItem_OnClick();
+			</OnClick>
+		</Scripts>
+	</Button>
+    
+    <Button name="DQuestItemTemplate" virtual="true">
+        <Size>
+            <AbsDimension x="147" y="41" />
+        </Size>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture name="$parentBackground" file="Interface\AddOns\DialogUI\src\assets\art\parchment\RewardChoice-Pending">
+                    <Size>
+                        <AbsDimension x="190" y="50" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOPLEFT">
+                            <Offset>
+                                <AbsDimension x="-2" y="5" />
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+                <Texture name="$parentNameFrame" file="">
+                    <Size>
+                        <AbsDimension x="128" y="64" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parentIconTexture" relativePoint="RIGHT">
+                            <Offset>
+                                <AbsDimension x="-10" y="0" />
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="BORDER">
+                <Texture name="$parentIconTexture">
+                    <Size>
+                        <AbsDimension x="35" y="35" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOPLEFT">
+                            <Offset>
+                                <AbsDimension x="5" y="-2" />
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK">
+                <!-- Явно задаем шрифт без inherits -->
+                <FontString name="$parentName" font="Interface\AddOns\DialogUI\src\assets\font\frizqt___cyr.ttf" justifyH="LEFT">
+                    <FontHeight>
+                        <AbsValue val="12" />
+                    </FontHeight>
+                    <Color r="0.19" g="0.17" b="0.13" />
+                    <Size>
+                        <AbsDimension x="120" y="36" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parentBackground">
+                            <Offset>
+                                <AbsDimension x="45" y="0" />
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+            <Layer level="ARTWORK">
+                <FontString name="$parentCount" inherits="NumberFontNormal" justifyH="RIGHT">
+                    <Anchors>
+                        <Anchor point="BOTTOMRIGHT" relativeTo="$parentIconTexture">
+                            <Offset>
+                                <AbsDimension x="-4" y="1" />
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnLoad>
+                this.hasItem = 1;
+            </OnLoad>
+            <OnEnter>
+                DQuestItem_OnEnter();
+            </OnEnter>
+            <OnLeave>
+                DQuestItem_OnLeave();
+            </OnLeave>
+            <OnUpdate>
+                if this then
+					CursorUpdate(this);
+				end
+            </OnUpdate>
+            <OnClick>
+                DQuestItem_OnClick();
+            </OnClick>
+        </Scripts>
+    </Button>
+    
+    <Button name="DQuestTitleButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="400" y="24" />
+		</Size>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<!-- Фоновая текстура под текстом квеста -->
+				<Texture name="$parentProgressBackground" file="Interface\AddOns\DialogUI\src\assets\art\parchment\OptionBackground-Common">
+					<Size>
+						<AbsDimension x="380" y="24" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentText" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="-35" y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<!-- Растягиваем по горизонтали -->
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentQuestIcon">
+					<Size>
+						<AbsDimension x="24" y="24" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset>
+								<AbsDimension x="5" y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<!-- ИСПРАВЛЕНО: Запрещаем растягивание текстуры -->
+					<TexCoords left="0" right="1" top="0" bottom="1" />
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnClick>
+				DQuestTitleButton_OnClick();
+			</OnClick>
+			<!-- Динамически подгоняем размер текстуры под текст -->
+			<OnSizeChanged>
+				local text = this:GetFontString();
+				local bg = getglobal(this:GetName() .. "ProgressBackground");
+				if text and bg then
+					local textWidth = text:GetStringWidth();
+					local textHeight = text:GetStringHeight();
+					if textWidth > 0 then
+						-- Ширина = ширина текста + отступы (35 слева для иконки, 10 справа)
+						bg:SetWidth(textWidth + 45);
+						-- Высота = высота текста + отступы
+						bg:SetHeight(math.max(24, textHeight + 4));
+					end
+				end
+			</OnSizeChanged>
+		</Scripts>
+		<HighlightTexture
+			file="Interface\AddOns\DialogUI\src\assets\art\parchment\ButtonHighlight-Gossip"
+			alphaMode="ADD" />
+		<!-- Явно задаем шрифт для текста кнопки с поддержкой переноса -->
+		<ButtonText name="$parentText" font="Interface\AddOns\DialogUI\src\assets\font\frizqt___cyr.ttf" justifyH="LEFT" wordwrap="true">
+			<FontHeight>
+				<AbsValue val="12" />
+			</FontHeight>
+			<Color r="1.0" g="1.0" b="1.0" />
+			<Size>
+				<AbsDimension x="360" y="0" />
+			</Size>
+			<Anchors>
+				<Anchor point="LEFT" relativeTo="$parentQuestIcon" relativePoint="RIGHT">
+					<Offset>
+						<AbsDimension x="5" y="0" />
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<NormalFont font="Interface\AddOns\DialogUI\src\assets\font\frizqt___cyr.ttf">
+			<FontHeight>
+				<AbsValue val="12" />
+			</FontHeight>
+			<Color r="1.0" g="1.0" b="1.0" />
+		</NormalFont>
+		<HighlightFont font="Interface\AddOns\DialogUI\src\assets\font\frizqt___cyr.ttf">
+			<FontHeight>
+				<AbsValue val="12" />
+			</FontHeight>
+			<Color r="0.87" g="0.86" b="0.75" />
+		</HighlightFont>
+	</Button>
+</Ui>

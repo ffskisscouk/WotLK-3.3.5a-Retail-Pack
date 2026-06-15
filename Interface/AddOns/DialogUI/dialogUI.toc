@@ -1,0 +1,51 @@
+## Interface: 30300
+## Title: DialogUI
+## Author: Sxus, Kasper
+## Version: 2.1
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## Notes: Addon made for an immersive questing experience in WotLK 3.3.5 client, consider it a WotLK+ frame.
+## SavedVariables: DialogUIFramePosition, DialogUI_SavedConfig, DialogUI_CameraSaved, DialogUI_QuestNotes
+## X-Sirus-Update https://github.com/fxpw/RaidBrowser/tree/master
+## X-Sirus-Category 13
+## X-Adapted-By: Velord
+## X-Adaptation-For: 3.3.5
+## X-Adaptation-Fixes: Исправлена блокировка движения при открытых окнах
+
+# Fonts used for the frames
+src\assets\font\fonts.xml
+
+# Money frame
+src\frames\moneyFrame\money.frame.lua
+src\frames\moneyFrame\money.frame.xml
+
+# UI panel textures
+src\frames\uiPanelTemplate\ui.panel.template.lua
+src\frames\uiPanelTemplate\ui.panel.template.xml
+src\frames\uiPanelTemplate\ui.panel.template.button.xml
+
+src\frames\tooltip.custom.lua
+
+# Quest frame (loaded first to provide basic functions)
+src\frames\questFrame\quest.frame.lua
+src\frames\questFrame\quest.notes.lua
+src\frames\questFrame\quest.frame.template.xml
+src\frames\questFrame\quest.frame.xml
+
+# Gossip frame
+src\frames\gossipFrame\gossip.frame.lua
+src\frames\gossipFrame\gossip.frame.xml
+
+# Dynamic Camera module
+src\modules\dynamicCamera\camera.module.lua
+src\modules\dynamicCamera\camera.config.lua
+
+# Book/Item viewer
+src\frames\book\BookUI.lua
+
+# Configuration frame (loaded last to override basic functions)
+src\frames\configFrame\config.frame.lua
+src\frames\configFrame\config.frame.xml
+
+
+

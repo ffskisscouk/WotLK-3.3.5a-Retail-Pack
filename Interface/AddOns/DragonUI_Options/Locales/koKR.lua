@@ -1,0 +1,976 @@
+﻿--[[
+================================================================================
+DragonUI_Options - English Locale (Default)
+================================================================================
+Base locale for the options panel: labels, descriptions, section headers,
+dropdown values, print messages, popup text.
+
+When adding new strings:
+1. Add L[<your key>] = true here
+2. Use L["Your String"] in your options code
+3. Add translations to other locale files
+================================================================================
+]]
+
+local L = LibStub("AceLocale-3.0"):NewLocale("DragonUI_Options", "koKR")
+if not L then return end
+
+-- ============================================================================
+-- GENERAL / PANEL
+-- ============================================================================
+
+L["DragonUI"] = "DragonUI"
+L["Use the tabs on the left to configure modules, action bars, unit frames, minimap, and more."] = "왼쪽 탭을 사용하여 모듈, 액션바, 유닛 프레임, 미니맵 등을 설정하세요."
+L["Editor Mode"] = "편집 모드"
+L["Exit Editor Mode"] = "편집 모드 종료"
+L["KeyBind Mode Active"] = "단축키 설정 모드 활성화됨"
+L["Move UI Elements"] = "UI 요소 이동"
+L["Cannot open options during combat."] = "전투 중 옵션 사용 불가"
+L["Open DragonUI Settings"] = "DragonUI 설정 열기"
+L["Open the DragonUI configuration panel."] = "DragonUI 설정 패널 열기"
+L["Use /dragonui to open the full settings panel."] = "/dragonui 입력 시 전체 설정 패널 열기"
+
+-- Quick Actions
+L["Quick Actions"] = "빠른 설정"
+L["Jump to popular settings sections."] = "자주 사용하는 설정으로 바로 이동합니다."
+L["Action Bar Layout"] = "액션바 레이아웃"
+L["Configure dark tinting for all UI chrome."] = "모든 UI 크롬에 어두운 색조를 설정합니다."
+L["Full-width health bar that fills the entire player frame."] = "플레이어 프레임 전체를 채우는 넓은 체력 바."
+L["Add a decorative dragon to your player frame."] = "플레이어 프레임에 장식용 드래곤을 추가합니다."
+L["Heal prediction, absorb shields and animated health loss."] = "치유 예측, 흡수 보호막 및 애니메이션 체력 감소."
+L["Change columns, rows, and buttons shown per action bar."] = "액션바당 열, 행 및 표시 버튼 수를 변경합니다."
+L["Switch micro menu icons between colored and grayscale style."] = "마이크로 메뉴 아이콘을 컬러와 회색조 사이에서 전환합니다."
+L["About"] = "정보"
+L["Bringing the retail WoW look to 3.3.5a, inspired by Dragonflight UI."] = "Dragonflight UI에서 영감을 받아 3.3.5a에 리테일 WoW 느낌을 구현합니다."
+L["Created and maintained by Neticsoul, with community contributions."] = "Neticsoul이 제작 및 유지하며, 커뮤니티가 기여합니다."
+
+L["Commands: /dragonui, /dui, /pi — /dragonui edit (editor) — /dragonui help"] = "명령어: /dragonui, /dui, /pi — /dragonui edit (편집) — /dragonui help"
+L["GitHub (select and Ctrl+C to copy):"] = "GitHub (선택 후 Ctrl+C로 복사):"
+L["All"] = "전체"
+L["Error:"] = "오류:"
+L["Error: DragonUI addon not found!"] = "오류: DragonUI 애드온을 찾을 수 없습니다!"
+
+-- ============================================================================
+-- STATIC POPUPS
+-- ============================================================================
+
+L["Changing this setting requires a UI reload to apply correctly."] = "이 설정을 적용하려면 UI 재시작(Reload) 필요"
+L["Reload UI"] = "UI 리로드"
+L["Not Now"] = "나중에"
+L["Reload Now"] = "지금 재설정"
+L["Cancel"] = "취소"
+L["Yes"] = "예"
+L["No"] = "아니요"
+
+-- ============================================================================
+-- TAB NAMES
+-- ============================================================================
+
+L["General"] = "일반"
+L["Modules"] = "모듈"
+L["Action Bars"] = "행동 단축바"
+L["Additional Bars"] = "추가 단축바"
+L["Minimap"] = "미니맵"
+L["Profiles"] = "프로필"
+L["Unit Frames"] = "유닛 프레임"
+L["XP & Rep Bars"] = "경험치 및 평판 바"
+L["Chat"] = "채팅"
+L["Appearance"] = "\uc678\ud615"
+
+-- ============================================================================
+-- MODULES TAB
+-- ============================================================================
+
+-- Headers & descriptions
+L["Module Control"] = "모듈 관리"
+L["Enable or disable specific DragonUI modules"] = "특정 DragonUI 모듈을 활성화 또는 비활성화합니다"
+L["Toggle individual modules on or off. Disabled modules revert to the default Blizzard UI."] = "개별 모듈 활성/비활성 설정. 비활성화 시 기본 블리자드 UI 사용"
+L["Visual enhancements that add Dragonflight-style polish to the UI."] = "UI에 Dragonflight 스타일의 세련된 느낌을 더하는 시각적 개선 사항."
+L["Warning: These are individual module controls. The options above may control multiple modules at once. Changes here will be reflected above and vice versa."] = "경고: 이것은 개별 모듈 제어 기능입니다. 위의 옵션은 여러 모듈을 한 번에 제어할 수 있습니다. 여기서의 변경은 위에 반영되며 그 반대도 마찬가지입니다."
+L["Warning:"] = "경고:"
+L["Individual overrides. The grouped toggles above take priority."] = "개별 설정보다 상단의 그룹 통합 설정이 우선함"
+L["Advanced - Individual Module Control"] = "고급 - 개별 모듈 제어"
+
+-- Section headers
+L["Cast Bars"] = "시전바"
+L["Other Modules"] = "기타 모듈"
+L["UI Systems"] = "UI 시스템"
+L["Enable All Action Bar Modules"] = "모든 단축바 모듈 활성화"
+L["Cast Bar"] = "시전 바"
+L["Custom player, target, and focus cast bars"] = "플레이어, 대상, 주시 대상용 사용자 지정 시전 바"
+L["Cooldown text on action buttons"] = "액션 버튼의 재사용 대기시간 텍스트"
+L["Shaman totem bar positioning and styling"] = "주술사 토템 바 위치 및 스타일"
+L["Dragonflight-styled player unit frame"] = "Dragonflight 스타일의 플레이어 유닛 프레임"
+L["Dragonflight-styled boss target frames"] = "Dragonflight 스타일의 우두머리 대상 프레임"
+
+-- Toggle labels
+L["Action Bars System"] = "행동 단축바 시스템"
+L["Micro Menu & Bags"] = "마이크로 메뉴 및 가방"
+L["Cooldown Timers"] = "재사용 대기시간 타이머"
+L["Minimap System"] = "미니맵 시스템"
+L["Buff Frame System"] = "버프 프레임 시스템"
+L["Dark Mode"] = "다크 모드"
+L["Item Quality Borders"] = "아이템 품질 테두리"
+L["Enable Enhanced Tooltips"] = "강화된 툴팁 활성화"
+L["KeyBind Mode"] = "단축키 설정 모드"
+L["Quest Tracker"] = "퀘스트 추적기"
+
+-- Module toggle descriptions
+L["Enable DragonUI player castbar. When disabled, shows default Blizzard castbar."] = "DragonUI 플레이어 시전 바를 활성화합니다. 비활성화 시 블리자드 기본 시전 바가 표시됩니다."
+L["Enable DragonUI player castbar styling."] = "DragonUI 플레이어 시전바 스타일 적용"
+L["Enable DragonUI target castbar. When disabled, shows default Blizzard castbar."] = "DragonUI 대상 시전 바를 활성화합니다. 비활성화 시 블리자드 기본 시전 바가 표시됩니다."
+L["Enable DragonUI target castbar styling."] = "DragonUI 대상 시전바 스타일 적용"
+L["Enable DragonUI focus castbar. When disabled, shows default Blizzard castbar."] = "DragonUI 주시 대상 시전 바를 활성화합니다. 비활성화 시 블리자드 기본 시전 바가 표시됩니다."
+L["Enable DragonUI focus castbar styling."] = "DragonUI 주시 대상 시전바 스타일 적용"
+L["Enable the complete DragonUI action bars system. This controls: Main action bars, vehicle interface, stance/shapeshift bars, pet action bars, multicast bars (totems/possess), button styling, and hide Blizzard elements. When disabled, all action bar related features will use default Blizzard interface."] = "DragonUI 단축바 시스템 전체를 활성화합니다. 제어 대상: 주 단축바, 탈것 인터페이스, 태세/변신 바, 소환수 단축바, 멀티캐스트 바(토템/빙의), 버튼 스타일, 블리자드 요소 숨기기. 비활성화 시 모든 단축바 관련 기능이 블리자드 기본 인터페이스를 사용합니다."
+L["Master toggle for the complete action bars system."] = "단축바 시스템 통합 제어"
+L["Includes main bars, vehicle, stance, pet, totem bars, and button styling."] = "기본 바, 탈것, 태세, 소환수, 토템 바 및 버튼 스타일 포함"
+L["Apply DragonUI micro menu and bags system styling and positioning. Includes character button, spellbook, talents, etc. and bag management. When disabled, these elements will use default Blizzard positioning and styling."] = "DragonUI 마이크로 메뉴 및 가방 시스템 스타일과 위치를 적용합니다. 캐릭터 버튼, 주문서, 특성 등과 가방 관리를 포함합니다. 비활성화 시 블리자드 기본 위치와 스타일이 사용됩니다."
+L["Micro menu and bags styling."] = "마이크로 메뉴 및 가방 스타일"
+L["Show cooldown timers on action buttons. When disabled, cooldown timers will be hidden and the system will be completely deactivated."] = "액션 버튼에 재사용 대기시간 타이머를 표시합니다. 비활성화 시 타이머가 숨겨지고 시스템이 완전히 비활성화됩니다."
+L["Show cooldown timers on action buttons."] = "단축바에 쿨타임 숫자 표시"
+L["Enable DragonUI minimap enhancements including custom styling, positioning, tracking icons, and calendar. When disabled, uses default Blizzard minimap appearance and positioning."] = "사용자 지정 스타일, 위치, 추적 아이콘, 달력을 포함한 DragonUI 미니맵 개선 기능을 활성화합니다. 비활성화 시 블리자드 기본 미니맵 외관과 위치를 사용합니다."
+L["Minimap styling, tracking icons, and calendar."] = "미니맵 스타일, 추적 아이콘 및 달력"
+L["Enable DragonUI buff frame with custom styling, positioning, and toggle button functionality. When disabled, uses default Blizzard buff frame appearance and positioning."] = "사용자 지정 스타일, 위치 및 전환 버튼 기능이 포함된 DragonUI 버프 프레임을 활성화합니다. 비활성화 시 블리자드 기본 버프 프레임 외관과 위치를 사용합니다."
+L["Buff frame styling and toggle button."] = "버프 프레임 스타일 및 토글 버튼"
+L["Separate Weapon Enchants"] = "무기 강화 효과 분리"
+L["Detach weapon enchant icons (poisons, sharpening stones, etc.) from the buff bar into their own independently moveable frame. Position it freely using Editor Mode."] = "무기 강화 효과(독, 숫돌 등)를 분리하여 독립적인 프레임으로 생성. 편집 모드에서 자유롭게 이동 가능"
+
+-- Auras tab
+L["Auras"] = "버프/디버프"
+L["Show Toggle Button"] = "전환 버튼 표시"
+L["Show a collapse/expand button next to the buff icons."] = "버프 아이콘 옆에 축소/확장 버튼을 표시합니다."
+L["Weapon Enchants"] = "무기 강화 효과"
+L["Weapon enchant icons include rogue poisons, sharpening stones, wizard oils, and similar temporary weapon enhancements."] = "무기 강화 아이콘 구성: 도적의 독, 숫돌, 마법사 오일 및 기타 일시적 무기 강화 효과"
+L["When enabled, a 'Weapon Enchants' mover appears in Editor Mode that you can drag to any position on screen."] = "활성화 시 편집 모드에 '무기 강화 효과' 이동 핸들 표시 및 자유로운 위치 이동 가능"
+L["Positions"] = "위치"
+L["Reset Buff Frame Position"] = "버프 프레임 위치 초기화"
+L["Reset Weapon Enchant Position"] = "무기 강화 위치 초기화"
+L["Buff frame position reset."] = "버프 프레임 위치가 초기화되었습니다."
+L["Weapon enchant position reset."] = "무기 강화 위치를 초기화"
+
+L["DragonUI quest tracker positioning and styling."] = "DragonUI 퀘스트 추적기 위치 및 스타일 설정."
+L["LibKeyBound integration for intuitive hover + key press binding."] = "마우스 오버 단축키 설정(LibKeyBound) 기능을 사용"
+
+-- Toggle keybinding mode description
+L["Toggle keybinding mode. Hover over action buttons and press keys to bind them instantly. Press ESC to clear bindings."] = "단축키 설정 모드를 전환합니다. 액션 버튼 위에 마우스를 올리고 키를 누르면 즉시 지정됩니다. ESC를 누르면 지정을 해제합니다."
+
+-- Enable/disable dynamic descriptions
+L["Enable/disable "] = "활성화/비활성화: "
+
+-- Dark Mode
+L["Dark Mode Intensity"] = "다크 모드 강도"
+L["Light (subtle)"] = "밝게 (약함)"
+L["Medium (balanced)"] = "중간 (보통)"
+L["Dark (maximum)"] = "어둡게 (강함)"
+L["Apply darker tinted textures to all UI chrome: action bars, unit frames, minimap, bags, micro menu, and more."] = "단축바, 유닛 프레임, 미니맵, 가방, 마이크로 메뉴 등 모든 UI 요소에 어두운 색조 텍스처를 적용합니다."
+L["Apply darker tinted textures to all UI elements."] = "모든 UI 요소에 어두운 틴트를 적용"
+L["Darkens UI borders and chrome only: action bar borders, unit frame borders, minimap border, bag slot borders, micro menu, castbar borders, and decorative elements. Icons, portraits, and abilities are never affected."] = "UI 전체 테두리만 어둡게!. 아이콘, 초상화, 스킬 등은 제외."
+L["Enable Dark Mode"] = "다크 모드 활성화"
+
+-- Dark Mode - Custom Color
+L["Custom Color"] = "사용자 지정 색상"
+L["Override presets with a custom tint color."] = "프리셋 대신 사용자가 지정한 색조를 적용"
+L["Tint Color"] = "색조 선택"
+L["Intensity"] = "명암농도"
+
+-- Range Indicator
+L["Tint action button icons when target is out of range (red), not enough mana (blue), or unusable (gray)."] = "대상이 사거리 밖(빨강), 마나 부족(파랑), 사용 불가(회색)일 때 액션 버튼 아이콘을 색칠합니다."
+L["Tints action button icons based on range and usability: red = out of range, blue = not enough mana, gray = unusable."] = "사거리 및 사용 가능 여부에 따라 아이콘 색상 변경(빨강: 사거리 밖, 파랑: 마나 부족, 회색: 사용 불가)"
+L["Enable Range Indicator"] = "거리 표시기 활성화"
+L["Color action button icons when target is out of range or ability is unusable."] = "사거리 밖 또는 기술 사용 불가 시 단축바 아이콘에 색상 적용"
+
+-- Item Quality Borders
+L["Show colored glow borders on action buttons containing items, colored by item quality (green = uncommon, blue = rare, purple = epic, etc.)."] = "아이템이 포함된 액션 버튼에 품질별 색상 테두리를 표시합니다 (녹색 = 고급, 파란색 = 희귀, 보라색 = 영웅 등)."
+L["Enable Item Quality Borders"] = "아이템 품질 테두리 활성화"
+L["Show quality-colored borders on items in bags, character panel, bank, merchant, and inspect frames."] = "가방, 캐릭터 창, 은행, 상점 등의 아이템에 품질 색상 테두리를 표시합니다."
+L["Adds quality-colored glow borders to items in your bags, character panel, bank, merchant, and inspect frames: green = uncommon, blue = rare, purple = epic, orange = legendary."] = "가방, 캐릭터 창, 은행, 상인, 살펴보기 창의 아이템에 품질별 빛나는 테두리를 표시합니다: 녹색 = 고급, 파란색 = 희귀, 보라색 = 영웅, 주황색 = 전설."
+L["Minimum Quality"] = "최소 품질"
+L["Only show colored borders for items at or above this quality level."] = "이 품질 등급 이상의 아이템에만 색상 테두리를 표시합니다."
+L["Poor"] = "저급"
+L["Common"] = "일반"
+L["Uncommon"] = "고급"
+L["Rare"] = "희귀"
+L["Epic"] = "영웅"
+L["Legendary"] = "전설"
+
+-- Enhanced Tooltips
+L["Enhanced Tooltips"] = "강화된 툴팁"
+L["Improves GameTooltip with class-colored borders, class-colored names, target-of-target info, and styled health bars."] = "게임 툴팁 개선: 직업 색상 테두리 및 이름, 대상의 대상 정보, 전용 생명력 바"
+L["Activate all tooltip improvements. Sub-options below control individual features."] = "모든 툴팁 개선 기능 활성화. 하단 옵션에서 개별 제어 가능"
+L["Class-Colored Border"] = "직업 색상 테두리"
+L["Color the tooltip border by the unit's class (players) or reaction (NPCs)."] = "유닛의 직업(플레이어) 또는 관계(NPC) 색상으로 툴팁 테두리 표시"
+L["Class-Colored Name"] = "직업 색상 이름"
+L["Color the unit name text in the tooltip by class color (players only)."] = "툴팁 내 유닛 이름을 직업 색상으로 표시(플레이어 전용)"
+L["Add a 'Targeting: <name>' line showing who the unit is targeting."] = "유닛이 현재 대상으로 잡고 있는 대상 정보 추가"
+L["Add a 'Targeting: <name>' line to the tooltip showing who the unit is targeting."] = "툴팁에 해당 유닛이 지목 중인 대상을 '<이름> 지목 중' 줄로 추가합니다."
+L["Styled Health Bar"] = "생명력 바 스타일"
+L["Restyle the tooltip health bar with class/reaction colors."] = "직업/반응 색상으로 툴팁 생명력 바를 재스타일링합니다."
+L["Restyle the tooltip health bar with class/reaction colors and slimmer look."] = "툴팁 생명력 바를 직업/관계 색상 및 얇은 외형으로 변경"
+L["Anchor to Cursor"] = "커서에 고정"
+L["Make the tooltip follow the cursor position instead of the default anchor."] = "툴팁이 기본 위치 대신 커서를 따라다니도록 설정"
+
+-- Chat Mods
+L["Enable Chat Mods"] = "채팅 모드 활성화"
+L["Enables or disables Chat Mods."] = "쳄팅 모드를 활성화하거나 비활성화합니다."
+L["Editbox Position"] = "입력창 위치"
+L["Choose where the chat editbox is positioned."] = "채팅 입력창의 위치를 선택하세요."
+L["Top"] = "상단"
+L["Bottom"] = "하단"
+L["Middle"] = "중간"
+L["Tab & Button Fade"] = "탭 및 버튼 페이드아웃"
+L["How visible chat tabs are when not hovered. 0 = fully hidden, 1 = fully visible."] = "마우스를 올리지 않을 때 채팅 탭의 가시성. 0 = 완전히 숨김, 1 = 완전히 표시."
+L["Chat Style Opacity"] = "채팅 스타일 불투명도"
+L["Minimum opacity of the custom chat background. At 0 it fades with tabs; above 0 it stays partially visible when idle."] = "사용자 지정 채팅 배경의 최소 불투명도. 0이면 탭과 함께 사라짐; 그 이상이면 유휴 시에도 부분적으로 표시됩니다."
+L["Text Box Min Opacity"] = "입력란 최소 불투명도"
+L["Minimum opacity of the text input box when idle. At 0 it fades with tabs; above 0 it stays partially visible."] = "유휴 시 텍스트 입력란의 최소 불투명도. 0이면 탭과 함께 사라짐; 그 이상이면 부분적으로 표시됩니다."
+L["Chat Style"] = "\ucc44\ud305 \uc2a4\ud0c0\uc77c"
+L["Visual style for the chat frame background."] = "\ucc44\ud305 \ud504\ub808\uc784 \ubc30\uacbd\uc758 \uc2dc\uac01\uc801 \uc2a4\ud0c0\uc77c."
+L["Editbox Style"] = "입력 스타일"
+L["Visual style for the chat input box background."] = "입력란 배경의 시각적 스타일."
+L["Dark"] = "\uc5b4\ub450\uc6b4"
+L["DragonUI Style"] = "DragonUI \uc2a4\ud0c0\uc77c"
+L["Midnight"] = "\uc790\uc815"
+
+
+-- Combuctor
+L["Enable Combuctor"] = "통합가방(Combuctor) 활성화"
+L["All-in-one bag replacement with item filtering, search, quality indicators, and bank integration."] = "아이템 필터, 검색, 품질 표시, 은행 연동을 지원하는 통합 가방 대체 기능입니다."
+L["Combuctor Settings"] = "Combuctor 설정"
+
+-- Bag Sort
+L["Bag Sort"] = "가방 정렬"
+L["Enable Bag Sort"] = "가방 정렬 활성화"
+L["Sort buttons for bags and bank. Sorts items by type, rarity, level, and name."] = "가방 및 은행 정렬 버튼. 아이템을 유형, 희귀도, 레벨, 이름순으로 정렬"
+L["Add sort buttons to bag and bank frames. Also enables /sort and /sortbank slash commands."] = "가방 및 은행 창에 정렬 버튼 추가. /sort 및 /sortbank 명령어 활성화"
+L["Sort bags and bank items with buttons"] = "가방 및 은행 아이템 일괄 정리"
+
+L["Show 'All' Tab"] = "'전체' 탭 표시"
+L["Show the 'All' category tab that displays all items without filtering."] = "필터링 없이 모든 아이템을 보여주는 '전체' 카테고리 탭 표시"
+L["Equipment"] = "장비"
+L["Usable"] = "소모품"
+L["Show Equipment Tab"] = "장비 탭 표시"
+L["Show the Equipment category tab for armor and weapons."] = "방어구 및 무기용 장비 카테고리 탭 표시"
+L["Show Usable Tab"] = "사용 가능 탭 표시"
+L["Show the Usable category tab for consumables and devices."] = "소모품 및 장치용 사용 가능 카테고리 탭 표시"
+L["Show Consumable Tab"] = "소모품 탭 표시"
+L["Show the Consumable category tab."] = "소모품 카테고리 탭을 표시합니다."
+L["Show Quest Tab"] = "퀘스트 탭 표시"
+L["Show the Quest items category tab."] = "퀘스트 아이템 카테고리 탭 표시"
+L["Show Trade Goods Tab"] = "전문기술 용품 탭 표시"
+L["Show the Trade Goods category tab (includes gems and recipes)."] = "전문기술 용품(보석, 도안 포함) 카테고리 탭 표시"
+L["Show Miscellaneous Tab"] = "기타 탭 표시"
+L["Show the Miscellaneous items category tab."] = "기타 아이템 카테고리 탭 표시"
+L["Left Side Tabs"] = "왼쪽 탭"
+L["Place category filter tabs on the left side of the bag frame instead of the right."] = "가방 프레임의 왼쪽에 카테고리 필터 탭을 배치."
+L["Place category filter tabs on the left side of the bank frame instead of the right."] = "은행 프레임의 왼쪽에 카테고리 필터 탭을 배치."
+L["Changes require closing and reopening bags to take effect."] = "변경 사항은 가방을 닫았다가 다시 열어야 적용됩니다."
+L["Subtabs"] = "보조 탭"
+L["Configure which bottom subtabs appear within each category tab. Applies to both inventory and bank."] = "각 카테고리 내 하단에 표시될 보조 탭 설정. 소지품과 은행 모두에 적용"
+L["Normal"] = "일반"
+L["Trade Bags"] = "전문기술 가방"
+L["Show the Normal bags subtab (non-profession bags)."] = "일반 가방(전문기술용 제외) 보조 탭 표시"
+L["Show the Trade bags subtab (profession bags)."] = "전문기술 가방 보조 탭 표시"
+L["Show the Armor subtab."] = "방어구 보조 탭 표시"
+L["Show the Weapon subtab."] = "무기 보조 탭 표시"
+L["Show the Trinket subtab."] = "장신구 보조 탭 표시"
+L["Show the Consumable subtab."] = "소모품 보조 탭 표시"
+L["Show the Devices subtab."] = "장치 보조 탭 표시"
+L["Show the Trade Goods subtab."] = "전문기술 용품 보조 탭 표시"
+L["Show the Gem subtab."] = "보석 보조 탭 표시"
+L["Show the Recipe subtab."] = "도안 보조 탭 표시"
+L["Configure Combuctor bag replacement settings."] = "통합가방(Combuctor) 대체 설정 구성"
+L["Category Tabs"] = "카테고리 탭"
+L["Inventory Tabs"] = "소지품 탭"
+L["Bank Tabs"] = "은행 탭"
+L["Inventory"] = "소지품"
+L["Bank"] = "은행"
+L["Choose which category tabs appear on the bag frame. Changes require closing and reopening bags to take effect."] = "가방 프레임에 표시할 카테고리 탭을 선택합니다. 변경 사항은 가방을 닫았다가 다시 열어야 적용됩니다."
+L["Choose which category tabs appear on the inventory bag frame."] = "소지품 가방 프레임에 표시할 카테고리 탭 선택"
+L["Choose which category tabs appear on the bank frame."] = "은행 프레임에 표시할 카테고리 탭 선택"
+L["Display"] = "표시"
+
+-- Advanced modules - Fallback display names
+L["Main Bars"] = "주 단축바"
+L["Vehicle"] = "탈것"
+L["Multicast"] = "멀티캐스트"
+L["Buttons"] = "버튼"
+L["Hide Blizzard Elements"] = "블리자드 기본 요소 숨기기"
+L["Buffs"] = "버프"
+L["KeyBinding"] = "단축키 설정"
+L["Cooldowns"] = "재사용 대기시간"
+
+-- Advanced modules - RegisterModule display names (from module files)
+L["Micro Menu"] = "마이크로 메뉴"
+L["Loot Roll"] = "주사위 굴림"
+L["Key Binding"] = "단축키 설정"
+L["Item Quality"] = "아이템 등급"
+L["Buff Frame"] = "버프 프레임"
+L["Hide Blizzard"] = "순정 화면 숨기기"
+L["Tooltip"] = "툴팁"
+
+-- Advanced modules - RegisterModule descriptions (from module files)
+L["Micro menu and bags system styling and positioning"] = "마이크로 메뉴 및 가방 시스템 스타일/위치 설정"
+L["Quest tracker positioning and styling"] = "퀘스트 추적기 위치 및 스타일 설정"
+L["Enhanced tooltip styling with class colors and health bars"] = "직업 색상 및 생명력 바가 포함된 강화된 툴팁 스타일"
+L["Hide default Blizzard UI elements"] = "블리자드 기본 UI 요소 숨기기"
+L["Custom minimap styling, positioning, tracking icons and calendar"] = "미니맵 스타일, 위치, 추적 아이콘 및 달력 설정"
+L["Main action bars, status bars, scaling and positioning"] = "주 행동 단축바, 상태 바, 크기 조절 및 위치 설정"
+L["LibKeyBound integration for intuitive keybinding"] = "직관적인 단축키 설정을 위한 LibKeyBound 통합"
+L["Color item borders by quality in bags, character panel, bank, and merchant"] = "가방, 캐릭터 창, 은행, 상점에서 아이템 등급별 테두리 색상 표시"
+L["Darken UI borders and chrome"] = "UI 테두리 및 장식 요소 어둡게"
+L["Action button styling and enhancements"] = "단축 버튼 스타일 및 기능 강화"
+L["Custom buff frame styling, positioning and toggle button"] = "사용자 정의 버프 프레임 스타일, 위치 및 토글 버튼"
+L["Vehicle interface enhancements"] = "탈것(탑승물) 인터페이스 기능 강화"
+L["Stance/shapeshift bar positioning and styling"] = "태세/변신 바 위치 및 스타일 설정"
+L["Pet action bar positioning and styling"] = "소환수 행동 단축바 위치 및 스타일 설정"
+L["Multicast (totem/possess) bar positioning and styling"] = "멀티캐스트 (토템/빙의) 바 위치 및 스타일"
+L["Chat Mods"] = "채팅 모드(기능)"
+L["Chat enhancements: hide buttons, editbox position, URL copy, chat copy, link hover, tell target"] = "채팅 강화: 버튼 숨김, 입력창 위치, URL/채팅 복사, 링크 툴팁, 대상에게 귓속말"
+L["Combuctor"] = "통합가방(Combuctor)"
+L["All-in-one bag replacement with filtering and search"] = "필터 및 검색 기능이 포함된 통합 가방 시스템"
+
+-- ============================================================================
+-- ACTION BARS TAB
+-- ============================================================================
+
+-- Sub-tabs
+L["Layout"] = "레이아웃"
+L["Visibility"] = "표시 설정"
+
+-- Scales section
+L["Action Bar Scales"] = "단축바 크기 비율"
+L["Main Bar Scale"] = "주 단축바 크기"
+L["Right Bar Scale"] = "우측 단축바 크기"
+L["Left Bar Scale"] = "좌측 단축바 크기"
+L["Bottom Left Bar Scale"] = "하단 좌측 단축바 크기"
+L["Bottom Right Bar Scale"] = "하단 우측 단축바 크기"
+L["Scale for main action bar"] = "주 단축바 크기"
+L["Scale for right action bar (MultiBarRight)"] = "우측 단축바 크기 (MultiBarRight)"
+L["Scale for left action bar (MultiBarLeft)"] = "좌측 단축바 크기 (MultiBarLeft)"
+L["Scale for bottom left action bar (MultiBarBottomLeft)"] = "하단 좌측 단축바 크기 (MultiBarBottomLeft)"
+L["Scale for bottom right action bar (MultiBarBottomRight)"] = "하단 우측 단축바 크기 (MultiBarBottomRight)"
+L["Reset All Scales"] = "모든 크기 초기화"
+L["Reset all action bar scales to their default values (0.9)"] = "모든 단축바 크기를 기본값(0.9)으로 초기화합니다"
+L["All action bar scales reset to default values (0.9)"] = "모든 단축바 크기가 기본값(0.9)으로 초기화되었습니다"
+L["All action bar scales reset to 0.9"] = "모든 단축바 크기 0.9로 초기화됨"
+
+-- Positions section
+L["Action Bar Positions"] = "단축바 위치"
+L["Tip: Use the Move UI Elements button above to reposition action bars with your mouse."] = "팁: 위의 'UI 요소 이동' 버튼으로 단축바를 마우스로 재배치하세요."
+L["Left Bar Horizontal"] = "좌측 바 가로 배치"
+L["Make the left secondary bar horizontal instead of vertical."] = "좌측 보조 단축바를 세로 대신 가로로 배치"
+L["Right Bar Horizontal"] = "우측 바 가로 배치"
+L["Make the right secondary bar horizontal instead of vertical."] = "우측 보조 단축바를 세로 대신 가로로 배치"
+
+-- Button Appearance section
+L["Button Appearance"] = "버튼 외형"
+L["Main Bar Only Background"] = "주 단축바 배경만 표시"
+L["If checked, only the main action bar buttons will have a background. If unchecked, all action bar buttons will have a background."] = "체크 시 주 단축바 버튼만 배경을 가집니다. 해제 시 모든 단축바 버튼에 배경이 표시됩니다."
+L["Only the main action bar buttons will have a background."] = "주 단축바 버튼에만 배경 표시"
+L["Hide Main Bar Background"] = "주 단축바 배경 숨기기"
+L["Hide the background texture of the main action bar (makes it completely transparent)"] = "주 단축바의 배경 텍스처를 숨깁니다 (완전 투명하게 만듦)"
+L["Hide the background texture of the main action bar."] = "주 단축바 배경 텍스처 숨기기"
+
+-- Text visibility
+L["Text Visibility"] = "문자 표시 설정"
+L["Count Text"] = "수량 텍스트"
+L["Show Count"] = "수량 표시"
+L["Show Count Text"] = "중첩 횟수 문자 표시"
+L["Hotkey Text"] = "단축키 텍스트"
+L["Show Hotkey"] = "단축키 표시"
+L["Show Hotkey Text"] = "단축키 문자 표시"
+L["Range Indicator"] = "거리 표시기"
+L["Show small range indicator point on buttons"] = "버튼에 작은 사거리 표시점을 표시합니다"
+L["Show range indicator dot on buttons."] = "버튼에 사거리 표시기 점 표시"
+L["Macro Text"] = "매크로 텍스트"
+L["Show Macro Names"] = "매크로 이름 표시"
+L["Page Numbers"] = "페이지 번호"
+L["Show Pages"] = "페이지 표시"
+L["Show Page Numbers"] = "페이지 번호 표시"
+
+-- Cooldown text
+L["Cooldown Text"] = "쿨다운 문자"
+L["Min Duration"] = "최소 지속 시간"
+L["Minimum duration for text triggering"] = "텍스트 표시 최소 지속시간"
+L["Minimum duration for cooldown text to appear."] = "재사용 대기시간 문자가 표시될 최소 지속시간 설정"
+L["Text Color"] = "텍스트 색상"
+L["Cooldown Text Color"] = "재사용 대기시간 문자 색상"
+L["Size of cooldown text."] = "재사용 대기시간 문자의 크기"
+
+-- Colors
+L["Colors"] = "색상"
+L["Macro Text Color"] = "매크로 문자 색상"
+L["Color for macro text"] = "매크로 텍스트 색상"
+L["Hotkey Shadow Color"] = "단축키 그림자 색상"
+L["Shadow color for hotkey text"] = "단축키 텍스트 그림자 색상"
+L["Border Color"] = "테두리 색상"
+L["Border color for buttons"] = "버튼 테두리 색상"
+
+-- Gryphons
+L["Gryphons"] = "그리핀"
+L["Gryphon Style"] = "그리핀 스타일"
+L["Display style for the action bar end-cap gryphons."] = "단축바 양쪽 장식 그리핀의 표시 스타일입니다."
+L["End-cap ornaments flanking the main action bar."] = "주 단축바 양 끝 장식 문양"
+L["Gryphon previews are hidden while D3D9Ex is active to avoid client crashes."] = "클라이언트 충돌을 막기 위해 D3D9Ex 사용 중에는 그리핀 미리보기를 숨깁니다."
+L["Style"] = "스타일"
+L["Old"] = "구 스타일"
+L["New"] = "새 스타일"
+L["Flying"] = "비행"
+L["Hide Gryphons"] = "그리핀 숨기기"
+L["Classic"] = "클래식"
+L["Dragonflight"] = "용군단"
+L["Hidden"] = "숨김"
+L["Dragonflight (Wyvern)"] = "용군단 (와이번)"
+L["Dragonflight (Gryphon)"] = "용군단 (그리핀)"
+
+-- Layout section
+L["Main Bar Layout"] = "주 단축바 레이아웃"
+L["Bottom Left Bar Layout"] = "하단 좌측 단축바 레이아웃"
+L["Bottom Right Bar Layout"] = "하단 우측 단축바 레이아웃"
+L["Right Bar Layout"] = "우측 단축바 레이아웃"
+L["Left Bar Layout"] = "좌측 단축바 레이아웃"
+L["Configure the main action bar grid layout. Rows are determined automatically from columns and buttons shown."] = "주 단축바 그리드 레이아웃 설정. 줄 수는 칸 수와 버튼 수에 따라 자동 결정"
+L["Columns"] = "칸 수"
+L["Buttons Shown"] = "표시될 버튼 수"
+L["Quick Presets"] = "빠른 프리셋"
+L["Apply layout presets to multiple bars at once."] = "여러 단축바에 레이아웃 프리셋 일괄 적용"
+L["Both 1x12"] = "모두 1x12"
+L["Both 2x6"] = "모두 2x6"
+L["Reset All"] = "모두 초기화"
+L["All bar layouts reset to defaults."] = "모든 단축바 레이아웃 기본값으로 초기화됨"
+
+-- Visibility section
+L["Bar Visibility"] = "단축바 표시 설정"
+L["Control when action bars are visible. Bars can show only on hover, only in combat, or both. When no option is checked the bar is always visible."] = "단축바 표시 조건 제어. 마우스 오버 시 또는 전투 중 표시 설정 가능. 미선택 시 항상 표시"
+L["Enable / Disable Bars"] = "단축바 활성화 / 비활성화"
+L["Bottom Left Bar"] = "하단 좌측 단축바"
+L["Bottom Right Bar"] = "하단 우측 단축바"
+L["Right Bar"] = "우측 단축바"
+L["Left Bar"] = "좌측 단축바"
+L["Main Bar"] = "주 단축바"
+L["Show on Hover Only"] = "마우스 오버 시에만 표시"
+L["Show in Combat Only"] = "전투 중에만 표시"
+L["Hide the main bar until you hover over it."] = "마우스 오버 시에만 주 단축바 표시"
+L["Hide the main bar until you enter combat."] = "전투 중일 때만 주 단축바 표시"
+
+-- ============================================================================
+-- ADDITIONAL BARS TAB
+-- ============================================================================
+
+L["Bars that appear based on your class and situation."] = "직업 및 상황에 따른 단축바 표시"
+L["Specialized bars that appear when needed (stance/pet/vehicle/totems)"] = "필요 시 나타나는 특수 바 (태세/소환수/탈것/토템)"
+L["Auto-show bars: Stance (Warriors/Druids/DKs) • Pet (Hunters/Warlocks/DKs) • Vehicle (All classes) • Totem (Shamans)"] = "자동 표시 바: 태세 (전사/드루이드/죽기) • 소환수 (사냥꾼/흑마/죽기) • 탈것 (전체 직업) • 토템 (주술사)"
+
+-- Common settings
+L["Common Settings"] = "공통 설정"
+L["Button Size"] = "버튼 크기"
+L["Size of buttons for all additional bars"] = "모든 추가 바의 버튼 크기"
+L["Button Spacing"] = "버튼 간격"
+L["Space between buttons for all additional bars"] = "모든 추가 바의 버튼 간격"
+
+-- Stance Bar
+L["Stance Bar"] = "태세바"
+L["Warriors, Druids, Death Knights"] = "전사, 드루이드, 죽음의 기사"
+L["X Position"] = "가로 위치"
+L["Y Position"] = "세로 위치"
+L["Y Offset"] = "Y 오프셋"
+L["Horizontal position of stance bar from screen center. Negative values move left, positive values move right."] = "화면 중앙에서 태세 바의 가로 위치. 음수는 왼쪽, 양수는 오른쪽으로 이동합니다."
+
+-- Pet Bar
+L["Pet Bar"] = "소환수바"
+L["Hunters, Warlocks, Death Knights - Use editor mode to move"] = "사냥꾼, 흑마법사, 죽음의 기사 - 편집 모드로 이동하세요"
+L["Show Empty Slots"] = "빈 슬롯 표시"
+L["Display empty action slots on pet bar"] = "소환수 바에 빈 액션 슬롯을 표시합니다"
+
+-- Vehicle Bar
+L["Vehicle Bar"] = "탈것바"
+L["All classes (vehicles/special mounts)"] = "모든 직업 (탈것/특수 탈것)"
+L["Custom Art Style"] = "사용자 지정 아트 스타일"
+L["Use custom vehicle bar art style with health/power bars and themed skin. Requires UI reload to apply."] = "생명력/자원 바와 테마 스킨이 포함된 사용자 지정 탈것 바 아트를 사용합니다. 적용하려면 UI 재설정이 필요합니다."
+L["Blizzard Art Style"] = "블리자드 아트 스타일"
+L["Use Blizzard vehicle bar art with health/power display. Requires reload."] = "생명력/자원이 표시되는 블리자드 기본 탈것바 스타일 사용(UI 재실행 필요)"
+
+-- Totem Bar
+L["Totem Bar"] = "토템 바"
+L["Totem Bar (Shaman)"] = "토템바 (주술사)"
+L["Shamans only - Totem multicast bar. Position is controlled via Editor Mode."] = "주술사 전용 - 토템 멀티캐스트 바. 위치는 편집 모드에서 조정합니다."
+L["TIP: Use Editor Mode to position the totem bar (type /dragonui edit)."] = "팁: 편집 모드에서 토템 바의 위치를 조정하세요 (/dragonui edit 입력)."
+
+-- ============================================================================
+-- CAST BARS TAB
+-- ============================================================================
+
+L["Player Castbar"] = "플레이어 시전바"
+L["Target Castbar"] = "대상 시전바"
+L["Focus Castbar"] = "주시 대상 시전바"
+
+-- Sub-tabs
+L["Player"] = "플레이어"
+L["Target"] = "대상"
+L["Focus"] = "주시 대상"
+
+-- Common options
+L["Width"] = "너비"
+L["Width of the cast bar"] = "시전 바의 너비"
+L["Height"] = "높이"
+L["Height of the cast bar"] = "시전 바의 높이"
+L["Scale"] = "크기 비율"
+L["Size scale of the cast bar"] = "시전 바 크기 비율"
+L["Show Icon"] = "아이콘 표시"
+L["Show the spell icon next to the cast bar"] = "시전 바 옆에 주문 아이콘을 표시합니다"
+L["Show Spell Icon"] = "주문 아이콘 표시"
+L["Show the spell icon next to the target castbar"] = "대상 시전 바 옆에 주문 아이콘을 표시합니다"
+L["Icon Size"] = "아이콘 크기"
+L["Size of the spell icon"] = "주문 아이콘 크기"
+L["Text Mode"] = "문자 모드"
+L["Choose how to display spell text: Simple (centered spell name only) or Detailed (spell name + time)"] = "주문 텍스트 표시 방식을 선택하세요: 간단 (중앙에 주문 이름만) 또는 상세 (주문 이름 + 시간)"
+L["Simple (Centered Name Only)"] = "간단 (중앙에 이름만)"
+L["Simple (Name Only)"] = "단순형 (이름만 표시)"
+L["Simple"] = "간단"
+L["Detailed (Name + Time)"] = "상세형 (이름 + 시간)"
+L["Detailed"] = "상세"
+L["Time Precision"] = "시간 정밀도"
+L["Decimal places for remaining time."] = "남은 시간 소수점 자릿수"
+L["Max Time Precision"] = "최대 시간 정밀도"
+L["Decimal places for total time."] = "전체 시간 소수점 자릿수"
+L["Hold Time (Success)"] = "유지 시간 (성공)"
+L["How long the bar stays visible after a successful cast."] = "성공적인 시전 후 바가 표시되는 시간입니다."
+L["How long the bar stays after a successful cast."] = "시전 성공 후 바 유지 시간"
+L["How long to show the castbar after successful completion"] = "성공적인 시전 완료 후 시전 바 표시 시간"
+L["Hold Time (Interrupt)"] = "유지 시간 (차단)"
+L["How long the bar stays visible after being interrupted."] = "시전이 차단된 후 바가 표시되는 시간입니다."
+L["How long the bar stays after being interrupted."] = "시전 차단 후 바 유지 시간"
+L["How long to show the castbar after interruption/failure"] = "시전 차단/실패 후 시전 바 표시 시간"
+L["Auto-Adjust for Auras"] = "오라 자동 위치 조정"
+L["Automatically adjust position based on target auras (CRITICAL FEATURE)"] = "대상의 오라에 따라 위치를 자동으로 조정합니다 (핵심 기능)"
+L["Shift castbar when buff/debuff rows are showing."] = "버프/디버프 줄 표시 시 시전바 위치 이동"
+L["Automatically adjust position based on focus auras"] = "주시 대상의 오라에 따라 위치를 자동으로 조정합니다"
+L["Reset Position"] = "위치 초기화"
+L["Resets the X and Y position to default."] = "X 및 Y 위치를 기본값으로 초기화합니다."
+L["Reset target castbar position to default"] = "대상 시전 바 위치를 기본값으로 초기화"
+L["Reset focus castbar position to default"] = "주시 대상 시전 바 위치를 기본값으로 초기화"
+L["Player castbar position reset."] = "플레이어 시전바 위치 초기화됨"
+L["Target castbar position reset."] = "대상 시전바 위치 초기화됨"
+L["Focus castbar position reset."] = "주시 대상 시전바 위치 초기화됨"
+L["Castbar detached - positioned freely via Editor Mode"] = "시전바 분리됨 - 편집 모드에서 자유 배치"
+L["Castbar attached - follows Target frame"] = "시전바 고정됨 - 대상 프레임을 따라감"
+L["Castbar attached - follows Focus frame"] = "시전바 고정됨 - 주시 대상 프레임을 따라감"
+L["Re-attach Castbar to Target"] = "시전바를 대상에 다시 고정"
+L["Re-attach Castbar to Focus"] = "시전바를 주시 대상에 다시 고정"
+
+-- Width/height descriptions for target/focus
+L["Width of the target castbar"] = "대상 시전 바의 너비"
+L["Height of the target castbar"] = "대상 시전 바의 높이"
+L["Scale of the target castbar"] = "대상 시전 바 크기 비율"
+L["Width of the focus castbar"] = "주시 대상 시전 바의 너비"
+L["Height of the focus castbar"] = "주시 대상 시전 바의 높이"
+L["Scale of the focus castbar"] = "주시 대상 시전 바 크기 비율"
+L["Show the spell icon next to the focus castbar"] = "주시 대상 시전 바 옆에 주문 아이콘을 표시합니다"
+L["Time to show the castbar after successful cast completion"] = "성공적인 시전 완료 후 시전 바 표시 시간"
+L["Time to show the castbar after cast interruption"] = "시전 차단 후 시전 바 표시 시간"
+
+-- Latency indicator (player only)
+L["Latency Indicator"] = "지연 시간 표시기"
+L["Enable Latency Indicator"] = "지연 시간 표시기 활성화"
+L["Show a safe-zone overlay based on real cast latency."] = "실제 시전 지연에 기반한 안전 구간 오버레이를 표시합니다."
+L["Latency Color"] = "지연 표시기 색상"
+L["Latency Alpha"] = "지연 표시기 투명도"
+L["Opacity of the latency indicator."] = "지연 시간 표시기의 투명도입니다."
+
+-- ============================================================================
+-- ENHANCEMENTS TAB
+-- ============================================================================
+
+L["Enhancements"] = "강화 기능"
+L["Visual enhancements that add Dragonflight-style polish to the UI. These are optional — disable any you don't want."] = "UI에 Dragonflight 스타일의 세련된 느낌을 더하는 시각적 개선 사항입니다. 선택 사항이므로 원하지 않는 항목은 비활성화하세요."
+
+-- (Dark Mode, Range Indicator, Item Quality, Tooltips defined above in MODULES section)
+
+-- ============================================================================
+-- MICRO MENU TAB
+-- ============================================================================
+
+L["Gray Scale Icons"] = "회색조 아이콘"
+L["Grayscale Icons"] = "회색조 아이콘"
+L["Use grayscale icons instead of colored icons for the micro menu"] = "마이크로 메뉴에 컬러 아이콘 대신 회색조 아이콘을 사용합니다"
+L["Use grayscale icons instead of colored icons."] = "컬러 대신 회색조 아이콘 사용"
+L["Grayscale Icons Settings"] = "회색조 아이콘 설정"
+L["Normal Icons Settings"] = "일반 아이콘 설정"
+L["Menu Scale"] = "메뉴 크기 비율"
+L["Icon Spacing"] = "아이콘 간격"
+L["Hide on Vehicle"] = "탈것 탑승 시 숨기기"
+L["Hide micromenu and bags if you sit on vehicle"] = "탈것에 탑승하면 마이크로 메뉴와 가방을 숨깁니다"
+L["Hide micromenu and bags while in a vehicle."] = "탈것 탑승 중 마이크로 메뉴 및 가방 숨김"
+L["Show Latency Indicator"] = "지연 시간 표시기"
+L["Show a colored bar below the Help button indicating connection quality (green/yellow/red). Requires UI reload."] = "도움말 버튼 아래 연결 상태 색상 바(녹색/황색/적색) 표시(UI 재실행 필요)"
+
+-- Bags
+L["Bags"] = "가방"
+L["Configure the position and scale of the bag bar independently from the micro menu."] = "가방 바의 위치와 크기를 마이크로 메뉴와 별도로 설정합니다."
+L["Bag Bar Scale"] = "가방 바 크기 비율"
+
+-- XP & Rep Bars
+L["XP & Rep Bars (Legacy Offsets)"] = "경험치 및 평판 바 (레거시 오프셋)"
+L["Main XP & Rep bar options have moved to the XP & Rep Bars tab."] = "주요 경험치 및 평판 바 옵션이 경험치 및 평판 바 탭으로 이동했습니다."
+L["These offset options are for advanced positioning adjustments."] = "이 오프셋 옵션은 고급 위치 미세 조정용입니다."
+L["Both Bars Offset"] = "두 바 모두 오프셋"
+L["Y offset when XP & reputation bar are shown"] = "경험치 및 평판 바가 모두 표시될 때 Y 오프셋"
+L["Single Bar Offset"] = "단일 바 오프셋"
+L["Y offset when XP or reputation bar is shown"] = "경험치 또는 평판 바가 표시될 때 Y 오프셋"
+L["No Bar Offset"] = "바 없음 오프셋"
+L["Y offset when no XP or reputation bar is shown"] = "경험치 또는 평판 바가 표시되지 않을 때 Y 오프셋"
+L["Rep Bar Above XP Offset"] = "경험치 바 위 평판 바 오프셋"
+L["Y offset for reputation bar when XP bar is shown"] = "경험치 바 표시 시 평판 바 Y 오프셋"
+L["Rep Bar Offset"] = "평판 바 오프셋"
+L["Y offset when XP bar is not shown"] = "경험치 바가 표시되지 않을 때 Y 오프셋"
+
+-- ============================================================================
+-- MINIMAP TAB
+-- ============================================================================
+
+L["Basic Settings"] = "기본 설정"
+L["Border Alpha"] = "테두리 투명도"
+L["Top border alpha (0 to hide)."] = "상단 테두리 투명도 (0으로 설정 시 숨김)."
+L["Addon Button Skin"] = "애드온 버튼 스킨"
+L["Apply DragonUI border styling to addon icons (e.g., bag addons)"] = "애드온 아이콘에 DragonUI 테두리 스타일을 적용합니다 (예: 가방 애드온)"
+L["Apply DragonUI border styling to addon icons."] = "애드온 아이콘에 DragonUI 테두리 스타일 적용"
+L["Addon Button Fade"] = "애드온 버튼 페이드"
+L["Addon icons fade out when not hovered."] = "마우스 오버 시에만 애드온 아이콘 표시"
+L["Player Arrow Size"] = "플레이어 화살표 크기"
+L["Size of the player arrow on the minimap"] = "미니맵 플레이어 화살표 크기"
+L["New Blip Style"] = "새로운 아이콘 스타일"
+L["Use new DragonUI object icons on the minimap. When disabled, uses classic Blizzard icons."] = "미니맵에 새로운 DragonUI 오브젝트 아이콘을 사용합니다. 비활성화 시 클래식 블리자드 아이콘을 사용합니다."
+L["Use newer-style minimap blip icons."] = "새로운 스타일의 미니맵 아이콘 사용"
+
+-- Time & Calendar
+L["Time & Calendar"] = "시간 및 달력"
+L["Show Clock"] = "시계 표시"
+L["Show/hide the minimap clock"] = "미니맵 시계 표시/숨기기"
+L["Show Calendar"] = "달력 표시"
+L["Show/hide the calendar frame"] = "달력 프레임 표시/숨기기"
+L["Clock Font Size"] = "시계 글꼴 크기"
+L["Font size for the clock numbers on the minimap"] = "미니맵 시계 숫자의 글꼴 크기"
+
+-- Display Settings
+L["Display Settings"] = "표시 설정"
+L["Tracking Icons"] = "추적 아이콘"
+L["Show current tracking icons (old style)."] = "현재 추적 아이콘 표시(구버전 방식)"
+L["Zoom Buttons"] = "확대/축소 버튼"
+L["Show zoom buttons (+/-)."] = "확대/축소 버튼(+/-) 표시"
+L["Zone Text Size"] = "지역 텍스트 크기"
+L["Zone Text Font Size"] = "지역 문자 글꼴 크기"
+L["Zone text font size on top border"] = "상단 테두리의 지역 텍스트 글꼴 크기"
+L["Font size of the zone text above the minimap."] = "미니맵 상단 지역 문자 글꼴 크기 설정"
+
+-- Position
+L["Position"] = "위치"
+L["Reset minimap to default position (top-right corner)"] = "미니맵을 기본 위치(우측 상단)로 초기화합니다"
+L["Reset Minimap Position"] = "미니맵 위치 초기화"
+L["Minimap position reset to default"] = "미니맵 위치가 기본값으로 초기화되었습니다"
+L["Minimap position reset."] = "미니맵 위치가 초기화되었습니다."
+
+-- ============================================================================
+-- QUEST TRACKER TAB
+-- ============================================================================
+
+L["Configures the quest objective tracker position and behavior."] = "퀘스트 목표 추적기의 위치와 동작을 설정합니다."
+L["Position and display settings for the objective tracker."] = "퀘스트 추적기 위치 및 표시 설정"
+L["Show Header Background"] = "제목 배경 표시"
+L["Show/hide the decorative header background texture."] = "장식용 제목 배경 텍스처 표시 여부 설정"
+L["Anchor Point"] = "고정점"
+L["Screen anchor point for the quest tracker."] = "퀘스트 추적기의 화면 고정점."
+L["Top Right"] = "우측 상단"
+L["Top Left"] = "좌측 상단"
+L["Bottom Right"] = "우측 하단"
+L["Bottom Left"] = "좌측 하단"
+L["Center"] = "중앙"
+L["Horizontal position offset"] = "가로 위치 오프셋"
+L["Vertical position offset"] = "세로 위치 오프셋"
+L["Reset quest tracker to default position"] = "퀘스트 추적기를 기본 위치로 초기화합니다"
+L["Font Size"] = "글꼴 크기"
+L["Font size for quest tracker text"] = "퀘스트 추적기 문자 글꼴 크기 설정"
+
+-- ============================================================================
+-- UNIT FRAMES TAB
+-- ============================================================================
+
+-- Sub-tabs
+L["Pet"] = "소환수"
+L["ToT / ToF"] = "대상의 대상 / 주시의 대상"
+L["Party"] = "파티"
+
+-- Common options
+L["Global Scale"] = "전체 크기 비율"
+L["Global scale for all unit frames"] = "모든 유닛 프레임의 전체 크기 비율"
+L["Scale of the player frame"] = "플레이어 프레임 크기 비율"
+L["Scale of the target frame"] = "대상 프레임 크기 비율"
+L["Scale of the focus frame"] = "주시 대상 프레임 크기 비율"
+L["Scale of the pet frame"] = "소환수 프레임 크기 비율"
+L["Scale of the target of target frame"] = "대상의 대상 프레임 크기 비율"
+L["Scale of the focus of target frame"] = "주시 대상의 대상 프레임 크기 비율"
+L["Scale of party frames"] = "파티 프레임 크기 비율"
+L["Class Color"] = "직업 색상"
+L["Class Color Health"] = "생명력 바 직업 색상"
+L["Use class color for health bar"] = "생명력 바에 직업 색상 사용"
+L["Use class color for health bars in party frames"] = "파티 프레임의 생명력 바에 직업 색상 사용"
+L["Class Portrait"] = "직업 초상화"
+L["Show class icon instead of 3D portrait"] = "3D 초상화 대신 직업 아이콘 표시"
+L["Show class icon instead of 3D portrait (only for players)"] = "3D 초상화 대신 직업 아이콘 표시 (플레이어만)"
+L["Class icon instead of 3D model for players."] = "플레이어 초상화에 3D 모델 대신 직업 아이콘을 사용."
+L["Alternative Class Icons"] = "대체 직업 아이콘"
+L["Use DragonUI alternative class icons instead of Blizzard's class icon atlas."] = "블리자드 직업 아이콘 아틀라스 대신 DragonUI 대체 직업 아이콘을 사용합니다."
+L["Large Numbers"] = "큰 숫자"
+L["Format Large Numbers"] = "큰 숫자 축약 표시"
+L["Format large numbers (1k, 1m)"] = "큰 숫자 축약 표시 (1k, 1m)"
+L["Text Format"] = "문자 형식"
+L["How to display health and mana values"] = "생명력 및 마나 수치 표시 방식"
+L["Choose how to display health and mana text"] = "생명력 및 마나 수치 표시 방식을 선택합니다"
+
+-- Text format values
+L["Current Value Only"] = "현재 수치만"
+L["Current Value"] = "현재 수치"
+L["Percentage Only"] = "백분율만"
+L["Percentage"] = "백분율"
+L["Both (Numbers + Percentage)"] = "모두 표시 (수치 + 백분율)"
+L["Numbers + %"] = "수치 + %"
+L["Current/Max Values"] = "현재/최대 수치"
+L["Current / Max"] = "현재 / 최대"
+
+-- Party text format values
+L["Current Value Only (2345)"] = "현재 수치만 (2345)"
+L["Formatted Current (2.3k)"] = "축약 현재 수치 (2.3k)"
+L["Percentage Only (75%)"] = "백분율만 (75%)"
+L["Percentage + Current (75% | 2.3k)"] = "백분율 + 현재 수치 (75% | 2.3k)"
+
+-- Health/Mana text
+L["Always Show Health Text"] = "생명력 수치 항상 표시"
+L["Show health text always (true) or only on hover (false)"] = "생명력 수치를 항상 표시(활성) 또는 마우스 오버 시에만 표시(비활성)"
+L["Always show health text on party frames (instead of only on hover)"] = "파티 프레임에서 생명력 수치를 항상 표시합니다 (마우스 오버 시에만이 아닌)"
+L["Always display health text (otherwise only on mouseover)"] = "생명력 수치를 항상 표시합니다 (기본값: 마우스 오버 시에만 표시)"
+L["Always Show Mana Text"] = "마나 수치 항상 표시"
+L["Show mana/power text always (true) or only on hover (false)"] = "마나/자원 수치를 항상 표시(활성) 또는 마우스 오버 시에만 표시(비활성)"
+L["Always show mana text on party frames (instead of only on hover)"] = "파티 프레임에서 마나 수치를 항상 표시합니다 (마우스 오버 시에만이 아닌)"
+L["Always display mana/energy/rage text (otherwise only on mouseover)"] = "마나/기력/분노 수치를 항상 표시합니다 (기본값: 마우스 오버 시에만 표시)"
+
+-- Player frame specific
+L["Player Frame"] = "플레이어 프레임"
+L["Dragon Decoration"] = "용 장식"
+L["Add decorative dragon to your player frame for a premium look"] = "고급스러운 외관을 위해 플레이어 프레임에 장식용 드래곤을 추가합니다"
+L["None"] = "없음"
+L["Elite Dragon (Golden)"] = "정예 드래곤 (황금)"
+L["Elite (Golden)"] = "정예 (황금)"
+L["RareElite Dragon (Winged)"] = "희귀 정예 드래곤 (날개)"
+L["RareElite (Winged)"] = "희귀 정예 (날개)"
+L["Glow Effects"] = "반짝임 효과"
+L["Show Rest Glow"] = "휴식 중 반짝임 표시"
+L["Show a golden glow around the player frame when resting (in an inn or city). Works with all frame modes: normal, elite, fat health bar, and vehicle."] = "휴식 중(여관 또는 대도시)일 때 플레이어 프레임 주변에 황금색 반짝임을 표시합니다. 모든 프레임 모드(일반, 정예, 두꺼운 생명력 바, 탈것)에서 작동합니다."
+L["Golden glow around the player frame when resting (inn or city). Works with all frame modes."] = "휴식 중(여관 또는 대도시)일 때 플레이어 프레임 주변에 황금색 반짝임을 표시합니다. 모든 프레임 모드에 적용됩니다."
+L["Combat Flash"] = "전투 번쩍임"
+L["Show Combat Flash"] = "전투 번쩍임 표시"
+L["Pulsing glow effect when entering combat. Works with all frame modes."] = "전투 진입 시 맥동하는 반짝임 효과. 모든 프레임 모드에서 작동합니다."
+L["Combat Flash Opacity"] = "전투 번쩍임 불투명도"
+L["Maximum opacity of the combat flash pulse effect."] = "전투 번쩍임 맥동 효과의 최대 불투명도."
+L["Always Show Alternate Mana Text"] = "보조 마나 수치 항상 표시"
+L["Show mana text always visible (default: hover only)"] = "마나 수치를 항상 표시합니다 (기본값: 마우스 오버 시에만)"
+L["Alternate Mana (Druid)"] = "보조 마나 (드루이드)"
+L["Always Show"] = "항상 표시"
+L["Druid mana text visible at all times, not just on hover."] = "드루이드의 마나 수치를 마우스 오버 시뿐만 아니라 항상 표시합니다."
+L["Alternate Mana Text Format"] = "보조 마나 문자 형식"
+L["Choose text format for alternate mana display"] = "보조 마나 표시의 문자 형식을 선택합니다"
+L["Percentage + Current/Max"] = "백분율 + 현재/최대 수치"
+
+-- Fat Health Bar
+L["Health Bar Style"] = "생명력 바 스타일"
+L["Fat Health Bar"] = "두꺼운 생명력 바"
+L["Enable"] = "활성화"
+L["Full-width health bar that fills the entire frame area. Uses modified border texture that removes the inner divider line. Compatible with Dragon Decoration (requires fat variant textures). Note: Automatically disabled during vehicle UI."] = "프레임 전체 너비를 채우는 생명력 바입니다. 내부 구분선을 제거한 수정된 테두리 텍스처를 사용합니다. 용 장식과 호환됩니다 (두꺼운 변형 텍스처 필요). 참고: 탈것 UI 사용 시 자동으로 비활성화됩니다."
+L["Full-width health bar. Auto-disabled in vehicles."] = "프레임 전체 너비 생명력 바입니다. 탈것 탑승 시 자동으로 비활성화됩니다."
+L["Hide Mana Bar (Fat Mode)"] = "마나 바 숨기기 (두꺼운 모드)"
+L["Hide Mana Bar"] = "마나 바 숨기기"
+L["Completely hide the mana bar when Fat Health Bar is active."] = "두꺼운 생명력 바가 활성화된 경우 마나 바를 완전히 숨깁니다."
+L["Mana Bar Width (Fat Mode)"] = "마나 바 너비 (두꺼운 모드)"
+L["Mana Bar Width"] = "마나 바 너비"
+L["Width of the mana bar when Fat Health Bar is active. Movable via Editor Mode."] = "두꺼운 생명력 바 활성화 시 마나 바의 너비. 편집 모드에서 이동 가능합니다."
+L["Mana Bar Height (Fat Mode)"] = "마나 바 높이 (두꺼운 모드)"
+L["Mana Bar Height"] = "마나 바 높이"
+L["Height of the mana bar when Fat Health Bar is active."] = "두꺼운 생명력 바 활성화 시 마나 바의 높이."
+L["Mana Bar Texture"] = "마나 바 텍스처"
+L["Choose the texture style for the power/mana bar. Only applies in Fat Health Bar mode."] = "자원/마나 바의 텍스처 스타일을 선택하세요. 두꺼운 생명력 바 모드에서만 적용됩니다."
+L["DragonUI (Default)"] = "DragonUI (기본값)"
+L["Blizzard Classic"] = "블리자드 클래식"
+L["Flat Solid"] = "플랫 솔리드 (단색)"
+L["Smooth"] = "부드럽게"
+L["Aluminium"] = "알루미늄"
+L["LiteStep"] = "라이트스텝"
+
+-- Power Bar Colors
+L["Power Bar Colors"] = "마력 바 색상"
+L["Mana"] = "마나"
+L["Rage"] = "분노"
+L["Energy"] = "기력"
+-- L["Focus"] = true  -- Already defined above
+L["Runic Power"] = "룬 마력"
+L["Happiness"] = "만족도"
+L["Runes"] = "룬"
+L["Reset Colors to Default"] = "기본 색상으로 초기화"
+
+-- Target frame
+L["Target Frame"] = "대상 프레임"
+L["Threat Glow"] = "위협 수준 반짝임"
+L["Show threat glow effect"] = "위협 수준 반짝임 효과 표시"
+L["Show Name Background"] = "이름 배경 표시"
+L["Show the colored name background behind the target name."] = "대상 이름 뒤의 색상 배경을 표시합니다."
+
+-- Focus frame
+L["Focus Frame"] = "주시 대상 프레임"
+L["Show the colored name background behind the focus name."] = "주시 대상 이름 뒤의 색상 배경을 표시합니다."
+L["Show Buff/Debuff on Focus"] = "주시 대상에 버프/디버프 표시"
+L["Uses the native large focus frame mode to show buffs and debuffs on the focus frame."] = "기본 대형 주시 대상 프레임 모드를 사용해 주시 대상 프레임에 버프와 디버프를 표시합니다."
+L["Override Position"] = "위치 수동 설정"
+L["Override default positioning"] = "기본 위치 설정 재정의"
+L["Move the pet frame independently from the player frame."] = "소환수 프레임을 플레이어 프레임과 별개로 이동시킵니다."
+
+-- Pet frame
+L["Pet Frame"] = "소환수 프레임"
+L["Allows the pet frame to be moved freely. When unchecked, it will be positioned relative to the player frame."] = "소환수 프레임을 자유롭게 이동할 수 있습니다. 해제 시 플레이어 프레임 기준으로 배치됩니다."
+L["Horizontal position (only active if Override is checked)"] = "가로 위치 (수동 설정 체크 시에만 활성화)"
+L["Vertical position (only active if Override is checked)"] = "세로 위치 (수동 설정 체크 시에만 활성화)"
+
+-- Target of Target
+L["Target of Target"] = "대상의 대상"
+L["Follows the Target frame by default. Move it in Editor Mode (/dragonui edit) to detach and position freely."] = "기본적으로 대상 프레임을 따라다닙니다. 편집 모드(/dragonui edit)에서 이동하면 분리되어 자유롭게 배치할 수 있습니다."
+L["Detached — positioned freely via Editor Mode"] = "분리됨 — 편집 모드에서 자유롭게 배치됨"
+L["Attached — follows Target frame"] = "고정됨 — 대상 프레임을 따라감"
+L["Re-attach to Target"] = "대상 프레임에 다시 고정"
+
+-- Target of Focus
+L["Target of Focus"] = "주시 대상의 대상"
+L["Follows the Focus frame by default. Move it in Editor Mode (/dragonui edit) to detach and position freely."] = "기본적으로 주시 대상 프레임을 따라다닙니다. 편집 모드(/dragonui edit)에서 이동하면 분리되어 자유롭게 배치할 수 있습니다."
+L["Attached — follows Focus frame"] = "고정됨 — 주시 대상 프레임을 따라감"
+L["Re-attach to Focus"] = "주시 대상 프레임에 다시 고정"
+
+-- Party Frames
+L["Party Frames"] = "파티 프레임"
+L["Party Frames Configuration"] = "파티 프레임 설정"
+L["Custom styling for party member frames with automatic health/mana text display and class colors."] = "자동 생명력/마나 수치 표시 및 직업 색상이 적용된 파티원 프레임 스타일."
+
+-- Boss Frames
+L["Boss Frames"] = "보스 프레임"
+L["Enabled"] = "활성화됨"
+
+L["Orientation"] = "배치 방향"
+L["Vertical"] = "세로 방향"
+L["Horizontal"] = "가로 방향"
+L["Party frame orientation"] = "파티 프레임 배치 방향"
+L["Vertical Padding"] = "세로 간격"
+L["Space between party frames in vertical mode."] = "세로 배치 시 프레임 간의 여백입니다."
+L["Horizontal Padding"] = "가로 간격"
+L["Space between party frames in horizontal mode."] = "가로 배치 시 프레임 간의 여백입니다."
+
+-- ============================================================================
+-- XP & REP BARS TAB
+-- ============================================================================
+
+L["Bar Style"] = "바 스타일"
+L["XP / Rep Bar Style"] = "경험치 / 평판 바 스타일"
+L["DragonflightUI: fully custom bars with rested XP background.\nRetailUI: atlas-based reskin of Blizzard bars.\n\nChanging style requires a UI reload."] = "DragonflightUI: 휴식 경험치 배경이 포함된 완전 커스텀 바입니다.\nRetailUI: 블리자드 기본 바를 아틀라스 기반으로 리스킨한 버전입니다.\n\n스타일을 변경하면 UI 재설정이 필요합니다."
+L["DragonflightUI"] = "용군단UI"
+L["RetailUI"] = "본섭UI"
+L["XP bar style changed to "] = "경험치 바 스타일 변경: "
+L["A UI reload is required to apply this change."] = "이 변경 사항을 적용하려면 UI를 다시 불러와야 합니다."
+
+-- Size & Scale
+L["Size & Scale"] = "크기 및 비율"
+L["Bar Height"] = "바 높이"
+L["Height of the XP and Reputation bars (in pixels)."] = "경험치 및 평판 바의 높이(픽셀 단위)입니다."
+L["Experience Bar Scale"] = "경험치 바 크기 비율"
+L["Scale of the experience bar."] = "경험치 바의 크기 비율을 설정합니다."
+L["Reputation Bar Scale"] = "평판 바 크기 비율"
+L["Scale of the reputation bar."] = "평판 바의 크기 비율을 설정합니다."
+
+-- Rested XP
+L["Rested XP"] = "휴식 경험치"
+L["Show Rested XP Background"] = "휴식 경험치 배경 표시"
+L["Display a translucent bar showing the total available rested XP range.\n(DragonflightUI style only)"] = "획득 가능한 총 휴식 경험치 범위를 반투명한 바 형태로 표시합니다.\n(용군단UI 스타일 전용)"
+L["Show Exhaustion Tick"] = "휴식 상태 구분선 표시"
+L["Show the exhaustion tick indicator on the XP bar, marking where rested XP ends."] = "경험치 바에 휴식 경험치가 끝나는 지점을 표시하는 구분선(틱)을 보여줍니다."
+
+-- Text Display
+L["Text Display"] = "문자 표시"
+L["Always Show Text"] = "항상 문자 표시"
+L["Always display XP/Rep text instead of only on hover."] = "마우스를 올렸을 때뿐만 아니라 항상 경험치/평판 수치를 표시합니다."
+L["Show XP Percentage"] = "경험치 백분율 표시"
+L["Display XP percentage alongside the value text."] = "수치 문자와 함께 경험치 퍼센트(%)를 표시합니다."
+
+-- ============================================================================
+-- PROFILES TAB
+-- ============================================================================
+
+L["Database not available."] = "데이터베이스를 사용할 수 없습니다."
+L["Save and switch between different configurations per character."] = "캐릭터별로 다양한 설정을 저장하거나 교체할 수 있습니다."
+L["Current Profile"] = "현재 프로필"
+L["Active: "] = "활성 프로필: "
+L["Switch or Create Profile"] = "프로필 전환 및 생성"
+L["Select Profile"] = "프로필 선택"
+L["New Profile Name"] = "새 프로필 이름"
+L["Copy From"] = "복사해오기"
+L["Copies all settings from the selected profile into your current one."] = "선택한 프로필의 모든 설정을 현재 프로필로 복사합니다."
+L["Copied profile: "] = "복사된 프로필: "
+L["Delete Profile"] = "프로필 삭제"
+L["Warning: Deleting a profile is permanent and cannot be undone."] = "경고: 프로필 삭제는 영구적이며 되돌릴 수 없습니다."
+L["Delete"] = "삭제"
+L["Deleted profile: "] = "삭제된 프로필: "
+L["Are you sure you want to delete the profile '%s'? This cannot be undone."] = "'%s' 프로필을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+L["Reset Current Profile"] = "현재 프로필 초기화"
+L["Restores the current profile to its defaults. This cannot be undone."] = "현재 프로필을 기본 설정으로 복구합니다. 이 작업은 되돌릴 수 없습니다."
+L["Reset Profile"] = "프로필 초기화"
+L["All changes will be lost and the UI will be reloaded.\nAre you sure you want to reset your profile?"] = "모든 변경 사항이 삭제되고 UI가 재설정됩니다.\n정말로 프로필을 초기화하시겠습니까?"
+L["Profile reset to defaults."] = "프로필이 기본값으로 초기화되었습니다."
+
+-- UNIT FRAME LAYERS MODULE
+L["Unit Frame Layers"] = "유닛 프레임 레이어"
+L["Enable Unit Frame Layers"] = "유닛 프레임 레이어 활성화"
+L["Heal prediction, absorb shields, and animated health loss on unit frames"] = "유닛 프레임의 치유 예측, 흡수 보호막, 생명력 손실 애니메이션"
+L["Heal prediction bars, absorb shields, and animated health loss overlays on unit frames."] = "유닛 프레임의 치유 예측 바, 흡수 보호막, 생명력 손실 애니메이션 오버레이."
+L["Show heal prediction, absorb shields, and animated health loss on all unit frames."] = "모든 유닛 프레임에 치유 예측, 흡수 보호막, 생명력 손실 애니메이션을 표시합니다."
+L["Animated Health Loss"] = "생명력 손실 애니메이션"
+L["Show animated red health loss bar on player frame when taking damage."] = "피해를 받을 때 플레이어 프레임에 빨간색 생명력 손실 애니메이션 바를 표시합니다."
+L["Builder/Spender Feedback"] = "자원 획득/소모 효과"
+L["Show mana gain/loss glow feedback on player mana bar (experimental)."] = "플레이어 마나 바에 마나 획득/소모 효과를 표시합니다 (실험적)."
+
+-- LAYOUT PRESETS
+L["Layout Presets"] = "레이아웃 프리셋"
+L["Save and restore complete UI layouts. Each preset captures all positions, scales, and settings."] = "완전한 UI 레이아웃을 저장하고 복원합니다. 각 프리셋은 모든 위치, 배율, 설정을 포함합니다."
+L["No presets saved yet."] = "아직 저장된 프리셋이 없습니다."
+L["Save New Preset"] = "새 프리셋 저장"
+L["Save your current UI layout as a new preset."] = "현재 UI 레이아웃을 새 프리셋으로 저장합니다."
+L["Preset"] = "프리셋"
+L["Enter a name for this preset:"] = "프리셋 이름을 입력하세요:"
+L["Save"] = "저장"
+L["Load"] = "불러오기"
+L["Load preset '%s'? This will overwrite your current layout settings."] = "'%s' 프리셋을 불러올까요? 현재 레이아웃 설정이 덮어씁니다."
+L["Load Preset"] = "프리셋 불러오기"
+L["Delete preset '%s'? This cannot be undone."] = "'%s' 프리셋을 삭제할까요? 이 작업은 되돌릴 수 없습니다."
+L["Delete Preset"] = "프리셋 삭제"
+L["Duplicate Preset"] = "프리셋 복제"
+L["Preset saved: "] = "프리셋 저장됨: "
+L["Preset loaded: "] = "프리셋 불러옴: "
+L["Preset deleted: "] = "프리셋 삭제됨: "
+L["Preset duplicated: "] = "프리셋 복제됨: "
+L["Also delete all saved layout presets?"] = "저장된 레이아웃 프리셋도 모두 삭제할까요?"
+L["Presets kept."] = "프리셋이 유지되었습니다."
+
+-- PRESET IMPORT / EXPORT
+L["Export Preset"] = "프리셋 내보내기"
+L["Import Preset"] = "프리셋 가져오기"
+L["Import a preset from a text string shared by another player."] = "다른 플레이어가 공유한 텍스트에서 프리셋을 가져옵니다."
+L["Import"] = "가져오기"
+L["Select All"] = "모두 선택"
+L["Close"] = "닫기"
+L["Enter a name for the imported preset:"] = "가져온 프리셋의 이름을 입력하세요:"
+L["Imported Preset"] = "가져온 프리셋"
+L["Preset imported: "] = "프리셋 가져옴: "
+L["Invalid preset string."] = "유효하지 않은 프리셋 문자열입니다."
+L["Not a valid DragonUI preset string."] = "유효한 DragonUI 프리셋 문자열이 아닙니다."
+L["Failed to export preset."] = "프리셋 내보내기에 실패했습니다."

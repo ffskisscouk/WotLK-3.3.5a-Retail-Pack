@@ -1,0 +1,50 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+    <!-- Textures  -->
+    <Texture name="DUIPanelButtonUpTexture" file="Interface\AddOns\DialogUI\src\assets\art\parchment\OptionBackground-Common" virtual="true">
+    </Texture>
+    <Texture name="DUIPanelButtonDownTexture" file="Interface\AddOns\DialogUI\src\assets\art\parchment\ButtonHighlight-Gossip" virtual="true">
+    </Texture>
+    <Texture name="DUIPanelButtonDisabledTexture" file="Interface\AddOns\DialogUI\src\assets\art\parchment\OptionBackground-Grey"  virtual="true">
+    </Texture>
+    <Texture name="DUIPanelButtonDisabledDownTexture" file="Interface\AddOns\DialogUI\src\assets\art\parchment\OptionBackground-Grey"  virtual="true">
+    </Texture>
+    <Texture name="DUIPanelButtonHighlightTexture" file="Interface\AddOns\DialogUI\src\assets\art\parchment\ButtonHighlight-Gossip" alphaMode="ADD" virtual="true">
+    </Texture>
+    <!-- Textures End -->
+    
+    <Button name="DUIPanelButtonTemplate" virtual="true">
+        <!-- Явно задаем шрифт без inherits -->
+        <ButtonText name="$parentText" font="Interface\AddOns\DialogUI\src\assets\font\frizqt___cyr.ttf" justifyH="CENTER">
+            <FontHeight>
+                <AbsValue val="12" />
+            </FontHeight>
+            <!-- Белый цвет для текста кнопки -->
+            <Color r="1.0" g="1.0" b="1.0" />
+        </ButtonText>
+        <NormalFont font="Interface\AddOns\DialogUI\src\assets\font\frizqt___cyr.ttf">
+            <FontHeight>
+                <AbsValue val="12" />
+            </FontHeight>
+            <!-- Белый цвет для нормального состояния -->
+            <Color r="1.0" g="1.0" b="1.0" />
+        </NormalFont>
+        <HighlightFont font="Interface\AddOns\DialogUI\src\assets\font\frizqt___cyr.ttf">
+            <FontHeight>
+                <AbsValue val="12" />
+            </FontHeight>
+            <!-- Светло-желтый/белый для подсветки -->
+            <Color r="1.0" g="1.0" b="0.8" />
+        </HighlightFont>
+        <DisabledFont font="Interface\AddOns\DialogUI\src\assets\font\frizqt___cyr.ttf">
+            <FontHeight>
+                <AbsValue val="12" />
+            </FontHeight>
+            <!-- Серый для отключенного состояния -->
+            <Color r="0.5" g="0.5" b="0.5" />
+        </DisabledFont>
+        <NormalTexture inherits="DUIPanelButtonUpTexture"/>
+        <DisabledTexture inherits="DUIPanelButtonDisabledTexture"/>
+        <HighlightTexture inherits="DUIPanelButtonHighlightTexture"/>
+    </Button>
+</Ui>

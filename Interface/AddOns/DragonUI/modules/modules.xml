@@ -1,0 +1,57 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <!-- Conflict Detection module (loaded early) -->
+    <Script file="compatibility.lua"/>
+    
+    <!-- Actionbar modules -->
+    <Script file="noop.lua"/>
+    <Script file="buttons.lua"/>
+    <Script file="rage_indicator.lua"/>
+    <Script file="cooldowns.lua"/>
+    <Script file="mainbars.lua"/>
+    
+    <!-- Action Bar Sub-modules (stance, vehicle, petbar, multicast) -->
+    <Include file="actionbars\actionbars.xml"/>
+    
+    <!-- Micro Menu & Bag module -->
+    <Script file="micromenu.lua"/>
+    
+    <!-- KeyBinding module -->
+    <Script file="keybinding.lua"/>
+    
+    <!-- Buffs, Minimap & Quest Tracker modules -->
+    <Script file="BuffFrame.lua"/> 
+    <Script file="minimap.lua"/>    
+    <Script file="questtracker.lua"/>   
+    <Script file="lootroll.lua"/>
+
+ 
+    <!-- UnitFrames -->
+    <Include file="unitframes\unitframes.xml"/>
+    
+    <!-- Cast Bar module -->
+    <Script file="castbar.lua"/>               
+    
+    <!-- Game Menu module -->
+    <Script file="gamemenu.lua"/>
+    
+    <!-- Editor Mode module -->
+    <Script file="editor_mode.lua"/>
+    
+    <!-- Dark Mode module -->
+    <Script file="darkmode.lua"/>
+    
+    <!-- Tooltip Enhancement module -->
+    <Script file="tooltip.lua"/>
+    
+    <!-- Item Quality Borders module -->
+    <Script file="itemquality.lua"/>
+    
+    <!-- Chat Mods module -->
+    <Script file="chatmods.lua"/>
+    
+    <!-- Combuctor bag replacement module -->
+    <Include file="combuctor\combuctor.xml"/>
+    
+    <!-- Bag Sort module (sort buttons for bags and bank) -->
+    <Script file="bagsort.lua"/>
+</Ui>

@@ -1,0 +1,973 @@
+﻿--[[
+================================================================================
+DragonUI_Options - English Locale (Default)
+================================================================================
+Base locale for the options panel: labels, descriptions, section headers,
+dropdown values, print messages, popup text.
+
+When adding new strings:
+1. Add L[<your key>] = true here
+2. Use L["Your String"] in your options code
+3. Add translations to other locale files
+================================================================================
+]]
+
+local L = LibStub("AceLocale-3.0"):NewLocale("DragonUI_Options", "ruRU")
+if not L then return end
+
+-- ============================================================================
+-- GENERAL / PANEL
+-- ============================================================================
+
+L["DragonUI"] = "DragonUI"
+L["Use the tabs on the left to configure modules, action bars, unit frames, minimap, and more."] = "Используйте вкладки слева для настройки модулей, панелей действий, фреймов, миникарты и многого другого."
+L["Editor Mode"] = "Режим редактора"
+L["Exit Editor Mode"] = "Выйти из режима редактора"
+L["KeyBind Mode Active"] = "Режим клавиш активен"
+L["Move UI Elements"] = "Переместить элементы интерфейса"
+L["Cannot open options during combat."] = "Невозможно открыть настройки во время боя."
+L["Open DragonUI Settings"] = "Открыть настройки DragonUI"
+L["Open the DragonUI configuration panel."] = "Открыть панель настроек DragonUI."
+L["Use /dragonui to open the full settings panel."] = "Используйте /dragonui для открытия полной панели настроек."
+
+-- Quick Actions
+L["Quick Actions"] = "Быстрые действия"
+L["Jump to popular settings sections."] = "Перейти к популярным разделам настроек."
+L["Action Bar Layout"] = "Раскладка панелей действий"
+L["Configure dark tinting for all UI chrome."] = "Настроить затемнение всех элементов интерфейса."
+L["Full-width health bar that fills the entire player frame."] = "Полноразмерная полоса здоровья, заполняющая весь фрейм игрока."
+L["Add a decorative dragon to your player frame."] = "Добавить декоративного дракона к фрейму игрока."
+L["Heal prediction, absorb shields and animated health loss."] = "Предсказание исцеления, щиты поглощения и анимация потери здоровья."
+L["Change columns, rows, and buttons shown per action bar."] = "Изменить количество столбцов, строк и кнопок на панели действий."
+L["Switch micro menu icons between colored and grayscale style."] = "Переключить значки микроменю между цветным и серым стилем."
+L["About"] = "О программе"
+L["Bringing the retail WoW look to 3.3.5a, inspired by Dragonflight UI."] = "Внешний вид розничного WoW для 3.3.5a, вдохновлённый Dragonflight UI."
+L["Created and maintained by Neticsoul, with community contributions."] = "Создано и поддерживается Neticsoul при участии сообщества."
+
+L["Commands: /dragonui, /dui, /pi — /dragonui edit (editor) — /dragonui help"] = "Команды: /dragonui, /dui, /pi — /dragonui edit (редактор) — /dragonui help"
+L["GitHub (select and Ctrl+C to copy):"] = "GitHub (выделите и Ctrl+C для копирования):"
+L["All"] = "Все"
+L["Error:"] = "Ошибка:"
+L["Error: DragonUI addon not found!"] = "Ошибка: Аддон DragonUI не найден!"
+
+-- ============================================================================
+-- STATIC POPUPS
+-- ============================================================================
+
+L["Changing this setting requires a UI reload to apply correctly."] = "Для применения этой настройки требуется перезагрузка интерфейса."
+L["Reload UI"] = "Перезагрузить"
+L["Not Now"] = "Не сейчас"
+L["Reload Now"] = "Перезагрузить"
+L["Cancel"] = "Отмена"
+L["Yes"] = "Да"
+L["No"] = "Нет"
+
+-- ============================================================================
+-- TAB NAMES
+-- ============================================================================
+
+L["General"] = "Общие"
+L["Modules"] = "Модули"
+L["Action Bars"] = "Панели действий"
+L["Additional Bars"] = "Доп. панели"
+L["Minimap"] = "Миникарта"
+L["Profiles"] = "Профили"
+L["Unit Frames"] = "Фреймы"
+L["XP & Rep Bars"] = "Опыт и репутация"
+L["Chat"] = "Чат"
+L["Appearance"] = "Внешний вид"
+
+-- ============================================================================
+-- MODULES TAB
+-- ============================================================================
+
+-- Headers & descriptions
+L["Module Control"] = "Управление модулями"
+L["Enable or disable specific DragonUI modules"] = "Включить или отключить отдельные модули DragonUI"
+L["Toggle individual modules on or off. Disabled modules revert to the default Blizzard UI."] = "Переключайте модули по отдельности. Отключённые модули возвращают стандартный интерфейс Blizzard."
+L["Visual enhancements that add Dragonflight-style polish to the UI."] = "Визуальные улучшения, добавляющие стиль Dragonflight в интерфейс."
+L["Warning: These are individual module controls. The options above may control multiple modules at once. Changes here will be reflected above and vice versa."] = "Внимание: это индивидуальные настройки модулей. Опции выше могут управлять несколькими модулями сразу. Изменения здесь отражаются выше и наоборот."
+L["Warning:"] = "Внимание:"
+L["Individual overrides. The grouped toggles above take priority."] = "Индивидуальные переопределения. Групповые переключатели выше имеют приоритет."
+L["Advanced - Individual Module Control"] = "Расширенные — Управление модулями по отдельности"
+
+-- Section headers
+L["Cast Bars"] = "Полосы заклинаний"
+L["Other Modules"] = "Другие модули"
+L["UI Systems"] = "Системы интерфейса"
+L["Enable All Action Bar Modules"] = "Включить все модули панелей действий"
+L["Cast Bar"] = "Полоса заклинаний"
+L["Custom player, target, and focus cast bars"] = "Пользовательские полосы заклинаний игрока, цели и фокуса"
+L["Cooldown text on action buttons"] = "Текст перезарядки на кнопках действий"
+L["Shaman totem bar positioning and styling"] = "Позиционирование и стилизация панели тотемов шамана"
+L["Dragonflight-styled player unit frame"] = "Фрейм игрока в стиле Dragonflight"
+L["Dragonflight-styled boss target frames"] = "Фреймы боссов в стиле Dragonflight"
+
+-- Toggle labels
+L["Action Bars System"] = "Система панелей действий"
+L["Micro Menu & Bags"] = "Микроменю и сумки"
+L["Cooldown Timers"] = "Таймеры перезарядки"
+L["Minimap System"] = "Система миникарты"
+L["Buff Frame System"] = "Система фрейма эффектов"
+L["Dark Mode"] = "Тёмный режим"
+L["Item Quality Borders"] = "Рамки качества предметов"
+L["Enable Enhanced Tooltips"] = "Включить улучшенные подсказки"
+L["KeyBind Mode"] = "Режим клавиш"
+L["Quest Tracker"] = "Трекер заданий"
+
+-- Module toggle descriptions
+L["Enable DragonUI player castbar. When disabled, shows default Blizzard castbar."] = "Включить полосу заклинаний DragonUI. При отключении показывается стандартная полоса Blizzard."
+L["Enable DragonUI player castbar styling."] = "Включить стилизацию полосы заклинаний игрока DragonUI."
+L["Enable DragonUI target castbar. When disabled, shows default Blizzard castbar."] = "Включить полосу заклинаний цели DragonUI. При отключении показывается стандартная полоса Blizzard."
+L["Enable DragonUI target castbar styling."] = "Включить стилизацию полосы заклинаний цели DragonUI."
+L["Enable DragonUI focus castbar. When disabled, shows default Blizzard castbar."] = "Включить полосу заклинаний фокуса DragonUI. При отключении показывается стандартная полоса Blizzard."
+L["Enable DragonUI focus castbar styling."] = "Включить стилизацию полосы заклинаний фокуса DragonUI."
+L["Enable the complete DragonUI action bars system. This controls: Main action bars, vehicle interface, stance/shapeshift bars, pet action bars, multicast bars (totems/possess), button styling, and hide Blizzard elements. When disabled, all action bar related features will use default Blizzard interface."] = "Включить полную систему панелей действий DragonUI. Управляет: основными панелями, интерфейсом транспорта, панелью стоек/форм, панелью питомца, панелью мультикаста (тотемы/овладение), стилизацией кнопок и скрытием элементов Blizzard. При отключении все функции панелей действий используют стандартный интерфейс Blizzard."
+L["Master toggle for the complete action bars system."] = "Главный переключатель системы панелей действий."
+L["Includes main bars, vehicle, stance, pet, totem bars, and button styling."] = "Включает основные панели, транспорт, стойки, питомца, тотемы и стилизацию кнопок."
+L["Apply DragonUI micro menu and bags system styling and positioning. Includes character button, spellbook, talents, etc. and bag management. When disabled, these elements will use default Blizzard positioning and styling."] = "Применить стилизацию и позиционирование микроменю и сумок DragonUI. Включает кнопку персонажа, книгу заклинаний, таланты и т.д. При отключении элементы используют стандартное расположение Blizzard."
+L["Micro menu and bags styling."] = "Стилизация микроменю и сумок."
+L["Show cooldown timers on action buttons. When disabled, cooldown timers will be hidden and the system will be completely deactivated."] = "Отображать таймеры перезарядки на кнопках действий. При отключении таймеры перезарядки будут скрыты и система полностью деактивирована."
+L["Show cooldown timers on action buttons."] = "Отображать таймеры перезарядки на кнопках действий."
+L["Enable DragonUI minimap enhancements including custom styling, positioning, tracking icons, and calendar. When disabled, uses default Blizzard minimap appearance and positioning."] = "Включить улучшения миникарты DragonUI: стилизация, позиционирование, значки отслеживания и календарь. При отключении используется стандартный вид и расположение миникарты Blizzard."
+L["Minimap styling, tracking icons, and calendar."] = "Стилизация миникарты, значки отслеживания и календарь."
+L["Enable DragonUI buff frame with custom styling, positioning, and toggle button functionality. When disabled, uses default Blizzard buff frame appearance and positioning."] = "Включить фрейм эффектов DragonUI: стилизация, позиционирование и кнопка переключения. При отключении используется стандартный вид фрейма эффектов Blizzard."
+L["Buff frame styling and toggle button."] = "Стилизация фрейма эффектов и кнопка переключения."
+L["Separate Weapon Enchants"] = "Отделить зачарования оружия"
+L["Detach weapon enchant icons (poisons, sharpening stones, etc.) from the buff bar into their own independently moveable frame. Position it freely using Editor Mode."] = "Отделить значки зачарований оружия (яды, точильные камни и т.д.) от панели эффектов в отдельный перемещаемый фрейм. Расположите его свободно в режиме редактора."
+
+-- Auras tab
+L["Auras"] = "Ауры"
+L["Show Toggle Button"] = "Показать кнопку переключения"
+L["Show a collapse/expand button next to the buff icons."] = "Показать кнопку свёрнуть/развернуть рядом со значками эффектов."
+L["Weapon Enchants"] = "Зачарования оружия"
+L["Weapon enchant icons include rogue poisons, sharpening stones, wizard oils, and similar temporary weapon enhancements."] = "Значки зачарований оружия: яды разбойников, точильные камни, масла волшебников и прочие временные улучшения оружия."
+L["When enabled, a 'Weapon Enchants' mover appears in Editor Mode that you can drag to any position on screen."] = "При включении в режиме редактора появляется перемещаемый элемент «Зачарования оружия», который можно перетащить в любое место на экране."
+L["Positions"] = "Позиции"
+L["Reset Buff Frame Position"] = "Сбросить позицию фрейма эффектов"
+L["Reset Weapon Enchant Position"] = "Сбросить позицию зачарований оружия"
+L["Buff frame position reset."] = "Позиция фрейма эффектов сброшена."
+L["Weapon enchant position reset."] = "Позиция зачарований оружия сброшена."
+
+L["DragonUI quest tracker positioning and styling."] = "Позиционирование и стилизация трекера заданий DragonUI."
+L["LibKeyBound integration for intuitive hover + key press binding."] = "Интеграция LibKeyBound для назначения клавиш наведением и нажатием."
+
+-- Toggle keybinding mode description
+L["Toggle keybinding mode. Hover over action buttons and press keys to bind them instantly. Press ESC to clear bindings."] = "Переключить режим назначения клавиш. Наведите курсор на кнопку и нажмите клавишу для привязки. Нажмите ESC для сброса привязки."
+
+-- Enable/disable dynamic descriptions
+L["Enable/disable "] = "Включить/выключить "
+
+-- Dark Mode
+L["Dark Mode Intensity"] = "Интенсивность тёмного режима"
+L["Light (subtle)"] = "Лёгкая (еле заметная)"
+L["Medium (balanced)"] = "Средняя (сбалансированная)"
+L["Dark (maximum)"] = "Тёмная (максимальная)"
+L["Apply darker tinted textures to all UI chrome: action bars, unit frames, minimap, bags, micro menu, and more."] = "Применить затемнённые текстуры ко всем элементам интерфейса: панели действий, фреймы, миникарта, сумки, микроменю и др."
+L["Apply darker tinted textures to all UI elements."] = "Применить затемнённые текстуры ко всем элементам интерфейса."
+L["Darkens UI borders and chrome only: action bar borders, unit frame borders, minimap border, bag slot borders, micro menu, castbar borders, and decorative elements. Icons, portraits, and abilities are never affected."] = "Затемняет только рамки и элементы интерфейса: рамки панелей действий, фреймов, миникарты, ячеек сумок, микроменю, полос заклинаний и декоративных элементов. Значки, портреты и способности не затрагиваются."
+L["Enable Dark Mode"] = "Включить тёмный режим"
+
+-- Dark Mode - Custom Color
+L["Custom Color"] = "Пользовательский цвет"
+L["Override presets with a custom tint color."] = "Заменить пресеты пользовательским цветом оттенка."
+L["Tint Color"] = "Цвет оттенка"
+L["Intensity"] = "Интенсивность"
+
+-- Range Indicator
+L["Tint action button icons when target is out of range (red), not enough mana (blue), or unusable (gray)."] = "Подкрашивать значки кнопок действий, когда цель вне зоны досягаемости (красный), недостаточно маны (синий) или способность недоступна (серый)."
+L["Tints action button icons based on range and usability: red = out of range, blue = not enough mana, gray = unusable."] = "Подкрашивает значки кнопок действий по дальности и доступности: красный = вне зоны, синий = мало маны, серый = недоступно."
+L["Enable Range Indicator"] = "Включить индикатор дальности"
+L["Color action button icons when target is out of range or ability is unusable."] = "Окрашивать значки кнопок, когда цель вне зоны досягаемости или способность недоступна."
+
+-- Item Quality Borders
+L["Show colored glow borders on action buttons containing items, colored by item quality (green = uncommon, blue = rare, purple = epic, etc.)."] = "Показывать цветные рамки на кнопках с предметами по качеству (зелёный = необычный, синий = редкий, фиолетовый = эпический и т.д.)."
+L["Enable Item Quality Borders"] = "Включить рамки качества предметов"
+L["Show quality-colored borders on items in bags, character panel, bank, merchant, and inspect frames."] = "Показывать цветные рамки качества на предметах в сумках, окне персонажа, банке, у торговца и при осмотре."
+L["Adds quality-colored glow borders to items in your bags, character panel, bank, merchant, and inspect frames: green = uncommon, blue = rare, purple = epic, orange = legendary."] = "Добавляет цветные рамки качества на предметы в сумках, окне персонажа, банке, у торговца и при осмотре: зелёный = необычный, синий = редкий, фиолетовый = эпический, оранжевый = легендарный."
+L["Minimum Quality"] = "Минимальное качество"
+L["Only show colored borders for items at or above this quality level."] = "Показывать цветные рамки только для предметов на этом уровне качества или выше."
+L["Poor"] = "Низкое"
+L["Common"] = "Обычное"
+L["Uncommon"] = "Необычное"
+L["Rare"] = "Редкое"
+L["Epic"] = "Эпическое"
+L["Legendary"] = "Легендарное"
+
+-- Enhanced Tooltips
+L["Enhanced Tooltips"] = "Улучшенные подсказки"
+L["Improves GameTooltip with class-colored borders, class-colored names, target-of-target info, and styled health bars."] = "Улучшает подсказки: рамки по цвету класса, цветные имена, цель цели и стилизованные полосы здоровья."
+L["Activate all tooltip improvements. Sub-options below control individual features."] = "Активировать все улучшения подсказок. Подопции ниже управляют отдельными функциями."
+L["Class-Colored Border"] = "Рамка по цвету класса"
+L["Color the tooltip border by the unit's class (players) or reaction (NPCs)."] = "Окрашивать рамку подсказки по классу (игроки) или реакции (НИП)."
+L["Class-Colored Name"] = "Имя по цвету класса"
+L["Color the unit name text in the tooltip by class color (players only)."] = "Окрашивать имя в подсказке по цвету класса (только для игроков)."
+L["Add a 'Targeting: <name>' line showing who the unit is targeting."] = "Добавить строку «Цель: <имя>», показывающую, на кого нацелена цель."
+L["Add a 'Targeting: <name>' line to the tooltip showing who the unit is targeting."] = "Добавить в подсказку строку «Цель: <имя>», показывающую, на кого нацелена цель."
+L["Styled Health Bar"] = "Стилизованная полоса здоровья"
+L["Restyle the tooltip health bar with class/reaction colors."] = "Перестилизовать полосу здоровья в подсказке с цветами класса/реакции."
+L["Restyle the tooltip health bar with class/reaction colors and slimmer look."] = "Перестилизовать полосу здоровья в подсказке с цветами класса/реакции и более тонким видом."
+L["Anchor to Cursor"] = "Привязать к курсору"
+L["Make the tooltip follow the cursor position instead of the default anchor."] = "Подсказка следует за курсором вместо стандартной привязки."
+
+-- Chat Mods
+L["Enable Chat Mods"] = "Включить улучшения чата"
+L["Enables or disables Chat Mods."] = "Включает или отключает улучшения чата."
+L["Editbox Position"] = "Позиция строки ввода"
+L["Choose where the chat editbox is positioned."] = "Выбрать расположение строки ввода чата."
+L["Top"] = "Сверху"
+L["Bottom"] = "Снизу"
+L["Middle"] = "По центру"
+L["Tab & Button Fade"] = "Прозрачность вкладок и кнопок"
+L["How visible chat tabs are when not hovered. 0 = fully hidden, 1 = fully visible."] = "Видимость вкладок чата без наведения курсора. 0 = полностью скрыты, 1 = полностью видны."
+L["Chat Style Opacity"] = "Прозрачность стиля чата"
+L["Minimum opacity of the custom chat background. At 0 it fades with tabs; above 0 it stays partially visible when idle."] = "Минимальная непрозрачность пользовательского фона чата. При 0 исчезает с вкладками; выше остаётся частично видимым в покое."
+L["Text Box Min Opacity"] = "Мин. непрозрачность поля ввода"
+L["Minimum opacity of the text input box when idle. At 0 it fades with tabs; above 0 it stays partially visible."] = "Минимальная непрозрачность поля ввода в покое. При 0 исчезает с вкладками; выше остаётся частично видимым."
+L["Chat Style"] = "Стиль чата"
+L["Visual style for the chat frame background."] = "Визуальный стиль фона окна чата."
+L["Editbox Style"] = "Стиль строки ввода"
+L["Visual style for the chat input box background."] = "Визуальный стиль фона поля ввода чата."
+L["Dark"] = "Тёмный"
+L["DragonUI Style"] = "Стиль DragonUI"
+L["Midnight"] = "Полночь"
+
+-- Combuctor
+L["Enable Combuctor"] = "Включить Combuctor"
+L["All-in-one bag replacement with item filtering, search, quality indicators, and bank integration."] = "Замена сумок «всё в одном» с фильтрацией, поиском, индикаторами качества и интеграцией банка."
+L["Combuctor Settings"] = "Настройки Combuctor"
+
+-- Bag Sort
+L["Bag Sort"] = "Сортировка сумок"
+L["Enable Bag Sort"] = "Включить сортировку сумок"
+L["Sort buttons for bags and bank. Sorts items by type, rarity, level, and name."] = "Кнопки сортировки для сумок и банка. Сортирует предметы по типу, редкости, уровню и названию."
+L["Add sort buttons to bag and bank frames. Also enables /sort and /sortbank slash commands."] = "Добавить кнопки сортировки в окна сумок и банка. Также включает команды /sort и /sortbank."
+L["Sort bags and bank items with buttons"] = "Сортировка предметов в сумках и банке кнопками"
+
+L["Show 'All' Tab"] = "Показать вкладку «Все»"
+L["Show the 'All' category tab that displays all items without filtering."] = "Показать вкладку категории «Все», отображающую все предметы без фильтрации."
+L["Show Equipment Tab"] = "Показать вкладку «Экипировка»"
+L["Show the Equipment category tab for armor and weapons."] = "Показать вкладку категории «Экипировка» для брони и оружия."
+L["Show Usable Tab"] = "Показать вкладку «Используемые»"
+L["Show the Usable category tab for consumables and devices."] = "Показать вкладку категории «Используемые» для расходников и устройств."
+L["Show Consumable Tab"] = "Показать вкладку «Расходники»"
+L["Show the Consumable category tab."] = "Показать вкладку категории «Расходники»."
+L["Show Quest Tab"] = "Показать вкладку «Задания»"
+L["Show the Quest items category tab."] = "Показать вкладку категории «Предметы заданий»."
+L["Show Trade Goods Tab"] = "Показать вкладку «Товары»"
+L["Show the Trade Goods category tab (includes gems and recipes)."] = "Показать вкладку категории «Товары» (включая самоцветы и рецепты)."
+L["Show Miscellaneous Tab"] = "Показать вкладку «Прочее»"
+L["Show the Miscellaneous items category tab."] = "Показать вкладку категории «Прочее»."
+L["Left Side Tabs"] = "Вкладки слева"
+L["Place category filter tabs on the left side of the bag frame instead of the right."] = "Разместить вкладки фильтров слева от окна сумок вместо правой стороны."
+L["Place category filter tabs on the left side of the bank frame instead of the right."] = "Разместить вкладки фильтров слева от окна банка вместо правой стороны."
+L["Changes require closing and reopening bags to take effect."] = "Для применения изменений необходимо закрыть и заново открыть сумки."
+L["Subtabs"] = "Подвкладки"
+L["Configure which bottom subtabs appear within each category tab. Applies to both inventory and bank."] = "Настроить, какие нижние подвкладки отображаются в каждой вкладке категории. Применяется к инвентарю и банку."
+L["Normal"] = "Обычные"
+L["Trade Bags"] = "Профессиональные сумки"
+L["Show the Normal bags subtab (non-profession bags)."] = "Показать подвкладку обычных сумок (не профессиональных)."
+L["Show the Trade bags subtab (profession bags)."] = "Показать подвкладку профессиональных сумок."
+L["Show the Armor subtab."] = "Показать подвкладку «Броня»."
+L["Show the Weapon subtab."] = "Показать подвкладку «Оружие»."
+L["Show the Trinket subtab."] = "Показать подвкладку «Аксессуары»."
+L["Show the Consumable subtab."] = "Показать подвкладку «Расходники»."
+L["Show the Devices subtab."] = "Показать подвкладку «Устройства»."
+L["Show the Trade Goods subtab."] = "Показать подвкладку «Товары»."
+L["Show the Gem subtab."] = "Показать подвкладку «Самоцветы»."
+L["Show the Recipe subtab."] = "Показать подвкладку «Рецепты»."
+L["Configure Combuctor bag replacement settings."] = "Настроить параметры замены сумок Combuctor."
+L["Category Tabs"] = "Вкладки категорий"
+L["Inventory Tabs"] = "Вкладки инвентаря"
+L["Bank Tabs"] = "Вкладки банка"
+L["Inventory"] = "Инвентарь"
+L["Bank"] = "Банк"
+L["Choose which category tabs appear on the bag frame. Changes require closing and reopening bags to take effect."] = "Выбрать, какие вкладки категорий отображаются в окне сумок. Для применения необходимо закрыть и заново открыть сумки."
+L["Choose which category tabs appear on the inventory bag frame."] = "Выбрать, какие вкладки категорий отображаются в окне инвентаря."
+L["Choose which category tabs appear on the bank frame."] = "Выбрать, какие вкладки категорий отображаются в окне банка."
+L["Display"] = "Отображение"
+
+-- Advanced modules - Fallback display names
+L["Main Bars"] = "Основные панели"
+L["Vehicle"] = "Транспорт"
+L["Multicast"] = "Мультикаст"
+L["Buttons"] = "Кнопки"
+L["Hide Blizzard Elements"] = "Скрыть элементы Blizzard"
+L["Buffs"] = "Эффекты"
+L["KeyBinding"] = "Назначение клавиш"
+L["Cooldowns"] = "Перезарядки"
+
+-- Advanced modules - RegisterModule display names (from module files)
+L["Micro Menu"] = "Микроменю"
+L["Loot Roll"] = "Розыгрыш добычи"
+L["Key Binding"] = "Назначение клавиш"
+L["Item Quality"] = "Качество предметов"
+L["Buff Frame"] = "Фрейм эффектов"
+L["Hide Blizzard"] = "Скрыть Blizzard"
+L["Tooltip"] = "Подсказка"
+
+-- Advanced modules - RegisterModule descriptions (from module files)
+L["Micro menu and bags system styling and positioning"] = "Стилизация и позиционирование микроменю и системы сумок"
+L["Quest tracker positioning and styling"] = "Позиционирование и стилизация трекера заданий"
+L["Enhanced tooltip styling with class colors and health bars"] = "Улучшенные подсказки с цветами классов и полосами здоровья"
+L["Hide default Blizzard UI elements"] = "Скрыть стандартные элементы интерфейса Blizzard"
+L["Custom minimap styling, positioning, tracking icons and calendar"] = "Стилизация миникарты, позиционирование, значки отслеживания и календарь"
+L["Main action bars, status bars, scaling and positioning"] = "Основные панели действий, полосы статуса, масштабирование и позиционирование"
+L["LibKeyBound integration for intuitive keybinding"] = "Интеграция LibKeyBound для удобного назначения клавиш"
+L["Color item borders by quality in bags, character panel, bank, and merchant"] = "Окрашивание рамок предметов по качеству в сумках, окне персонажа, банке и у торговца"
+L["Darken UI borders and chrome"] = "Затемнение рамок и элементов интерфейса"
+L["Action button styling and enhancements"] = "Стилизация и улучшения кнопок действий"
+L["Custom buff frame styling, positioning and toggle button"] = "Стилизация, позиционирование и кнопка переключения фрейма эффектов"
+L["Vehicle interface enhancements"] = "Улучшения интерфейса транспорта"
+L["Stance/shapeshift bar positioning and styling"] = "Позиционирование и стилизация панели стоек/форм"
+L["Pet action bar positioning and styling"] = "Позиционирование и стилизация панели действий питомца"
+L["Multicast (totem/possess) bar positioning and styling"] = "Позиционирование и стилизация панели мультикаста (тотемы/овладение)"
+L["Chat Mods"] = "Улучшения чата"
+L["Chat enhancements: hide buttons, editbox position, URL copy, chat copy, link hover, tell target"] = "Улучшения чата: скрытие кнопок, позиция строки ввода, копирование URL, копирование чата, ховер ссылок, шёпот цели"
+L["Combuctor"] = "Combuctor"
+L["All-in-one bag replacement with filtering and search"] = "Универсальная замена сумок с фильтрацией и поиском"
+
+-- ============================================================================
+-- ACTION BARS TAB
+-- ============================================================================
+
+-- Sub-tabs
+L["Layout"] = "Раскладка"
+L["Visibility"] = "Видимость"
+
+-- Scales section
+L["Action Bar Scales"] = "Масштаб панелей действий"
+L["Main Bar Scale"] = "Масштаб основной панели"
+L["Right Bar Scale"] = "Масштаб правой панели"
+L["Left Bar Scale"] = "Масштаб левой панели"
+L["Bottom Left Bar Scale"] = "Масштаб нижней левой панели"
+L["Bottom Right Bar Scale"] = "Масштаб нижней правой панели"
+L["Scale for main action bar"] = "Масштаб основной панели действий"
+L["Scale for right action bar (MultiBarRight)"] = "Масштаб правой панели действий (MultiBarRight)"
+L["Scale for left action bar (MultiBarLeft)"] = "Масштаб левой панели действий (MultiBarLeft)"
+L["Scale for bottom left action bar (MultiBarBottomLeft)"] = "Масштаб нижней левой панели действий (MultiBarBottomLeft)"
+L["Scale for bottom right action bar (MultiBarBottomRight)"] = "Масштаб нижней правой панели действий (MultiBarBottomRight)"
+L["Reset All Scales"] = "Сбросить все масштабы"
+L["Reset all action bar scales to their default values (0.9)"] = "Сбросить масштаб всех панелей действий до значений по умолчанию (0.9)"
+L["All action bar scales reset to default values (0.9)"] = "Масштаб всех панелей действий сброшен до значений по умолчанию (0.9)"
+L["All action bar scales reset to 0.9"] = "Масштаб всех панелей действий сброшен до 0.9"
+
+-- Positions section
+L["Action Bar Positions"] = "Позиции панелей действий"
+L["Tip: Use the Move UI Elements button above to reposition action bars with your mouse."] = "Совет: используйте кнопку «Переместить элементы» выше для перемещения панелей действий мышью."
+L["Left Bar Horizontal"] = "Левая панель горизонтально"
+L["Make the left secondary bar horizontal instead of vertical."] = "Сделать левую дополнительную панель горизонтальной вместо вертикальной."
+L["Right Bar Horizontal"] = "Правая панель горизонтально"
+L["Make the right secondary bar horizontal instead of vertical."] = "Сделать правую дополнительную панель горизонтальной вместо вертикальной."
+
+-- Button Appearance section
+L["Button Appearance"] = "Внешний вид кнопок"
+L["Main Bar Only Background"] = "Фон только основной панели"
+L["If checked, only the main action bar buttons will have a background. If unchecked, all action bar buttons will have a background."] = "Если отмечено, фон будет только у кнопок основной панели. Если нет — у всех кнопок панелей действий."
+L["Only the main action bar buttons will have a background."] = "Фон будет только у кнопок основной панели действий."
+L["Hide Main Bar Background"] = "Скрыть фон основной панели"
+L["Hide the background texture of the main action bar (makes it completely transparent)"] = "Скрыть фоновую текстуру основной панели действий (делает полностью прозрачной)"
+L["Hide the background texture of the main action bar."] = "Скрыть фоновую текстуру основной панели действий."
+
+-- Text visibility
+L["Text Visibility"] = "Видимость текста"
+L["Count Text"] = "Текст количества"
+L["Show Count"] = "Показать количество"
+L["Show Count Text"] = "Показать текст количества"
+L["Hotkey Text"] = "Текст горячих клавиш"
+L["Show Hotkey"] = "Показать горячую клавишу"
+L["Show Hotkey Text"] = "Показать текст горячих клавиш"
+L["Range Indicator"] = "Индикатор дальности"
+L["Show small range indicator point on buttons"] = "Показать маленькую точку индикатора дальности на кнопках"
+L["Show range indicator dot on buttons."] = "Показать точку индикатора дальности на кнопках."
+L["Macro Text"] = "Текст макросов"
+L["Show Macro Names"] = "Показать названия макросов"
+L["Page Numbers"] = "Номера страниц"
+L["Show Pages"] = "Показать страницы"
+L["Show Page Numbers"] = "Показать номера страниц"
+
+-- Cooldown text
+L["Cooldown Text"] = "Текст перезарядки"
+L["Min Duration"] = "Мин. длительность"
+L["Minimum duration for text triggering"] = "Минимальная длительность для отображения текста"
+L["Minimum duration for cooldown text to appear."] = "Минимальная длительность для появления текста перезарядки."
+L["Text Color"] = "Цвет текста"
+L["Cooldown Text Color"] = "Цвет текста перезарядки"
+L["Size of cooldown text."] = "Размер текста перезарядки."
+
+-- Colors
+L["Colors"] = "Цвета"
+L["Macro Text Color"] = "Цвет текста макросов"
+L["Color for macro text"] = "Цвет текста макросов"
+L["Hotkey Shadow Color"] = "Цвет тени горячих клавиш"
+L["Shadow color for hotkey text"] = "Цвет тени текста горячих клавиш"
+L["Border Color"] = "Цвет рамки"
+L["Border color for buttons"] = "Цвет рамки кнопок"
+
+-- Gryphons
+L["Gryphons"] = "Грифоны"
+L["Gryphon Style"] = "Стиль грифонов"
+L["Display style for the action bar end-cap gryphons."] = "Стиль отображения грифонов по краям панели действий."
+L["End-cap ornaments flanking the main action bar."] = "Декоративные элементы по краям основной панели действий."
+L["Gryphon previews are hidden while D3D9Ex is active to avoid client crashes."] = "Предпросмотр грифонов скрыт при активном D3D9Ex, чтобы избежать вылетов клиента."
+L["Style"] = "Стиль"
+L["Old"] = "Старый"
+L["New"] = "Новый"
+L["Flying"] = "Летящий"
+L["Hide Gryphons"] = "Скрыть грифонов"
+L["Classic"] = "Классический"
+L["Dragonflight"] = "Dragonflight"
+L["Hidden"] = "Скрыто"
+L["Dragonflight (Wyvern)"] = "Dragonflight (Виверна)"
+L["Dragonflight (Gryphon)"] = "Dragonflight (Грифон)"
+
+-- Layout section
+L["Main Bar Layout"] = "Раскладка основной панели"
+L["Bottom Left Bar Layout"] = "Раскладка нижней левой панели"
+L["Bottom Right Bar Layout"] = "Раскладка нижней правой панели"
+L["Right Bar Layout"] = "Раскладка правой панели"
+L["Left Bar Layout"] = "Раскладка левой панели"
+L["Configure the main action bar grid layout. Rows are determined automatically from columns and buttons shown."] = "Настроить раскладку сетки основной панели действий. Строки определяются автоматически по столбцам и количеству кнопок."
+L["Columns"] = "Столбцы"
+L["Buttons Shown"] = "Кнопок показано"
+L["Quick Presets"] = "Быстрые пресеты"
+L["Apply layout presets to multiple bars at once."] = "Применить пресеты раскладки сразу к нескольким панелям."
+L["Both 1x12"] = "Обе 1x12"
+L["Both 2x6"] = "Обе 2x6"
+L["Reset All"] = "Сбросить всё"
+L["All bar layouts reset to defaults."] = "Раскладки всех панелей сброшены по умолчанию."
+
+-- Visibility section
+L["Bar Visibility"] = "Видимость панелей"
+L["Control when action bars are visible. Bars can show only on hover, only in combat, or both. When no option is checked the bar is always visible."] = "Управление видимостью панелей действий. Панели могут отображаться только при наведении, только в бою или при обоих условиях. Если ничего не отмечено — панель всегда видима."
+L["Enable / Disable Bars"] = "Включить / отключить панели"
+L["Bottom Left Bar"] = "Нижняя левая панель"
+L["Bottom Right Bar"] = "Нижняя правая панель"
+L["Right Bar"] = "Правая панель"
+L["Left Bar"] = "Левая панель"
+L["Main Bar"] = "Основная панель"
+L["Show on Hover Only"] = "Показывать только при наведении"
+L["Show in Combat Only"] = "Показывать только в бою"
+L["Hide the main bar until you hover over it."] = "Скрыть основную панель, пока не наведёте курсор."
+L["Hide the main bar until you enter combat."] = "Скрыть основную панель, пока не войдёте в бой."
+
+-- ============================================================================
+-- ADDITIONAL BARS TAB
+-- ============================================================================
+
+L["Bars that appear based on your class and situation."] = "Панели, появляющиеся в зависимости от класса и ситуации."
+L["Specialized bars that appear when needed (stance/pet/vehicle/totems)"] = "Специальные панели, появляющиеся при необходимости (стойки/питомец/транспорт/тотемы)"
+L["Auto-show bars: Stance (Warriors/Druids/DKs) • Pet (Hunters/Warlocks/DKs) • Vehicle (All classes) • Totem (Shamans)"] = "Автоматические панели: Стойки (Воины/Друиды/ДК) • Питомец (Охотники/Чернокнижники/ДК) • Транспорт (Все классы) • Тотемы (Шаманы)"
+
+-- Common settings
+L["Common Settings"] = "Общие настройки"
+L["Button Size"] = "Размер кнопок"
+L["Size of buttons for all additional bars"] = "Размер кнопок для всех дополнительных панелей"
+L["Button Spacing"] = "Расстояние между кнопками"
+L["Space between buttons for all additional bars"] = "Расстояние между кнопками для всех дополнительных панелей"
+
+-- Stance Bar
+L["Stance Bar"] = "Панель стоек"
+L["Warriors, Druids, Death Knights"] = "Воины, Друиды, Рыцари смерти"
+L["X Position"] = "Позиция X"
+L["Y Position"] = "Позиция Y"
+L["Y Offset"] = "Смещение Y"
+L["Horizontal position of stance bar from screen center. Negative values move left, positive values move right."] = "Горизонтальное положение панели стоек от центра экрана. Отрицательные значения — влево, положительные — вправо."
+
+-- Pet Bar
+L["Pet Bar"] = "Панель питомца"
+L["Hunters, Warlocks, Death Knights - Use editor mode to move"] = "Охотники, Чернокнижники, Рыцари смерти — используйте режим редактора для перемещения"
+L["Show Empty Slots"] = "Показать пустые ячейки"
+L["Display empty action slots on pet bar"] = "Отображать пустые ячейки на панели питомца"
+
+-- Vehicle Bar
+L["Vehicle Bar"] = "Панель транспорта"
+L["All classes (vehicles/special mounts)"] = "Все классы (транспорт/специальные средства передвижения)"
+L["Custom Art Style"] = "Пользовательский арт-стиль"
+L["Use custom vehicle bar art style with health/power bars and themed skin. Requires UI reload to apply."] = "Использовать пользовательский арт-стиль панели транспорта с полосами здоровья/ресурсов и тематическим оформлением. Требуется перезагрузка интерфейса."
+L["Blizzard Art Style"] = "Арт-стиль Blizzard"
+L["Use Blizzard vehicle bar art with health/power display. Requires reload."] = "Использовать арт-стиль панели транспорта Blizzard с отображением здоровья/ресурсов. Требуется перезагрузка."
+
+-- Totem Bar
+L["Totem Bar"] = "Панель тотемов"
+L["Totem Bar (Shaman)"] = "Панель тотемов (Шаман)"
+L["Shamans only - Totem multicast bar. Position is controlled via Editor Mode."] = "Только для шаманов — панель мультикаста тотемов. Позиция настраивается в режиме редактора."
+L["TIP: Use Editor Mode to position the totem bar (type /dragonui edit)."] = "СОВЕТ: Используйте режим редактора для позиционирования панели тотемов (введите /dragonui edit)."
+
+-- ============================================================================
+-- CAST BARS TAB
+-- ============================================================================
+
+L["Player Castbar"] = "Полоса заклинаний игрока"
+L["Target Castbar"] = "Полоса заклинаний цели"
+L["Focus Castbar"] = "Полоса заклинаний фокуса"
+
+-- Sub-tabs
+L["Player"] = "Игрок"
+L["Target"] = "Цель"
+L["Focus"] = "Фокус"
+
+-- Common options
+L["Width"] = "Ширина"
+L["Width of the cast bar"] = "Ширина полосы заклинаний"
+L["Height"] = "Высота"
+L["Height of the cast bar"] = "Высота полосы заклинаний"
+L["Scale"] = "Масштаб"
+L["Size scale of the cast bar"] = "Масштаб полосы заклинаний"
+L["Show Icon"] = "Показать значок"
+L["Show the spell icon next to the cast bar"] = "Показать значок заклинания рядом с полосой заклинаний"
+L["Show Spell Icon"] = "Показать значок заклинания"
+L["Show the spell icon next to the target castbar"] = "Показать значок заклинания рядом с полосой заклинаний цели"
+L["Icon Size"] = "Размер значка"
+L["Size of the spell icon"] = "Размер значка заклинания"
+L["Text Mode"] = "Режим текста"
+L["Choose how to display spell text: Simple (centered spell name only) or Detailed (spell name + time)"] = "Выберите формат текста: Простой (только название заклинания по центру) или Подробный (название + время)"
+L["Simple (Centered Name Only)"] = "Простой (Название по центру)"
+L["Simple (Name Only)"] = "Простой (Только название)"
+L["Simple"] = "Простой"
+L["Detailed (Name + Time)"] = "Подробный (Название + время)"
+L["Detailed"] = "Подробный"
+L["Time Precision"] = "Точность времени"
+L["Decimal places for remaining time."] = "Знаков после запятой для оставшегося времени."
+L["Max Time Precision"] = "Точность общего времени"
+L["Decimal places for total time."] = "Знаков после запятой для общего времени."
+L["Hold Time (Success)"] = "Задержка (Успех)"
+L["How long the bar stays visible after a successful cast."] = "Как долго полоса остаётся видимой после успешного каста."
+L["How long the bar stays after a successful cast."] = "Как долго полоса сохраняется после успешного каста."
+L["How long to show the castbar after successful completion"] = "Как долго показывать полосу заклинаний после успешного завершения"
+L["Hold Time (Interrupt)"] = "Задержка (Прерывание)"
+L["How long the bar stays visible after being interrupted."] = "Как долго полоса остаётся видимой после прерывания."
+L["How long the bar stays after being interrupted."] = "Как долго полоса сохраняется после прерывания."
+L["How long to show the castbar after interruption/failure"] = "Как долго показывать полосу заклинаний после прерывания/неудачи"
+L["Auto-Adjust for Auras"] = "Авто-сдвиг для аур"
+L["Automatically adjust position based on target auras (CRITICAL FEATURE)"] = "Автоматически корректировать позицию на основе аур цели (ВАЖНАЯ ФУНКЦИЯ)"
+L["Shift castbar when buff/debuff rows are showing."] = "Сдвигать полосу заклинаний при отображении строк эффектов."
+L["Automatically adjust position based on focus auras"] = "Автоматически корректировать позицию на основе аур фокуса"
+L["Reset Position"] = "Сбросить позицию"
+L["Resets the X and Y position to default."] = "Сбрасывает позицию X и Y по умолчанию."
+L["Reset target castbar position to default"] = "Сбросить позицию полосы заклинаний цели по умолчанию"
+L["Reset focus castbar position to default"] = "Сбросить позицию полосы заклинаний фокуса по умолчанию"
+L["Player castbar position reset."] = "Позиция полосы заклинаний игрока сброшена."
+L["Target castbar position reset."] = "Позиция полосы заклинаний цели сброшена."
+L["Focus castbar position reset."] = "Позиция полосы заклинаний фокуса сброшена."
+L["Castbar detached - positioned freely via Editor Mode"] = "Полоса заклинаний откреплена - свободно позиционируется в режиме редактора"
+L["Castbar attached - follows Target frame"] = "Полоса заклинаний прикреплена - следует за рамкой цели"
+L["Castbar attached - follows Focus frame"] = "Полоса заклинаний прикреплена - следует за рамкой фокуса"
+L["Re-attach Castbar to Target"] = "Снова прикрепить полосу к цели"
+L["Re-attach Castbar to Focus"] = "Снова прикрепить полосу к фокусу"
+
+-- Width/height descriptions for target/focus
+L["Width of the target castbar"] = "Ширина полосы заклинаний цели"
+L["Height of the target castbar"] = "Высота полосы заклинаний цели"
+L["Scale of the target castbar"] = "Масштаб полосы заклинаний цели"
+L["Width of the focus castbar"] = "Ширина полосы заклинаний фокуса"
+L["Height of the focus castbar"] = "Высота полосы заклинаний фокуса"
+L["Scale of the focus castbar"] = "Масштаб полосы заклинаний фокуса"
+L["Show the spell icon next to the focus castbar"] = "Показать значок заклинания рядом с полосой заклинаний фокуса"
+L["Time to show the castbar after successful cast completion"] = "Время показа полосы заклинаний после успешного завершения каста"
+L["Time to show the castbar after cast interruption"] = "Время показа полосы заклинаний после прерывания каста"
+
+-- Latency indicator (player only)
+L["Latency Indicator"] = "Индикатор задержки"
+L["Enable Latency Indicator"] = "Включить индикатор задержки"
+L["Show a safe-zone overlay based on real cast latency."] = "Показывает зону безопасности на основе реальной задержки заклинания."
+L["Latency Color"] = "Цвет задержки"
+L["Latency Alpha"] = "Прозрачность задержки"
+L["Opacity of the latency indicator."] = "Прозрачность индикатора задержки."
+
+-- ============================================================================
+-- ENHANCEMENTS TAB
+-- ============================================================================
+
+L["Enhancements"] = "Улучшения"
+L["Visual enhancements that add Dragonflight-style polish to the UI. These are optional — disable any you don't want."] = "Визуальные улучшения, добавляющие стиль Dragonflight в интерфейс. Они опциональны — отключите ненужные."
+
+-- (Dark Mode, Range Indicator, Item Quality, Tooltips defined above in MODULES section)
+
+-- ============================================================================
+-- MICRO MENU TAB
+-- ============================================================================
+
+L["Gray Scale Icons"] = "Серые значки"
+L["Grayscale Icons"] = "Серые значки"
+L["Use grayscale icons instead of colored icons for the micro menu"] = "Использовать серые значки вместо цветных для микроменю"
+L["Use grayscale icons instead of colored icons."] = "Использовать серые значки вместо цветных."
+L["Grayscale Icons Settings"] = "Настройки серых значков"
+L["Normal Icons Settings"] = "Настройки обычных значков"
+L["Menu Scale"] = "Масштаб меню"
+L["Icon Spacing"] = "Расстояние между значками"
+L["Hide on Vehicle"] = "Скрыть на транспорте"
+L["Hide micromenu and bags if you sit on vehicle"] = "Скрыть микроменю и сумки при использовании транспорта"
+L["Hide micromenu and bags while in a vehicle."] = "Скрыть микроменю и сумки при использовании транспорта."
+L["Show Latency Indicator"] = "Показать индикатор задержки"
+L["Show a colored bar below the Help button indicating connection quality (green/yellow/red). Requires UI reload."] = "Показать цветную полоску под кнопкой «Помощь», отображающую качество соединения (зелёный/жёлтый/красный). Требуется перезагрузка."
+
+-- Bags
+L["Bags"] = "Сумки"
+L["Configure the position and scale of the bag bar independently from the micro menu."] = "Настроить позицию и масштаб панели сумок независимо от микроменю."
+L["Bag Bar Scale"] = "Масштаб панели сумок"
+
+-- XP & Rep Bars
+L["XP & Rep Bars (Legacy Offsets)"] = "Опыт и репутация (Смещения)"
+L["Main XP & Rep bar options have moved to the XP & Rep Bars tab."] = "Основные настройки перенесены на вкладку «Опыт и репутация»."
+L["These offset options are for advanced positioning adjustments."] = "Эти параметры смещения предназначены для расширенной настройки позиционирования."
+L["Both Bars Offset"] = "Смещение обеих полос"
+L["Y offset when XP & reputation bar are shown"] = "Смещение Y при отображении полос опыта и репутации"
+L["Single Bar Offset"] = "Смещение одной полосы"
+L["Y offset when XP or reputation bar is shown"] = "Смещение Y при отображении полосы опыта или репутации"
+L["No Bar Offset"] = "Смещение без полос"
+L["Y offset when no XP or reputation bar is shown"] = "Смещение Y при скрытых полосах опыта и репутации"
+L["Rep Bar Above XP Offset"] = "Смещение полосы репутации над полосой опыта"
+L["Y offset for reputation bar when XP bar is shown"] = "Смещение Y полосы репутации при отображении полосы опыта"
+L["Rep Bar Offset"] = "Смещение полосы репутации"
+L["Y offset when XP bar is not shown"] = "Смещение Y при скрытой полосе опыта"
+
+-- ============================================================================
+-- MINIMAP TAB
+-- ============================================================================
+
+L["Basic Settings"] = "Основные настройки"
+L["Border Alpha"] = "Прозрачность рамки"
+L["Top border alpha (0 to hide)."] = "Прозрачность верхней рамки (0 для скрытия)."
+L["Addon Button Skin"] = "Оформление кнопок аддонов"
+L["Apply DragonUI border styling to addon icons (e.g., bag addons)"] = "Применить стилизацию рамок DragonUI к значкам аддонов (например, аддоны сумок)"
+L["Apply DragonUI border styling to addon icons."] = "Применить стилизацию рамок DragonUI к значкам аддонов."
+L["Addon Button Fade"] = "Затухание кнопок аддонов"
+L["Addon icons fade out when not hovered."] = "Значки аддонов затухают, когда курсор не наведён."
+L["Player Arrow Size"] = "Размер стрелки игрока"
+L["Size of the player arrow on the minimap"] = "Размер стрелки игрока на миникарте"
+L["New Blip Style"] = "Новый стиль точек"
+L["Use new DragonUI object icons on the minimap. When disabled, uses classic Blizzard icons."] = "Использовать новые значки объектов DragonUI на миникарте. При отключении используются классические значки Blizzard."
+L["Use newer-style minimap blip icons."] = "Использовать значки миникарты нового стиля."
+
+-- Time & Calendar
+L["Time & Calendar"] = "Время и календарь"
+L["Show Clock"] = "Показать часы"
+L["Show/hide the minimap clock"] = "Показать/скрыть часы на миникарте"
+L["Show Calendar"] = "Показать календарь"
+L["Show/hide the calendar frame"] = "Показать/скрыть окно календаря"
+L["Clock Font Size"] = "Размер шрифта часов"
+L["Font size for the clock numbers on the minimap"] = "Размер шрифта цифр часов на миникарте"
+
+-- Display Settings
+L["Display Settings"] = "Настройки отображения"
+L["Tracking Icons"] = "Значки отслеживания"
+L["Show current tracking icons (old style)."] = "Показать текущие значки отслеживания (старый стиль)."
+L["Zoom Buttons"] = "Кнопки масштабирования"
+L["Show zoom buttons (+/-)."] = "Показать кнопки масштабирования (+/-)."
+L["Zone Text Size"] = "Размер текста зоны"
+L["Zone Text Font Size"] = "Размер шрифта текста зоны"
+L["Zone text font size on top border"] = "Размер шрифта текста зоны на верхней рамке"
+L["Font size of the zone text above the minimap."] = "Размер шрифта текста зоны над миникартой."
+
+-- Position
+L["Position"] = "Позиция"
+L["Reset minimap to default position (top-right corner)"] = "Сбросить миникарту в позицию по умолчанию (правый верхний угол)"
+L["Reset Minimap Position"] = "Сбросить позицию миникарты"
+L["Minimap position reset to default"] = "Позиция миникарты сброшена по умолчанию"
+L["Minimap position reset."] = "Позиция миникарты сброшена."
+
+-- ============================================================================
+-- QUEST TRACKER TAB
+-- ============================================================================
+
+L["Configures the quest objective tracker position and behavior."] = "Настройка позиции и поведения трекера заданий."
+L["Position and display settings for the objective tracker."] = "Настройки позиции и отображения трекера заданий."
+L["Show Header Background"] = "Показать фон заголовка"
+L["Show/hide the decorative header background texture."] = "Показать/скрыть декоративную фоновую текстуру заголовка."
+L["Anchor Point"] = "Точка привязки"
+L["Screen anchor point for the quest tracker."] = "Точка привязки трекера заданий на экране."
+L["Top Right"] = "Справа сверху"
+L["Top Left"] = "Слева сверху"
+L["Bottom Right"] = "Справа снизу"
+L["Bottom Left"] = "Слева снизу"
+L["Center"] = "Центр"
+L["Horizontal position offset"] = "Горизонтальное смещение"
+L["Vertical position offset"] = "Вертикальное смещение"
+L["Reset quest tracker to default position"] = "Сбросить позицию трекера заданий по умолчанию"
+L["Font Size"] = "Размер шрифта"
+L["Font size for quest tracker text"] = "Размер шрифта текста трекера заданий"
+
+-- ============================================================================
+-- UNIT FRAMES TAB
+-- ============================================================================
+
+-- Sub-tabs
+L["Pet"] = "Питомец"
+L["ToT / ToF"] = "ЦЦ / ЦФ"
+L["Party"] = "Группа"
+
+-- Common options
+L["Global Scale"] = "Общий масштаб"
+L["Global scale for all unit frames"] = "Общий масштаб всех фреймов"
+L["Scale of the player frame"] = "Масштаб фрейма игрока"
+L["Scale of the target frame"] = "Масштаб фрейма цели"
+L["Scale of the focus frame"] = "Масштаб фрейма фокуса"
+L["Scale of the pet frame"] = "Масштаб фрейма питомца"
+L["Scale of the target of target frame"] = "Масштаб фрейма цели цели"
+L["Scale of the focus of target frame"] = "Масштаб фрейма цели фокуса"
+L["Scale of party frames"] = "Масштаб фреймов группы"
+L["Class Color"] = "Цвет класса"
+L["Class Color Health"] = "Полоса здоровья по классу"
+L["Use class color for health bar"] = "Использовать цвет класса для полосы здоровья"
+L["Use class color for health bars in party frames"] = "Использовать цвет класса для полос здоровья в фреймах группы"
+L["Class Portrait"] = "Портрет класса"
+L["Show class icon instead of 3D portrait"] = "Показать значок класса вместо 3D-портрета"
+L["Show class icon instead of 3D portrait (only for players)"] = "Показать значок класса вместо 3D-портрета (только для игроков)"
+L["Class icon instead of 3D model for players."] = "Значок класса вместо 3D-модели для игроков."
+L["Alternative Class Icons"] = "Альтернативные значки классов"
+L["Use DragonUI alternative class icons instead of Blizzard's class icon atlas."] = "Использовать альтернативные значки классов DragonUI вместо атласа значков классов Blizzard."
+L["Large Numbers"] = "Крупные числа"
+L["Format Large Numbers"] = "Форматировать крупные числа"
+L["Format large numbers (1k, 1m)"] = "Форматировать крупные числа (1к, 1м)"
+L["Text Format"] = "Формат текста"
+L["How to display health and mana values"] = "Как отображать значения здоровья и маны"
+L["Choose how to display health and mana text"] = "Выберите формат отображения текста здоровья и маны"
+
+-- Text format values
+L["Current Value Only"] = "Только текущее значение"
+L["Current Value"] = "Текущее значение"
+L["Percentage Only"] = "Только проценты"
+L["Percentage"] = "Проценты"
+L["Both (Numbers + Percentage)"] = "Оба (Числа + проценты)"
+L["Numbers + %"] = "Числа + %"
+L["Current/Max Values"] = "Текущее/Максимум"
+L["Current / Max"] = "Текущее / Макс"
+
+-- Party text format values
+L["Current Value Only (2345)"] = "Только текущее (2345)"
+L["Formatted Current (2.3k)"] = "Форматированное текущее (2.3к)"
+L["Percentage Only (75%)"] = "Только проценты (75%)"
+L["Percentage + Current (75% | 2.3k)"] = "Проценты + текущее (75% | 2.3к)"
+
+-- Health/Mana text
+L["Always Show Health Text"] = "Всегда показывать текст здоровья"
+L["Show health text always (true) or only on hover (false)"] = "Показывать текст здоровья всегда (вкл) или только при наведении (выкл)"
+L["Always show health text on party frames (instead of only on hover)"] = "Всегда показывать текст здоровья на фреймах группы (вместо только при наведении)"
+L["Always display health text (otherwise only on mouseover)"] = "Всегда отображать текст здоровья (иначе только при наведении)"
+L["Always Show Mana Text"] = "Всегда показывать текст маны"
+L["Show mana/power text always (true) or only on hover (false)"] = "Показывать текст маны/ресурса всегда (вкл) или только при наведении (выкл)"
+L["Always show mana text on party frames (instead of only on hover)"] = "Всегда показывать текст маны на фреймах группы (вместо только при наведении)"
+L["Always display mana/energy/rage text (otherwise only on mouseover)"] = "Всегда отображать текст маны/энергии/ярости (иначе только при наведении)"
+
+-- Player frame specific
+L["Player Frame"] = "Фрейм игрока"
+L["Dragon Decoration"] = "Декоративный дракон"
+L["Add decorative dragon to your player frame for a premium look"] = "Добавить декоративного дракона к фрейму игрока для премиального вида"
+L["None"] = "Нет"
+L["Elite Dragon (Golden)"] = "Элитный дракон (Золотой)"
+L["Elite (Golden)"] = "Элитный (Золотой)"
+L["RareElite Dragon (Winged)"] = "Редко-элитный дракон (Крылатый)"
+L["RareElite (Winged)"] = "Редко-элитный (Крылатый)"
+L["Glow Effects"] = "Эффекты свечения"
+L["Show Rest Glow"] = "Показать свечение отдыха"
+L["Show a golden glow around the player frame when resting (in an inn or city). Works with all frame modes: normal, elite, fat health bar, and vehicle."] = "Показать золотистое свечение вокруг фрейма игрока при отдыхе (в таверне или городе). Работает со всеми режимами: обычным, элитным, полной полосой здоровья и транспортом."
+L["Golden glow around the player frame when resting (inn or city). Works with all frame modes."] = "Золотистое свечение вокруг фрейма игрока при отдыхе (таверна или город). Работает со всеми режимами."
+L["Combat Flash"] = "Вспышка боя"
+L["Show Combat Flash"] = "Показать вспышку боя"
+L["Pulsing glow effect when entering combat. Works with all frame modes."] = "Пульсирующее свечение при входе в бой. Работает со всеми режимами фрейма."
+L["Combat Flash Opacity"] = "Непрозрачность вспышки боя"
+L["Maximum opacity of the combat flash pulse effect."] = "Максимальная непрозрачность пульсирующего эффекта вспышки боя."
+L["Always Show Alternate Mana Text"] = "Всегда показывать альтернативную ману"
+L["Show mana text always visible (default: hover only)"] = "Показывать текст маны всегда (по умолчанию: только при наведении)"
+L["Alternate Mana (Druid)"] = "Альтернативная мана (Друид)"
+L["Always Show"] = "Всегда показывать"
+L["Druid mana text visible at all times, not just on hover."] = "Текст маны друида виден постоянно, а не только при наведении."
+L["Alternate Mana Text Format"] = "Формат альтернативной маны"
+L["Choose text format for alternate mana display"] = "Выберите формат текста для отображения альтернативной маны"
+L["Percentage + Current/Max"] = "Проценты + Текущее/Макс"
+
+-- Fat Health Bar
+L["Health Bar Style"] = "Стиль полосы здоровья"
+L["Fat Health Bar"] = "Широкая полоса здоровья"
+L["Enable"] = "Включить"
+L["Full-width health bar that fills the entire frame area. Uses modified border texture that removes the inner divider line. Compatible with Dragon Decoration (requires fat variant textures). Note: Automatically disabled during vehicle UI."] = "Полноразмерная полоса здоровья, заполняющая всю область фрейма. Использует модифицированную текстуру рамки без внутренней разделительной линии. Совместима с декоративным драконом (требуются специальные текстуры). Примечание: автоматически отключается при интерфейсе транспорта."
+L["Full-width health bar. Auto-disabled in vehicles."] = "Полноразмерная полоса здоровья. Автоотключение на транспорте."
+L["Hide Mana Bar (Fat Mode)"] = "Скрыть полосу маны (Широкий режим)"
+L["Hide Mana Bar"] = "Скрыть полосу маны"
+L["Completely hide the mana bar when Fat Health Bar is active."] = "Полностью скрыть полосу маны при активной широкой полосе здоровья."
+L["Mana Bar Width (Fat Mode)"] = "Ширина полосы маны (Широкий режим)"
+L["Mana Bar Width"] = "Ширина полосы маны"
+L["Width of the mana bar when Fat Health Bar is active. Movable via Editor Mode."] = "Ширина полосы маны при активной широкой полосе здоровья. Перемещается в режиме редактора."
+L["Mana Bar Height (Fat Mode)"] = "Высота полосы маны (Широкий режим)"
+L["Mana Bar Height"] = "Высота полосы маны"
+L["Height of the mana bar when Fat Health Bar is active."] = "Высота полосы маны при активной широкой полосе здоровья."
+L["Mana Bar Texture"] = "Текстура полосы маны"
+L["Choose the texture style for the power/mana bar. Only applies in Fat Health Bar mode."] = "Выберите стиль текстуры для полосы маны/ресурса. Применяется только в режиме широкой полосы здоровья."
+L["DragonUI (Default)"] = "DragonUI (По умолчанию)"
+L["Blizzard Classic"] = "Blizzard Classic"
+L["Flat Solid"] = "Сплошная"
+L["Smooth"] = "Гладкая"
+L["Aluminium"] = "Алюминий"
+L["LiteStep"] = "LiteStep"
+
+-- Power Bar Colors
+L["Power Bar Colors"] = "Цвета полосы ресурсов"
+L["Mana"] = "Мана"
+L["Rage"] = "Ярость"
+L["Energy"] = "Энергия"
+-- L["Focus"] = true  -- Already defined above
+L["Runic Power"] = "Сила рун"
+L["Happiness"] = "Довольство"
+L["Runes"] = "Руны"
+L["Reset Colors to Default"] = "Сбросить цвета по умолчанию"
+
+-- Target frame
+L["Target Frame"] = "Фрейм цели"
+L["Threat Glow"] = "Свечение угрозы"
+L["Show threat glow effect"] = "Показать эффект свечения угрозы"
+L["Show Name Background"] = "Показать фон имени"
+L["Show the colored name background behind the target name."] = "Показать цветной фон за именем цели."
+
+-- Focus frame
+L["Focus Frame"] = "Фрейм фокуса"
+L["Show the colored name background behind the focus name."] = "Показать цветной фон за именем фокуса."
+L["Show Buff/Debuff on Focus"] = "Показывать баффы/дебаффы на фокусе"
+L["Uses the native large focus frame mode to show buffs and debuffs on the focus frame."] = "Использует нативный режим большого фрейма фокуса, чтобы показывать баффы и дебаффы на фрейме фокуса."
+L["Override Position"] = "Переопределить позицию"
+L["Override default positioning"] = "Переопределить позиционирование по умолчанию"
+L["Move the pet frame independently from the player frame."] = "Перемещать фрейм питомца независимо от фрейма игрока."
+
+-- Pet frame
+L["Pet Frame"] = "Фрейм питомца"
+L["Allows the pet frame to be moved freely. When unchecked, it will be positioned relative to the player frame."] = "Позволяет свободно перемещать фрейм питомца. Если снять отметку, он будет позиционироваться относительно фрейма игрока."
+L["Horizontal position (only active if Override is checked)"] = "Горизонтальная позиция (активно только при включённом переопределении)"
+L["Vertical position (only active if Override is checked)"] = "Вертикальная позиция (активно только при включённом переопределении)"
+
+-- Target of Target
+L["Target of Target"] = "Цель цели"
+L["Follows the Target frame by default. Move it in Editor Mode (/dragonui edit) to detach and position freely."] = "По умолчанию следует за фреймом цели. Переместите в режиме редактора (/dragonui edit) для отсоединения и свободного позиционирования."
+L["Detached — positioned freely via Editor Mode"] = "Отсоединён — свободное позиционирование в режиме редактора"
+L["Attached — follows Target frame"] = "Присоединён — следует за фреймом цели"
+L["Re-attach to Target"] = "Присоединить обратно к цели"
+
+-- Target of Focus
+L["Target of Focus"] = "Цель фокуса"
+L["Follows the Focus frame by default. Move it in Editor Mode (/dragonui edit) to detach and position freely."] = "По умолчанию следует за фреймом фокуса. Переместите в режиме редактора (/dragonui edit) для отсоединения и свободного позиционирования."
+L["Attached — follows Focus frame"] = "Присоединён — следует за фреймом фокуса"
+L["Re-attach to Focus"] = "Присоединить обратно к фокусу"
+
+-- Party Frames
+L["Party Frames"] = "Фреймы группы"
+L["Party Frames Configuration"] = "Настройка фреймов группы"
+L["Custom styling for party member frames with automatic health/mana text display and class colors."] = "Стилизация фреймов группы с автоматическим отображением текста здоровья/маны и цветов классов."
+
+-- Boss Frames
+L["Boss Frames"] = "Фреймы боссов"
+L["Enabled"] = "Включено"
+
+L["Orientation"] = "Ориентация"
+L["Vertical"] = "Вертикально"
+L["Horizontal"] = "Горизонтально"
+L["Party frame orientation"] = "Ориентация фреймов группы"
+L["Vertical Padding"] = "Вертикальный отступ"
+L["Space between party frames in vertical mode."] = "Расстояние между фреймами группы в вертикальном режиме."
+L["Horizontal Padding"] = "Горизонтальный отступ"
+L["Space between party frames in horizontal mode."] = "Расстояние между фреймами группы в горизонтальном режиме."
+
+-- ============================================================================
+-- XP & REP BARS TAB
+-- ============================================================================
+
+L["Bar Style"] = "Стиль полосы"
+L["XP / Rep Bar Style"] = "Стиль полос опыта / репутации"
+L["DragonflightUI: fully custom bars with rested XP background.\nRetailUI: atlas-based reskin of Blizzard bars.\n\nChanging style requires a UI reload."] = "DragonflightUI: полностью кастомные полосы с фоном опыта отдыха.\nRetailUI: перескин полос Blizzard на основе атласов.\n\nСмена стиля требует перезагрузки интерфейса."
+L["DragonflightUI"] = "DragonflightUI"
+L["RetailUI"] = "RetailUI"
+L["XP bar style changed to "] = "Стиль полосы опыта изменён на "
+L["A UI reload is required to apply this change."] = "Для применения этого изменения требуется перезагрузка интерфейса."
+
+-- Size & Scale
+L["Size & Scale"] = "Размер и масштаб"
+L["Bar Height"] = "Высота полосы"
+L["Height of the XP and Reputation bars (in pixels)."] = "Высота полос опыта и репутации (в пикселях)."
+L["Experience Bar Scale"] = "Масштаб полосы опыта"
+L["Scale of the experience bar."] = "Масштаб полосы опыта."
+L["Reputation Bar Scale"] = "Масштаб полосы репутации"
+L["Scale of the reputation bar."] = "Масштаб полосы репутации."
+
+-- Rested XP
+L["Rested XP"] = "Опыт отдыха"
+L["Show Rested XP Background"] = "Показать фон опыта отдыха"
+L["Display a translucent bar showing the total available rested XP range.\n(DragonflightUI style only)"] = "Отображать полупрозрачную полосу с диапазоном доступного опыта отдыха.\n(Только для стиля DragonflightUI)"
+L["Show Exhaustion Tick"] = "Показать отметку отдыха"
+L["Show the exhaustion tick indicator on the XP bar, marking where rested XP ends."] = "Показать индикатор отметки отдыха на полосе опыта, обозначающий, где заканчивается накопленный опыт отдыха."
+
+-- Text Display
+L["Text Display"] = "Отображение текста"
+L["Always Show Text"] = "Всегда показывать текст"
+L["Always display XP/Rep text instead of only on hover."] = "Всегда отображать текст опыта/репутации, а не только при наведении."
+L["Show XP Percentage"] = "Показать процент опыта"
+L["Display XP percentage alongside the value text."] = "Отображать процент опыта рядом с текстом значения."
+
+-- ============================================================================
+-- PROFILES TAB
+-- ============================================================================
+
+L["Database not available."] = "База данных недоступна."
+L["Save and switch between different configurations per character."] = "Сохраняйте и переключайтесь между конфигурациями для разных персонажей."
+L["Current Profile"] = "Текущий профиль"
+L["Active: "] = "Активный: "
+L["Switch or Create Profile"] = "Переключить или создать профиль"
+L["Select Profile"] = "Выбрать профиль"
+L["New Profile Name"] = "Имя нового профиля"
+L["Copy From"] = "Копировать из"
+L["Copies all settings from the selected profile into your current one."] = "Копирует все настройки из выбранного профиля в текущий."
+L["Copied profile: "] = "Скопирован профиль: "
+L["Delete Profile"] = "Удалить профиль"
+L["Warning: Deleting a profile is permanent and cannot be undone."] = "Внимание: удаление профиля необратимо."
+L["Delete"] = "Удалить"
+L["Deleted profile: "] = "Удалён профиль: "
+L["Are you sure you want to delete the profile '%s'? This cannot be undone."] = "Вы уверены, что хотите удалить профиль «%s»? Это действие необратимо."
+L["Reset Current Profile"] = "Сбросить текущий профиль"
+L["Restores the current profile to its defaults. This cannot be undone."] = "Восстанавливает текущий профиль до настроек по умолчанию. Это действие необратимо."
+L["Reset Profile"] = "Сбросить профиль"
+L["All changes will be lost and the UI will be reloaded.\nAre you sure you want to reset your profile?"] = "Все изменения будут потеряны и интерфейс будет перезагружен.\nВы уверены, что хотите сбросить профиль?"
+L["Profile reset to defaults."] = "Профиль сброшен до настроек по умолчанию."
+
+-- UNIT FRAME LAYERS MODULE
+L["Unit Frame Layers"] = "Слои фреймов"
+L["Enable Unit Frame Layers"] = "Включить слои фреймов"
+L["Heal prediction, absorb shields, and animated health loss on unit frames"] = "Предсказание исцеления, щиты поглощения и анимация потери здоровья на фреймах"
+L["Heal prediction bars, absorb shields, and animated health loss overlays on unit frames."] = "Полосы предсказания исцеления, щиты поглощения и анимация потери здоровья на фреймах."
+L["Show heal prediction, absorb shields, and animated health loss on all unit frames."] = "Показать предсказание исцеления, щиты поглощения и анимацию потери здоровья на всех фреймах."
+L["Animated Health Loss"] = "Анимация потери здоровья"
+L["Show animated red health loss bar on player frame when taking damage."] = "Показать анимированную красную полосу потери здоровья на фрейме игрока при получении урона."
+L["Builder/Spender Feedback"] = "Обратная связь ресурсов"
+L["Show mana gain/loss glow feedback on player mana bar (experimental)."] = "Показать свечение при получении/расходе маны на полосе игрока (экспериментально)."
+
+-- LAYOUT PRESETS
+L["Layout Presets"] = "Шаблоны раскладки"
+L["Save and restore complete UI layouts. Each preset captures all positions, scales, and settings."] = "Сохраняйте и восстанавливайте полные раскладки интерфейса. Каждый шаблон сохраняет все позиции, масштабы и настройки."
+L["No presets saved yet."] = "Шаблоны ещё не сохранены."
+L["Save New Preset"] = "Сохранить новый шаблон"
+L["Save your current UI layout as a new preset."] = "Сохранить текущую раскладку интерфейса как новый шаблон."
+L["Preset"] = "Шаблон"
+L["Enter a name for this preset:"] = "Введите имя для этого шаблона:"
+L["Save"] = "Сохранить"
+L["Load"] = "Загрузить"
+L["Load preset '%s'? This will overwrite your current layout settings."] = "Загрузить шаблон '%s'? Текущие настройки раскладки будут перезаписаны."
+L["Load Preset"] = "Загрузить шаблон"
+L["Delete preset '%s'? This cannot be undone."] = "Удалить шаблон '%s'? Это действие нельзя отменить."
+L["Delete Preset"] = "Удалить шаблон"
+L["Duplicate Preset"] = "Дублировать шаблон"
+L["Preset saved: "] = "Шаблон сохранён: "
+L["Preset loaded: "] = "Шаблон загружен: "
+L["Preset deleted: "] = "Шаблон удалён: "
+L["Preset duplicated: "] = "Шаблон дублирован: "
+L["Also delete all saved layout presets?"] = "Также удалить все сохранённые шаблоны раскладки?"
+L["Presets kept."] = "Шаблоны сохранены."
+
+-- PRESET IMPORT / EXPORT
+L["Export Preset"] = "Экспорт шаблона"
+L["Import Preset"] = "Импорт шаблона"
+L["Import a preset from a text string shared by another player."] = "Импортировать шаблон из текста, которым поделился другой игрок."
+L["Import"] = "Импорт"
+L["Select All"] = "Выбрать всё"
+L["Close"] = "Закрыть"
+L["Enter a name for the imported preset:"] = "Введите имя для импортированного шаблона:"
+L["Imported Preset"] = "Импортированный шаблон"
+L["Preset imported: "] = "Шаблон импортирован: "
+L["Invalid preset string."] = "Недопустимая строка шаблона."
+L["Not a valid DragonUI preset string."] = "Не является допустимой строкой шаблона DragonUI."
+L["Failed to export preset."] = "Не удалось экспортировать шаблон."
