@@ -64,7 +64,8 @@ https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
 - SharedMedia - https://github.com/NoM0Re/SharedMedia
 - SharedMedia_MyMedia
 - Talented - https://warperia.com/addon-wotlk/talented/
-- WDM 
+- WDM - WoW Dungeon Maps
+- ModernMapMarkers - https://warperia.com/addon-wotlk/modernmapmarkers/
 
 # ## Patches used
 
