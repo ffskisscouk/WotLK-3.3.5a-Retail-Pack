@@ -25,3 +25,7 @@ The attached files comprise a comprehensive list of addons and enhancements spec
 8. Step 2: tick the box to apply Large Address Aware Flag
 9. Step 3: click save and then close.
 10. Run WoW.exe and start playing.
+
+## Screenshots
+
+<img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/7c1920e3-608f-4b19-9871-d1b31e219094" />
