@@ -1,0 +1,375 @@
+name: Validate
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          # Need token with write access for auto-commit
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install StyLua
+        run: |
+          curl -L https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux-x86_64.zip -o stylua.zip
+          unzip stylua.zip
+          chmod +x stylua
+          sudo mv stylua /usr/local/bin/
+
+      - name: Check and fix Lua formatting
+        id: format
+        run: |
+          echo "Checking Lua formatting with StyLua..."
+          if stylua --check .; then
+            echo "✅ Lua formatting check passed"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Formatting issues found, auto-fixing..."
+            stylua .
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit formatting changes
+        if: steps.format.outputs.changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-format with StyLua"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
+      - name: Cache Lua tools
+        uses: actions/cache@v4
+        id: lua-cache
+        with:
+          path: |
+            ~/.luarocks
+            /usr/local/lib/luarocks
+            /usr/local/share/lua
+          key: lua-tools-${{ runner.os }}-${{ hashFiles('.luacheckrc') }}
+          restore-keys: lua-tools-${{ runner.os }}-
+
+      - name: Install Lua and Luacheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lua5.1 luarocks
+          if ! command -v luacheck &> /dev/null; then
+            sudo luarocks install luacheck
+          fi
+
+      - name: Lua syntax check
+        run: |
+          echo "Checking Lua syntax with luac..."
+          ERRORS=0
+          
+          while IFS= read -r -d '' FILE; do
+            if ! luac5.1 -p "$FILE" 2>&1; then
+              ERRORS=$((ERRORS + 1))
+            fi
+          done < <(find . -name "*.lua" -print0)
+          
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "❌ Syntax check failed: $ERRORS file(s) have syntax errors"
+            exit 1
+          fi
+          echo "✅ Lua syntax check passed"
+
+      - name: Luacheck - Lint Lua files
+        run: |
+          echo "Running Luacheck on all Lua files..."
+          echo ""
+          
+          if luacheck . --codes --ranges --no-color; then
+            echo ""
+            echo "✅ Luacheck passed - no issues found"
+          else
+            EXIT_CODE=$?
+            echo ""
+            if [ $EXIT_CODE -eq 1 ]; then
+              echo "❌ Luacheck found warnings! Fix them before merging."
+            else
+              echo "❌ Luacheck found errors! Fix them before merging."
+            fi
+            exit $EXIT_CODE
+          fi
+
+      - name: Install busted (unit test framework)
+        run: |
+          if ! command -v busted &> /dev/null; then
+            sudo luarocks install busted
+          fi
+
+      - name: Run unit tests (busted)
+        run: busted spec --verbose
+
+      - name: TOC file validation
+        run: |
+          echo "Validating TOC file references..."
+          ERRORS=0
+          
+          while IFS= read -r line; do
+            [[ "$line" =~ ^[[:space:]]*# ]] && continue
+            [[ -z "$line" ]] && continue
+            [[ "$line" =~ ^[[:space:]]*$ ]] && continue
+            
+            FILE=$(echo "$line" | tr '\\' '/' | xargs)
+            [[ -z "$FILE" ]] && continue
+            
+            if [[ ! -f "$FILE" ]]; then
+              echo "❌ Missing file: $FILE"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done < CleanerChat.toc
+          
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "❌ TOC validation failed: $ERRORS missing file(s)"
+            exit 1
+          fi
+          echo "✅ TOC file validation passed"
+
+      - name: Locale completeness check
+        run: |
+          echo "Checking locale file completeness..."
+          
+          BASE_KEYS=$(grep -oP 'L\["\K[^"]+' Locale/enUS.lua | sort -u)
+          BASE_COUNT=$(echo "$BASE_KEYS" | wc -l)
+          echo "Base locale (enUS) has $BASE_COUNT keys"
+          
+          ERRORS=0
+          for LOCALE_FILE in Locale/*.lua; do
+            [[ "$LOCALE_FILE" == "Locale/enUS.lua" ]] && continue
+            
+            LOCALE_NAME=$(basename "$LOCALE_FILE" .lua)
+            LOCALE_KEYS=$(grep -oP 'L\["\K[^"]+' "$LOCALE_FILE" | sort -u)
+            
+            MISSING=$(comm -23 <(echo "$BASE_KEYS") <(echo "$LOCALE_KEYS"))
+            MISSING_COUNT=$(echo "$MISSING" | grep -c . || true)
+            
+            if [[ $MISSING_COUNT -gt 0 ]]; then
+              echo "❌ $LOCALE_NAME: missing $MISSING_COUNT key(s):"
+              echo "$MISSING" | head -10
+              [[ $MISSING_COUNT -gt 10 ]] && echo "  ... and $((MISSING_COUNT - 10)) more"
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "✅ $LOCALE_NAME: complete"
+            fi
+          done
+          
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "❌ Locale check failed: $ERRORS locale file(s) have missing keys"
+            exit 1
+          fi
+          echo "✅ Locale check passed"
+
+      # ============================================================================
+      # IMPORTANT: LOCALE TRANSLATION POLICY
+      # ============================================================================
+      # All locale strings MUST have real translations - NOT fallbacks (= true).
+      # Using `= true` as a fallback is NOT accepted except for short channel
+      # abbreviations (BGL, BG, PL, P, RL, R, IL, I, G, O, DG) which are often
+      # the same across languages.
+      #
+      # When adding new locale keys:
+      # 1. Add the English string to Locale/enUS.lua
+      # 2. Provide REAL TRANSLATIONS for ALL other locale files
+      # 3. Do NOT use `= true` as a placeholder - this will fail CI
+      #
+      # AI/developers: Always provide proper translations for all supported
+      # languages when adding new locale strings.
+      # ============================================================================
+      - name: Locale fallback check
+        run: |
+          echo "Checking for untranslated fallbacks (= true)..."
+          echo "NOTE: All locale strings must have real translations, not '= true' fallbacks."
+          echo ""
+          
+          # Only these short channel abbreviations may use fallbacks (same across languages)
+          ALLOWED_FALLBACKS="BGL|BG|PL|P|RL|R|IL|I|G|O|DG"
+          
+          ERRORS=0
+          for LOCALE_FILE in Locale/*.lua; do
+            [[ "$LOCALE_FILE" == "Locale/enUS.lua" ]] && continue
+            
+            LOCALE_NAME=$(basename "$LOCALE_FILE" .lua)
+            
+            FALLBACKS=$(grep -nP 'L\["[^"]+"\]\s*=\s*true' "$LOCALE_FILE" | grep -vP "L\[\"($ALLOWED_FALLBACKS)\"\]" || true)
+            FALLBACK_COUNT=$(echo "$FALLBACKS" | grep -c . || true)
+            
+            if [[ $FALLBACK_COUNT -gt 0 ]]; then
+              echo "❌ $LOCALE_NAME: found $FALLBACK_COUNT untranslated fallback(s):"
+              echo "$FALLBACKS" | head -5
+              [[ $FALLBACK_COUNT -gt 5 ]] && echo "  ... and $((FALLBACK_COUNT - 5)) more"
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "✅ $LOCALE_NAME: no fallbacks"
+            fi
+          done
+          
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "❌ Fallback check failed: $ERRORS locale file(s) have untranslated strings"
+            echo "All locale strings must have real translations. Do NOT use '= true' as a placeholder."
+            exit 1
+          fi
+          echo "✅ Locale fallback check passed"
+
+      - name: Dead locale strings check
+        run: |
+          echo "Checking for unused locale strings..."
+          
+          # Get all keys defined in enUS.lua
+          DEFINED_KEYS=$(grep -oP 'L\["\K[^"]+' Locale/enUS.lua | sort -u)
+          DEFINED_COUNT=$(echo "$DEFINED_KEYS" | wc -l)
+          echo "Found $DEFINED_COUNT locale keys defined in enUS.lua"
+          
+          # Get all keys used in the codebase (excluding Locale folder)
+          # Look for L["..."] patterns in all Lua files except locale files
+          # Use --exclude-dir to properly skip the Locale folder
+          USED_KEYS=$(grep -rohP 'L\["\K[^"]+' --include="*.lua" --exclude-dir=Locale . | sort -u)
+          USED_COUNT=$(echo "$USED_KEYS" | wc -l)
+          echo "Found $USED_COUNT locale keys used in the codebase"
+          
+          # Find keys that are defined but never used
+          UNUSED=$(comm -23 <(echo "$DEFINED_KEYS") <(echo "$USED_KEYS"))
+          UNUSED_COUNT=$(echo "$UNUSED" | grep -c . || true)
+          
+          if [[ $UNUSED_COUNT -gt 0 ]]; then
+            echo ""
+            echo "❌ Found $UNUSED_COUNT unused locale key(s):"
+            echo "$UNUSED" | while read -r key; do
+              echo "  - L[\"$key\"]"
+            done
+            echo ""
+            echo "These keys are defined in enUS.lua but not found in the codebase."
+            echo "Remove them from all locale files before merging."
+            exit 1
+          else
+            echo "✅ No unused locale strings found"
+          fi
+
+      - name: Orphan translations check
+        run: |
+          echo "Checking for orphan translations (keys in other locales but not in enUS)..."
+          
+          # Get all keys defined in enUS.lua (the source of truth)
+          BASE_KEYS=$(grep -oP 'L\["\K[^"]+' Locale/enUS.lua | sort -u)
+          
+          ERRORS=0
+          for LOCALE_FILE in Locale/*.lua; do
+            [[ "$LOCALE_FILE" == "Locale/enUS.lua" ]] && continue
+            
+            LOCALE_NAME=$(basename "$LOCALE_FILE" .lua)
+            LOCALE_KEYS=$(grep -oP 'L\["\K[^"]+' "$LOCALE_FILE" | sort -u)
+            
+            # Find keys in this locale that don't exist in enUS (orphans)
+            ORPHANS=$(comm -13 <(echo "$BASE_KEYS") <(echo "$LOCALE_KEYS"))
+            ORPHAN_COUNT=$(echo "$ORPHANS" | grep -c . || true)
+            
+            if [[ $ORPHAN_COUNT -gt 0 ]]; then
+              echo "❌ $LOCALE_NAME: found $ORPHAN_COUNT orphan translation(s):"
+              echo "$ORPHANS" | head -10 | while read -r key; do
+                echo "  - L[\"$key\"]"
+              done
+              [[ $ORPHAN_COUNT -gt 10 ]] && echo "  ... and $((ORPHAN_COUNT - 10)) more"
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "✅ $LOCALE_NAME: no orphans"
+            fi
+          done
+          
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "❌ Orphan check failed: $ERRORS locale file(s) have keys not present in enUS.lua"
+            echo "Remove these orphan translations to keep locale files in sync."
+            exit 1
+          fi
+          echo "✅ Orphan translations check passed"
+
+      - name: Locale empty lines check
+        run: |
+          echo "Checking locale files for empty lines..."
+          echo "NOTE: Locale files should have no empty lines between translations."
+          echo ""
+          
+          ERRORS=0
+          for LOCALE_FILE in Locale/*.lua; do
+            LOCALE_NAME=$(basename "$LOCALE_FILE" .lua)
+            
+            # Count empty lines (lines that are blank or only whitespace)
+            # Skip the first line (LibStub line) and look for empty lines in the rest
+            EMPTY_LINES=$(tail -n +2 "$LOCALE_FILE" | grep -n '^[[:space:]]*$' || true)
+            EMPTY_COUNT=$(echo "$EMPTY_LINES" | grep -c . || true)
+            
+            if [[ $EMPTY_COUNT -gt 0 ]]; then
+              echo "❌ $LOCALE_NAME: found $EMPTY_COUNT empty line(s):"
+              echo "$EMPTY_LINES" | head -5 | while read -r line; do
+                LINE_NUM=$(($(echo "$line" | cut -d: -f1) + 1))
+                echo "  - Line $LINE_NUM"
+              done
+              [[ $EMPTY_COUNT -gt 5 ]] && echo "  ... and $((EMPTY_COUNT - 5)) more"
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "✅ $LOCALE_NAME: no empty lines"
+            fi
+          done
+          
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "❌ Empty lines check failed: $ERRORS locale file(s) have empty lines"
+            echo "Remove all empty lines between translations in locale files."
+            exit 1
+          fi
+          echo "✅ Locale empty lines check passed"
+
+      - name: Locale single-line check
+        run: |
+          echo "Checking locale entries are single-line..."
+          echo "NOTE: Each L[\"...\"] = \"...\" entry must be on one line, not split across multiple lines."
+          echo ""
+          
+          ERRORS=0
+          for LOCALE_FILE in Locale/*.lua; do
+            LOCALE_NAME=$(basename "$LOCALE_FILE" .lua)
+            
+            # Find lines ending with = (indicating continuation on next line)
+            MULTILINE=$(grep -n '=$' "$LOCALE_FILE" || true)
+            MULTILINE_COUNT=$(echo "$MULTILINE" | grep -c . || true)
+            
+            if [[ $MULTILINE_COUNT -gt 0 ]]; then
+              echo "❌ $LOCALE_NAME: found $MULTILINE_COUNT multi-line entry(ies):"
+              echo "$MULTILINE" | head -5 | while read -r line; do
+                echo "  - Line $(echo "$line" | cut -d: -f1)"
+              done
+              [[ $MULTILINE_COUNT -gt 5 ]] && echo "  ... and $((MULTILINE_COUNT - 5)) more"
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "✅ $LOCALE_NAME: all entries are single-line"
+            fi
+          done
+          
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "❌ Single-line check failed: $ERRORS locale file(s) have multi-line entries"
+            echo "Each translation must be on a single line: L[\"key\"] = \"value\""
+            exit 1
+          fi
+          echo "✅ Locale single-line check passed"
+
+      - name: Discord notification on failure
+        if: failure() && github.event_name == 'pull_request'
+        run: |
+          curl -H "Content-Type: application/json" \
+               -d "{\"embeds\": [{\"title\": \"❌ CleanerChat Validation Failed\", \"description\": \"The validation workflow failed on PR #${{ github.event.pull_request.number }}\", \"color\": 15158332, \"fields\": [{\"name\": \"PR\", \"value\": \"[#${{ github.event.pull_request.number }}](${{ github.event.pull_request.html_url }})\", \"inline\": true}, {\"name\": \"Branch\", \"value\": \"\`${{ github.head_ref }}\`\", \"inline\": true}, {\"name\": \"Run\", \"value\": \"[View Logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})\", \"inline\": true}]}]}" \
+               ${{ secrets.DISCORD_WEBHOOK_URL }}

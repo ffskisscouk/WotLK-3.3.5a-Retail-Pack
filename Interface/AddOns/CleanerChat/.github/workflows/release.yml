@@ -1,0 +1,228 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - main
+    # Don't trigger a release when a commit only touches files that are NOT
+    # bundled with the addon (dev/CI files, docs, API reference, etc.).
+    # A push that also changes any bundled file will still trigger a release.
+    paths-ignore:
+      - '.github/**'
+      - '.gitignore'
+      - '.luacheckrc'
+      - 'stylua.toml'
+      - 'APIDocumentation/**'
+      - 'changelog.txt'
+      - '**/*.zip'
+      - 'README.md'
+      - 'LICENSE.txt'
+      - 'CONTRIBUTING.md'
+      - 'docs/**'
+      - 'spec/**'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # Skip if this push was from the bot's version bump commit
+    if: "!contains(github.event.head_commit.message, 'chore: bump version')"
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for changelog generation
+
+      # Validation runs on PRs via validate.yml - this workflow only builds releases
+
+      - name: Calculate version
+        id: version
+        run: |
+          # Count existing v2.x tags to determine next version
+          TAG_COUNT=$(git tag -l 'v2.*' | wc -l)
+          
+          # First release will be v2.0, then v2.1, v2.2, etc.
+          VERSION="2.${TAG_COUNT}"
+          
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Next version: v$VERSION (found $TAG_COUNT existing v2.x tags)"
+
+      - name: Update TOC version
+        run: |
+          # Update the version in the TOC file for the release
+          sed -i "s/^## Version:.*/## Version: ${{ steps.version.outputs.version }}/" CleanerChat.toc
+          echo "Updated TOC version to ${{ steps.version.outputs.version }}"
+          grep "## Version" CleanerChat.toc
+
+      - name: Update README version badge
+        run: |
+          # Keep the README version badge in sync with the .toc / release.
+          # Matches the shields.io static badge "version-<x.y>-DFBA69".
+          sed -i -E "s|version-[0-9]+(\.[0-9]+)*-DFBA69|version-${{ steps.version.outputs.version }}-DFBA69|" README.md
+          echo "Updated README version badge to ${{ steps.version.outputs.version }}"
+          grep -o "version-[0-9.]*-DFBA69" README.md || true
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Get commits since last tag, or all commits if no tags exist
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          
+          if [ -z "$LAST_TAG" ]; then
+            echo "No previous tags found, using recent commits"
+            COMMIT_RANGE="HEAD~20..HEAD"
+          else
+            echo "Last tag: $LAST_TAG"
+            COMMIT_RANGE="${LAST_TAG}..HEAD"
+          fi
+          
+          # Files that don't trigger releases (same as paths-ignore above + rsync excludes)
+          # These should match BOTH paths-ignore at the top AND rsync excludes in the zip step
+          IGNORED_PATTERNS='^\.github/|^\.gitignore$|^\.luacheckrc$|^stylua\.toml$|^APIDocumentation/|^changelog\.txt$|\.zip$|^README\.md$|^LICENSE\.txt$|^CONTRIBUTING\.md$|^docs/|^spec/'
+          
+          # Build changelog, filtering out:
+          # 1. Version bump commits
+          # 2. StyLua auto-format commits
+          # 3. Commits that only touched non-release files
+          COMMITS=""
+          for SHA in $(git log $COMMIT_RANGE --pretty=format:"%H" --no-merges); do
+            # Skip version bump and StyLua formatting commits
+            MSG=$(git log -1 --pretty=format:"%s" $SHA)
+            if echo "$MSG" | grep -qE "^chore: bump version|^style: auto-format with StyLua"; then
+              continue
+            fi
+            
+            # Get files changed in this commit
+            FILES=$(git diff-tree --no-commit-id --name-only -r $SHA)
+            
+            # Check if any file is NOT ignored (i.e., would trigger a release)
+            HAS_RELEASE_FILE=false
+            for FILE in $FILES; do
+              if ! echo "$FILE" | grep -qE "$IGNORED_PATTERNS"; then
+                HAS_RELEASE_FILE=true
+                break
+              fi
+            done
+            
+            # Only include commits that touched release-triggering files
+            if [ "$HAS_RELEASE_FILE" = true ]; then
+              SHORT_SHA=$(git log -1 --pretty=format:"%h" $SHA)
+              COMMITS="${COMMITS}- ${MSG} (${SHORT_SHA})"$'\n'
+            fi
+          done
+          
+          # Handle empty commits
+          if [ -z "$COMMITS" ]; then
+            COMMITS="- Initial release"
+          fi
+          
+          # Write to file for multiline support
+          echo "$COMMITS" > changelog.txt
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          cat changelog.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create addon zip
+        run: |
+          # Create a clean directory for the addon
+          mkdir -p release/CleanerChat
+          
+          # Copy addon files (exclude git, github, dev files, and other non-addon files)
+          rsync -av --exclude='.git' \
+                    --exclude='.github' \
+                    --exclude='.gitignore' \
+                    --exclude='.luacheckrc' \
+                    --exclude='.styluaignore' \
+                    --exclude='stylua.toml' \
+                    --exclude='APIDocumentation' \
+                    --exclude='release' \
+                    --exclude='*.zip' \
+                    --exclude='changelog.txt' \
+                    --exclude='README.md' \
+                    --exclude='LICENSE.txt' \
+                    --exclude='CONTRIBUTING.md' \
+                    --exclude='docs' \
+                    --exclude='spec' \
+                    ./ release/CleanerChat/
+          
+          # Create the zip file
+          cd release
+          zip -r ../CleanerChat.zip CleanerChat
+          cd ..
+          
+          echo "Created: CleanerChat.zip"
+          ls -la *.zip
+
+      - name: Demote previous latest release
+        continue-on-error: true  # Don't fail the release if this step has issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Only demote releases that are NOT already pre-releases (skip already-demoted ones)
+          echo "Checking for releases to demote..."
+          gh release list --limit 50 --json tagName,isPrerelease --jq '.[] | select(.isPrerelease == false) | .tagName' | while read -r TAG; do
+            [ -z "$TAG" ] && continue
+            echo "  - $TAG -> CleanerChat $TAG (old)"
+            gh release edit "$TAG" \
+              --prerelease \
+              --latest=false \
+              --title "CleanerChat $TAG (old)" 2>/dev/null || true
+          done
+          echo "Done"
+
+      - name: Build release body
+        id: body
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          CHANGELOG: ${{ steps.changelog.outputs.changelog }}
+        run: |
+          # Build the release body
+          {
+            echo "## CleanerChat v${VERSION}"
+            echo ""
+            echo "A modern chat UI overhaul with message filtering, animations, and extensive customization for WoW 3.3.5a."
+            echo ""
+            echo "### Changes"
+            echo "${CHANGELOG}"
+            echo ""
+            echo "### Installation"
+            echo "1. Download \`CleanerChat.zip\`"
+            echo "2. Extract to \`Interface\\AddOns\\\`"
+            echo "3. Restart WoW or \`/reload\`"
+            echo ""
+            echo "**Direct download:** https://github.com/migwynkriid/CleanerChat-WotLK/releases/latest/download/CleanerChat.zip"
+          } > release_body.md
+          
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          cat release_body.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: CleanerChat v${{ steps.version.outputs.version }}
+          make_latest: true
+          body: ${{ steps.body.outputs.body }}
+          files: CleanerChat.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit updated TOC version
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CleanerChat.toc README.md
+          git diff --staged --quiet || git commit -m "chore: bump version to ${{ steps.version.outputs.version }}"
+          git push
+
+      - name: Discord notification on failure
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+               -d "{\"embeds\": [{\"title\": \"❌ CleanerChat Build Failed\", \"description\": \"The release workflow failed on commit \`${{ github.sha }}\`\", \"color\": 15158332, \"fields\": [{\"name\": \"Branch\", \"value\": \"\`${{ github.ref_name }}\`\", \"inline\": true}, {\"name\": \"Commit\", \"value\": \"[${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})\", \"inline\": true}, {\"name\": \"Run\", \"value\": \"[View Logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})\", \"inline\": true}]}]}" \
+               ${{ secrets.DISCORD_WEBHOOK_URL }}

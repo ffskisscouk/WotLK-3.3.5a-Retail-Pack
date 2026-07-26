@@ -1,0 +1,17 @@
+# Release artifacts
+*.zip
+release/
+changelog.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Ascension client API documentation (kept locally for dev reference only,
+# not part of the addon and must not be published).
+APIDocumentation/

@@ -1,0 +1,6 @@
+# Exclude locale files from StyLua formatting
+# Locale entries must stay single-line for CI validation
+Locale/
+
+# Third-party libraries
+Libs/
