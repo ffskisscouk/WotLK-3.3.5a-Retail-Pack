@@ -39,3 +39,30 @@ DialogUI Addon
 <img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/937afd34-56fc-467a-ae5c-82e0607348fb" />
 
 https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
+
+## List of addons used
+
+- !!!ClassicAPI
+- !BugGrabber
+- AddonList
+- AdiBags
+- AdiBags_Bound
+- AdiBags-ItemOverlayPlus
+- BlizzMove
+- BugSack
+- Cheese
+- CleanerChat
+- Clique
+- CompactRaidFrame
+- Cromulent
+- DialogUI
+- DragonUI
+- EclipseBarFrame
+- Mapster
+- MinimapButtonButton
+- Postal
+- Questie-335
+- SharedMedia
+- SharedMedia_MyMedia
+- Talented
+- WDM
