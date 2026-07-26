@@ -87,7 +87,7 @@ PATCH-T.MPQ — HD environment textures (recommended and is part of the bigger p
 
 ## ENBSeries
 
-Used to apply different shaders and bloom effects. I have made amendments the default settings and it apples Suttle changes. Press shift + f12 to switch back and forth.  to not install this delete the following files#:
+Used to apply different shaders and bloom effects. I have made amendments the default settings and it apples suttle changes. Press shift + f12 to switch back and forth.  to not install this delete the following files:
 
 - d3d9.dll
 - d3d9_.dll
@@ -105,9 +105,8 @@ For more information: https://www.wowinterface.com/downloads/info19844-CleanIcon
 
 
 ## Sounds
- 
 
-This will change the colours and bloom to make the game look better. some like it some dont (i sometimes like).  You need to extract files from enbseries.zip and place them next to the wow.exe. If you want to remove then just delete the files.
+Reaplaces annoying sounds with no sounds
 
 ## Large Address Aware
 
