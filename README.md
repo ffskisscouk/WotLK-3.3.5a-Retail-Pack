@@ -1,8 +1,7 @@
 # WotLK 3.3.5a Retail Pack
 
----
 ## Description
- ---
+
 The attached files comprise a comprehensive list of addons and enhancements specifically tailored to work seamlessly with Wrath of the Lich King clients on private servers. These files are curated to enhance your gameplay experience by providing a variety of features, tools, and improvements that are fully compatible with this classic expansion.
 
 
@@ -12,9 +11,9 @@ The attached files comprise a comprehensive list of addons and enhancements spec
 - Addons: Recreate the retail experience or as close as possible.
 - Graphics: Added updated graphic files (character models not included) and graphic shaders.
 
- ---
+
 ## How to install
- ---
+
 
 1. Click <> Code button
 2. Click Download zip and save the file (around 100 mb)
