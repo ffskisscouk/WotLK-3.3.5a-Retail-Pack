@@ -11,8 +11,7 @@ The attached files comprise a comprehensive list of addons and enhancements spec
 - Addons: Recreate the retail experience or as close as possible.
 - Graphics: Added updated graphic files (character models not included) and graphic shaders.
 
-
-## How to install
+# ## How to install
 
 
 1. Click <> Code button
@@ -26,7 +25,7 @@ The attached files comprise a comprehensive list of addons and enhancements spec
 9. Step 3: click save and then close.
 10. Run WoW.exe and start playing.
 
-## Screenshots
+# ## Screenshots
 
 DragonUI & CompactRaidFrame Addons
 <img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/7c1920e3-608f-4b19-9871-d1b31e219094" />
@@ -40,7 +39,7 @@ DialogUI Addon
 
 https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
 
-## List of addons used
+# ## List of addons used
 
 - !!!ClassicAPI
 - !BugGrabber
@@ -66,3 +65,51 @@ https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
 - SharedMedia_MyMedia
 - Talented
 - WDM
+
+# ## Patches used
+
+- PATCH-S.MPQ — Better sunlight effects
+- PATCH-W.MPQ — WoD lava/slime textures
+- PATCH-X.MPQ — Cataclysm-style trees
+
+PATCH-T.MPQ — HD environment textures (recommended and is part of the bigger pack can be found here  https://github.com/ffskisscouk/WotLK-3.3.5a-HD-Pack)
+
+# ## Enhancements used
+
+## ENBSeries
+
+Used to apply different shaders and bloom effects. I have made amendments the default settings and it apples Suttle changes. Press shift + f12 to switch back and forth.  to not install this delete the following files#:
+
+- d3d9.dll
+- d3d9_.dll
+- enbseries.ini
+
+(More information can be found here: https://www.wowinterface.com/downloads/info21309-WorldofEnhancedWarcraftENB.html)
+
+## Fonts
+
+Installs cleaner looking fonts.
+
+## Icons
+
+For more information: https://www.wowinterface.com/downloads/info19844-CleanIcons-Thin.html
+
+
+## Sounds
+ 
+
+This will change the colours and bloom to make the game look better. some like it some dont (i sometimes like).  You need to extract files from enbseries.zip and place them next to the wow.exe. If you want to remove then just delete the files.
+
+## Large Address Aware
+
+As WOTLK is old it can't see higher memory configurations, if you are installing the extra texture packs you will need to run this and apply it against the wow.exe file. You might want to do this even if you don't install the HD texture packs. 
+
+For more information: https://www.techpowerup.com/forums/threads/large-address-aware.112556/
+
+# ## Compatibility
+
+Requires the following:
+
+- Wrath of the Lich King Client 3.3.5a
+- Tested only on EnUS
+- Tested on Chromiecraft and Warmane servers
