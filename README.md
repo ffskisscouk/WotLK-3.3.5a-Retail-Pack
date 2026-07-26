@@ -28,4 +28,14 @@ The attached files comprise a comprehensive list of addons and enhancements spec
 
 ## Screenshots
 
+DragonUI & CompactRaidFrame Addons
 <img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/7c1920e3-608f-4b19-9871-d1b31e219094" />
+
+https://github.com/NeticSoul/DragonUI
+https://gitlab.com/Tsoukie/compactraidframe-3.3.5
+
+
+DialogUI Addon
+<img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/937afd34-56fc-467a-ae5c-82e0607348fb" />
+
+https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
