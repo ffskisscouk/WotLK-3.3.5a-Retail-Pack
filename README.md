@@ -41,30 +41,30 @@ https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
 
 # ## List of addons used
 
-- !!!ClassicAPI
+- !!!ClassicAPI - https://gitlab.com/Tsoukie/classicapi
 - !BugGrabber
-- AddonList
-- AdiBags
-- AdiBags_Bound
-- AdiBags-ItemOverlayPlus
-- BlizzMove
-- BugSack
-- Cheese
-- CleanerChat
-- Clique
-- CompactRaidFrame
-- Cromulent
-- DialogUI
-- DragonUI
-- EclipseBarFrame
-- Mapster
-- MinimapButtonButton
-- Postal
-- Questie-335
-- SharedMedia
+- AddonList - https://gitlab.com/Tsoukie/addonlist-3.3.5
+- AdiBags - https://github.com/Sattva-108/AdiBags/
+- AdiBags_Bound - https://github.com/Sattva-108/AdiBags-WoTLK-3.3.5-Mods
+- AdiBags-ItemOverlayPlus - https://github.com/Sattva-108/AdiBags-WoTLK-3.3.5-Mods
+- BlizzMove - https://warperia.com/addon-wotlk/blizzmove/
+- BugSack - https://warperia.com/addon-wotlk/bugsack/
+- Cheese - https://warperia.com/addon-wotlk/cheese/
+- CleanerChat - https://github.com/migwynkriid/CleanerChat-WotLK
+- Clique - https://gitlab.com/Tsoukie/clique-3.3.5
+- CompactRaidFrame - https://gitlab.com/Tsoukie/compactraidframe-3.3.5
+- Cromulent - https://warperia.com/addon-wotlk/cromulent/
+- DialogUI - https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
+- DragonUI - https://github.com/NeticSoul/DragonUI
+- EclipseBarFrame - https://github.com/bkader/EclipseBar-WotLK
+- Mapster - https://warperia.com/addon-wotlk/mapster/
+- MinimapButtonButton - https://warperia.com/addon-wotlk/minimapbuttonbutton-3-3-5a/
+- Postal - https://warperia.com/addon-wotlk/postal/
+- Questie-335 - https://github.com/divial28/Questie-335
+- SharedMedia - https://github.com/NoM0Re/SharedMedia
 - SharedMedia_MyMedia
-- Talented
-- WDM
+- Talented - https://warperia.com/addon-wotlk/talented/
+- WDM 
 
 # ## Patches used
 
