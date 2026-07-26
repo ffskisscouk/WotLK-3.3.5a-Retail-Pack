@@ -34,10 +34,18 @@ https://github.com/NeticSoul/DragonUI
 https://gitlab.com/Tsoukie/compactraidframe-3.3.5
 
 
-DialogUI Addon
-<img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/937afd34-56fc-467a-ae5c-82e0607348fb" />
+Mapster, Cromulent & WDM addons
+<img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/568af2ef-9d80-41f7-91f9-aabdff419003" />
+
+<img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/c8c965d0-a36e-4a74-94a9-9f576985066b" />
+
+<img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/8c37ea11-cf67-4e4e-9dfb-921846a410b0" />
+
+
 
 https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
+
+DialogUI Addon
 
 # ## List of addons used
 
