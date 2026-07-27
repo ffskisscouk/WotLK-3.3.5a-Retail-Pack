@@ -46,6 +46,9 @@ Mapster, Cromulent & WDM addons
 https://github.com/ffskisscouk/WotLK-3.3.5a-DialogUI
 
 DialogUI Addon
+<img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/d271954b-8272-4c71-9498-fd22558d4df7" />
+<img width="2402" height="1382" alt="image" src="https://github.com/user-attachments/assets/62280c1d-863a-4453-97d9-7d5453d66890" />
+
 
 # ## List of addons used
 
